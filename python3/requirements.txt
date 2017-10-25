@@ -1,0 +1,5 @@
+# Requirements.txt contains a list of dependencies for the Python Application #
+
+# IBM specific python modules
+ibm_db == 2.0.7
+cloudant == 2.6.0
