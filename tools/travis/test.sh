@@ -16,7 +16,7 @@ WHISK_CLI="${WHISKDIR}/bin/wsk -i"
 ${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind python:3
 ${WHISK_CLI} action invoke echoPython
 ${WHISK_CLI} activation list
-${WHISK_CLI} activaton get --last
+${WHISK_CLI} activation get --last
 
 export OPENWHISK_HOME=$WHISKDIR
 cd ${ROOTDIR}
