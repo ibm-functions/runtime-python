@@ -5,8 +5,8 @@
 The runtime provides [python v3](python3/) with a set of [python packages](python/requirements.txt)
 
 The runtime provides the following npm packages for [IBM Cloud](https://bluemix.net):
-- IBM DB2/DashDB and IBM Informix [ibm_db@2.2.1](https://www.npmjs.com/package/ibm_db)
-- IBM Cloudant [cloudant@1.10.0](https://www.npmjs.com/package/cloudant)
+- IBM DB2/DashDB and IBM Informix [ibm_db@2.0.7](https://pypi.python.org/pypi/ibm_db)
+- IBM Cloudant [cloudant@2.7.0](https://pypi.python.org/pypi/cloudant)
 
 ### How to use as a docker Action
 To use as a docker action
