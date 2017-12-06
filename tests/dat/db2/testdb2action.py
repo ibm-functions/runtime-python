@@ -32,4 +32,4 @@ def main(args):
       return {"err":"error :"+cmd}
 
   # If no detected errors occurred so far; return Success status
-  return {"message":"Successfully called db2 action"}
+  return {"message":"Tested db2 create, select, and delete of a table row."}

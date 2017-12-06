@@ -1,2 +1,2 @@
-ext.dockerImageName = 'action-python-ibm-3'
+ext.dockerImageName = 'action-python-v3'
 apply from: '../gradle/docker.gradle'
