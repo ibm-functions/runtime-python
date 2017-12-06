@@ -259,7 +259,7 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
         if (imageName == "python3action") { e should include("ModuleNotFoundError") }
     })
   }
-  */
+   */
 
   it should "report error if zipped Python action has wrong main module name" in {
     val zippedPythonActionWrongName = TestUtils.getTestActionFilename("python_virtualenv_name.zip")

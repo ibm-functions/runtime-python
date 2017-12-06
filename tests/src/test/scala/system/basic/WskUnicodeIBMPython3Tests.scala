@@ -18,7 +18,6 @@ package system.basic
 
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-
 @RunWith(classOf[JUnitRunner])
 class WskUnicodeIBMPython3Tests extends WskRestUnicodePython3Tests {
 

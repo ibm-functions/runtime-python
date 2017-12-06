@@ -26,7 +26,6 @@ import spray.json.DefaultJsonProtocol._
 import common.TestUtils
 import common.rest.WskRest
 import org.scalatest.BeforeAndAfterAll
-
 @RunWith(classOf[JUnitRunner])
 class IBMPythonActionDB2Tests extends TestHelpers with WskTestHelpers with BeforeAndAfterAll {
 

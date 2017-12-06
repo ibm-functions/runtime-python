@@ -30,14 +30,12 @@ import common.rest.WskRest
 import common.WskProps
 import common.WskTestHelpers
 import common.WhiskProperties
-
 @RunWith(classOf[JUnitRunner])
 class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matchers with JsHelpers {
 
   implicit val wskprops = WskProps()
   val wsk: common.rest.WskRest = new WskRest
   val kind = "python-jessie:3"
-
 
   behavior of "Native Python Action"
 
@@ -67,11 +65,7 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
     (wp, assetHelper) =>
       val name = "pythonZipWithNonDefaultEntryPoint"
       assetHelper.withCleaner(wsk.action, name) { (action, _) =>
-        action.create(
-          name,
-          Some(TestUtils.getTestActionFilename("python.zip")),
-          main = Some("niam"),
-          kind = Some(kind))
+        action.create(name, Some(TestUtils.getTestActionFilename("python.zip")), main = Some("niam"), kind = Some(kind))
       }
 
       withActivation(wsk.activation, wsk.action.invoke(name, Map("name" -> "Prince".toJson))) {
@@ -140,6 +134,6 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
         response.result.get.fields.get("Networkinfo: ") shouldBe defined
       }
   }
-  */
-  
+ */
+
 }
