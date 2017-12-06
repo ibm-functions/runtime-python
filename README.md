@@ -1,4 +1,6 @@
-# IBM Cloud Functions runtime for nodejs
+# IBM Cloud Functions runtime for python
+
+WARNING: Work in Progress (WIP) not ready for production
 
 [![Build Status](https://travis-ci.org/ibm-functions/runtime-python.svg?branch=master)](https://travis-ci.org/ibm-functions/runtime-python)
 
