@@ -18,5 +18,5 @@ twisted == 17.1.0
 
 # IBM specific python modules
 ibm_db == 2.0.7
-cloudant == 2.6.0
+cloudant == 2.7.0
 watson-developer-cloud == 1.0.1
