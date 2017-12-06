@@ -9,6 +9,7 @@ The runtime provides [python v3](python3/) with a set of [python packages](pytho
 The runtime provides the following npm packages for [IBM Cloud](https://bluemix.net):
 - IBM DB2/DashDB and IBM Informix [ibm_db@2.0.7](https://pypi.python.org/pypi/ibm_db)
 - IBM Cloudant [cloudant@2.7.0](https://pypi.python.org/pypi/cloudant)
+- IBM Watson Developer Cloud Python SDK [watson-developer-cloud@1.0.1](https://pypi.python.org/pypi/watson-developer-cloud)
 
 ### How to use as a docker Action
 To use as a docker action
