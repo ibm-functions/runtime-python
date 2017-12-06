@@ -31,7 +31,7 @@ import org.scalatest.BeforeAndAfterAll
 class IBMPythonActionDB2Tests extends TestHelpers with WskTestHelpers with BeforeAndAfterAll {
 
   implicit val wskprops: WskProps = WskProps()
-  var defaultKind = Some("python:3")
+  var defaultKind = Some("python-jessie:3")
   val wsk = new WskRest
   val userdir = System.getProperty("user.dir")
   val db2dir = userdir + "/dat/db2/"

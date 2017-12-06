@@ -38,7 +38,7 @@ runtimes_manifest:
       image:
         name: "python2action"
       deprecated: false
-    - kind: "python:3"
+    - kind: "python-jessie:3"
       default: false
       image:
         name: "action-python-v3"

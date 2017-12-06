@@ -22,7 +22,7 @@ import org.scalatest.junit.JUnitRunner
 @RunWith(classOf[JUnitRunner])
 class WskUnicodeIBMPython3Tests extends WskRestUnicodePython3Tests {
 
-  override lazy val actionKind = "python:3"
+  override lazy val actionKind = "python-jessie:3"
   override lazy val actionSource = "unicode3.py"
 
 }
