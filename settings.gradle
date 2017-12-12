@@ -13,7 +13,7 @@ include 'python3'
 rootProject.name = 'runtime-python-ibm'
 
 gradle.ext.scala = [
-    version: '2.11.8',
+    version: '2.11.11',
     compileFlags: ['-feature', '-unchecked', '-deprecation', '-Xfatal-warnings', '-Ywarn-unused-import']
 ]
 
