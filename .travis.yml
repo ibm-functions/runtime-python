@@ -1,11 +1,10 @@
 sudo: required
 group: deprecated-2017Q3
 language: scala
-scala:
-- 2.11.8
 services:
 - docker
 before_install:
+- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then openssl aes-256-cbc -K $encrypted_10110adb91b4_key -iv $encrypted_10110adb91b4_iv -in tests/credentials.json.enc -out tests/credentials.json -d; fi'
 - "./tools/travis/setup.sh"
 install: true
 script:
@@ -22,3 +21,7 @@ deploy:
     tags: true
     all_branches: true
     repo: ibm-functions/runtime-python
+env:
+  global:
+  - secure: QTl+38OboTb8QyI6FqOyXEx932GNbEx25dSz4dITvXgItBk4cWhq1MKFy2qmbXlZE4Xt1I8Jqrx4DVv0uuyJJN4tA9B7g8L0Bul87ataL9x8fAM4o3q3OBNxvlQ7R7FesQHeYB6W+v8t89BCHrQgq+YMZCsCHto1Z+BkpZlUryiQJd2oiMICP05GPMk87VSFNVJNeSKhpcOB6A/QfgIWVs6pl+JdB/KbVwL1oEysHwguUfMIWKwhEqFTQRuspTxd6OEEUuxGMoxTuEirj02uZQB/H4xzQcC5DdyjD66XYVAlkar/6eYuLA7DaW4WUxoixc+92PDe9vZC43g2mDXNMF82R50LoOdI8kyP8libKnBhw1BRR7u5zTIVj3Hckqf894K5YGqA3mVhTTxuAjBdcYJBvnNhWstpE3p8fl7qARk1pkyUB6c2CS2JC504gKxqh6HVNOGd9edNo9+N8NKAFhwXNniXkpFcEBa1TmWn0zVBTlBFm5EwtNKVFpyyIlf2DIqUUnCHg2qxL5Kp4wC98syiJCB6PXov7V97p0Y5enwGBTO4CEtgmnK1XcZenWcJvFUETSMNVZ5whDlYgT1atdULo77pHA1QxTaVsX/eyAHgpdQdP5iRSdMZSL6myOhj22UEeziam/iGouqMb7PZg8SSMpLomkjZ/A6caGI8DTQ=
+  - secure: ewJfkWCR1AaLB78t1ENt3Z+zfrNJsOE2wpOc26cWDHZyYplZSdGQJqcvLVqWT+ZEPCsevxI6wFdq9Wbv26n1aQhF5uD1kbZwWqVFiKp8SCGGF2zzigDljvQ/5hDeVcytsbqDSEh+ZT4VXUsOgogA6oO1oLoBo2Qig4aj9Teyro9pTeiQmH8/7x+K6CUEm6svb2kbgIPpOffmdjj60LYsGewOjZlenubYm+ti5yUOZ9ruUeDT3CKEDiP2zTlF/TpLU6SRALkDZUNCPTF5lZwHd8yvpEIkH/qddNrqyQUhoiPQJxBQ2XVQLJ+pIv4KQQRIMH8cJ4dR4l1PGX+mj3Eq9AR5zbhzrOd3AsXVmxWkbDGNOGLUWXZKoi17q6U3RapRj0/S5Vc90LOBloJ4lTpH/stZmHKcrWxetodVj2Du5G2PJbAYf0MavnF/NbXYoUfr8EL6gQwbqaWPwKknK6SgDPmrSxOrK3sffGnH2Myv5UdksCokKLbvF32fhR44VF/H7/9RMBHfbWNGAzR6adFN2/T8d4nUpQg3FPnsZzg1uTRC6mCA9M5D7ctjKimjrB/iS1E1DI75GQHcdJaxPm1Zh7XGUrzKepL+caSfvyniNes2cwCwM5HF5OVXgOcu8O4l/3keFHkzxXJSzs7nZ+hnOe7W2GWphs28Y75Z3U+T2yg=
