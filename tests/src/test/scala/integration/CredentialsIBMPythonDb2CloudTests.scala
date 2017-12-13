@@ -19,43 +19,39 @@ import common._
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import java.io.File
-import spray.json._
 import common.rest.WskRest
+import spray.json._
 
 @RunWith(classOf[JUnitRunner])
-class CredentialsIBMPythonWatsonTests extends TestHelpers with WskTestHelpers {
+class CredentialsIBMPythonDb2CloudTests extends TestHelpers with WskTestHelpers {
 
   implicit val wskprops: WskProps = WskProps()
-  var defaultKind = Some("python-jessie:3")
+  val defaultKind = Some("python-jessie:3")
   val wsk = new WskRest
-  val datdir = System.getProperty("user.dir") + "/dat/watson"
-  val actionName = "testWatsonService"
-  val actionFileName = "testWatsonService.py"
+  val datdir = System.getProperty("user.dir") + "/dat/db2"
+  val actionName = "testDB2Service"
+  val actionFileName = "testDB2Service.py"
 
-  var creds = TestUtils.getVCAPcredentials("language_translator")
+  val creds = TestUtils.getVCAPcredentials("dashDB")
+  val ssldsn = creds.get("ssldsn")
+  val __bx_creds = JsObject("dashDB" -> JsObject("ssldsn" -> JsString(ssldsn)))
 
-  /*
-    Uses Watson Translation Service to translate the word "Hello" in English, to "Hola" in Spanish.
-   */
-  it should "Test whether watson translate service is reachable" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
+  it should "Test connection to DB2 on IBM Cloud" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
     val file = Some(new File(datdir, actionFileName).toString())
+
     assetHelper.withCleaner(wsk.action, actionName) { (action, _) =>
       action.create(
         actionName,
         file,
         main = Some("main"),
         kind = defaultKind,
-        parameters = Map(
-          "url" -> JsString(creds.get("url")),
-          "username" -> JsString(creds.get("username")),
-          "password" -> JsString(creds.get("password"))))
+        parameters = Map("__bx_creds" -> __bx_creds))
     }
 
     withActivation(wsk.activation, wsk.action.invoke(actionName)) { activation =>
       val response = activation.response
       response.result.get.fields.get("error") shouldBe empty
-      response.result.get.fields.get("translations") should be(
-        Some(JsArray(JsObject("translation" -> JsString("Hola")))))
+      response.result.get.fields.get("HISP_DESC") should be(Some(JsString("Puerto Rican")))
     }
 
   }
