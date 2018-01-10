@@ -19,10 +19,10 @@ package system.basic
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.Matchers
-//import scala.concurrent.duration.DurationInt
+import scala.concurrent.duration.DurationInt
 import spray.json._
 import spray.json.DefaultJsonProtocol.StringJsonFormat
-//import java.io.File
+import java.io.File
 import common.JsHelpers
 import common.TestHelpers
 import common.TestUtils
@@ -113,27 +113,23 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
     }
   }
 
-  /*
-  FIXME: virtualenv not working currently
   behavior of "Python virtualenv"
 
-  it should s"invoke a zipped $kind action with virtualenv package" in withAssetCleaner(wskprops) {
-    (wp, assetHelper) =>
-      val userdir = System.getProperty("user.dir") + "/dat/actions/"
-      val filename = "python3_jessie_virtualenv.zip"
-      val name = filename
-      val zippedPythonAction = Some(new File(userdir, filename).toString())
+  it should s"invoke a zipped $kind action with virtualenv package" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
+    val userdir = System.getProperty("user.dir") + "/dat/actions/p3zip"
+    val filename = "python3_jessie_virtualenv.zip"
+    val name = filename
+    val zippedPythonAction = Some(new File(userdir, filename).toString())
 
-      assetHelper.withCleaner(wsk.action, name) { (action, _) =>
-        action.create(name, zippedPythonAction, kind = Some(kind))
-      }
+    assetHelper.withCleaner(wsk.action, name) { (action, _) =>
+      action.create(name, zippedPythonAction, kind = Some(kind))
+    }
 
-      withActivation(wsk.activation, wsk.action.invoke(name), totalWait = 120.seconds) { activation =>
-        val response = activation.response
-        response.result.get.fields.get("error") shouldBe empty
-        response.result.get.fields.get("Networkinfo: ") shouldBe defined
-      }
+    withActivation(wsk.activation, wsk.action.invoke(name), totalWait = 120.seconds) { activation =>
+      val response = activation.response
+      response.result.get.fields.get("error") shouldBe empty
+      response.result.get.fields.get("Networkinfo: ") shouldBe defined
+    }
   }
- */
 
 }

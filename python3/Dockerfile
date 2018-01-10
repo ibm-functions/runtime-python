@@ -9,7 +9,9 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         libffi-dev \
         libssl-dev \
+        zip \
         unzip \
+        vim \
         && rm -rf /var/lib/apt/lists/*
 
 RUN apt-cache search linux-headers-generic

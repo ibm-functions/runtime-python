@@ -17,7 +17,7 @@ virtualenv == 15.1.0
 twisted == 17.1.0
 
 # IBM specific python modules
-ibm_db == 2.0.7
+ibm_db == 2.0.8
 cloudant == 2.7.0
 watson-developer-cloud == 1.0.2
 ibm-cos-sdk == 2.0.0
