@@ -12,3 +12,7 @@ def main(args):
 def naim(args):
     return main(args)
 
+if __name__ == "__main__":
+    # execute only if run as a script
+    print(main({}))
+
