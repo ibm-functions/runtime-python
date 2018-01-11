@@ -1,7 +1,7 @@
 # IBM Functions Python 3 Runtime Container
 
 
-## 1.0.1
+## 1.1.0
 Changes:
   - added numpy (1.14.0)
   - added scipy (1.0.0)
