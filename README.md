@@ -7,14 +7,15 @@ WARNING: Work in Progress (WIP) not ready for production
 The runtime provides [python v3](python3/) with a set of [python packages](python/requirements.txt)
 
 The runtime provides the following npm packages for [IBM Cloud](https://bluemix.net):
-- IBM DB2/DashDB and IBM Informix [ibm_db@2.0.7](https://pypi.python.org/pypi/ibm_db)
-- IBM Cloudant [cloudant@2.7.0](https://pypi.python.org/pypi/cloudant)
-- IBM Watson Developer Cloud Python SDK [watson-developer-cloud@1.0.1](https://pypi.python.org/pypi/watson-developer-cloud)
+- IBM DB2/DashDB and IBM Informix - Python SDK[ibm_db@2.0.7](https://pypi.python.org/pypi/ibm_db)
+- IBM Cloudant - Python SDK [cloudant@2.7.0](https://pypi.python.org/pypi/cloudant)
+- IBM Watson Developer Cloud - Python SDK [watson-developer-cloud@1.0.1](https://pypi.python.org/pypi/watson-developer-cloud)
+- IBM Cloud Object Storage - Python SDK [ibm-cos-sdk@2.0.0](https://pypi.python.org/pypi/ibm-cos-sdk)
 
 ### How to use as a docker Action
 To use as a docker action
 ```
-bx wsk action update myAction myAction.js --docker ibmfunctions/action-python-v3
+bx wsk action update myAction myAction.py --docker ibmfunctions/action-python-v3
 ```
 This works on any deployment of Apache OpenWhisk or IBM Cloud Functions
 
@@ -29,7 +30,7 @@ Tip: Not available yet in the IBM Cloud
 Prerequisite: *Export* OPENWHISK_HOME to point to your incubator/openwhisk cloned directory.
 
 ```
-./gradlew nodejs8:distDocker
+./gradlew python3:distDocker
 ```
 This will produce the image `whisk/action-python-v3`
 
