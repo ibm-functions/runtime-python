@@ -197,9 +197,6 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
     })
   }
 
-  /*
-  FIXME: virtualenv not working
-
   it should "run zipped Python action containing a virtual environment with non-standard entry point" in {
     val zippedPythonAction = if (imageName == "python2action") "python2_virtualenv.zip" else "python3_virtualenv.zip"
     val zippedPythonActionName = TestUtils.getTestActionFilename(zippedPythonAction)
@@ -219,27 +216,6 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
         e shouldBe empty
     })
   }
-
-  it should "report error if zipped Python action containing a virtual environment for wrong python version" in {
-    val zippedPythonAction = if (imageName == "python3action") "python2_virtualenv.zip" else "python3_virtualenv.zip"
-    val zippedPythonActionName = TestUtils.getTestActionFilename(zippedPythonAction)
-    val code = readAsBase64(Paths.get(zippedPythonActionName))
-
-    val (out, err) = withActionContainer() { c =>
-      val (initCode, initRes) = c.init(initPayload(code, main = "main"))
-      initCode should be(200)
-      val args = JsObject("msg" -> JsString("any"))
-      val (runCode, runRes) = c.run(runPayload(args))
-      runCode should be(502)
-    }
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        if (imageName == "python2action") { e should include("ImportError") }
-        if (imageName == "python3action") { e should include("ModuleNotFoundError") }
-    })
-  }
-   */
 
   it should "report error if zipped Python action has wrong main module name" in {
     val zippedPythonActionWrongName = TestUtils.getTestActionFilename("python_virtualenv_name.zip")
