@@ -217,22 +217,6 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
     })
   }
 
-  it should "report error if zipped Python action has wrong main module name" in {
-    val zippedPythonActionWrongName = TestUtils.getTestActionFilename("python_virtualenv_name.zip")
-
-    val code = readAsBase64(Paths.get(zippedPythonActionWrongName))
-
-    val (out, err) = withActionContainer() { c =>
-      val (initCode, initRes) = c.init(initPayload(code, main = "main"))
-      initCode should be(502)
-    }
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Zip file does not include __main__.py")
-    })
-  }
-
   it should "report error if zipped Python action has invalid virtualenv directory" in {
     val zippedPythonActionWrongDir = TestUtils.getTestActionFilename("python_virtualenv_dir.zip")
 
