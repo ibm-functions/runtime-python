@@ -197,26 +197,6 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
     })
   }
 
-  it should "run zipped Python action containing a virtual environment with non-standard entry point" in {
-    val zippedPythonAction = if (imageName == "python2action") "python2_virtualenv.zip" else "python3_virtualenv.zip"
-    val zippedPythonActionName = TestUtils.getTestActionFilename(zippedPythonAction)
-    val code = readAsBase64(Paths.get(zippedPythonActionName))
-
-    val (out, err) = withActionContainer() { c =>
-      val (initCode, initRes) = c.init(initPayload(code, main = "naim"))
-      initCode should be(200)
-      val args = JsObject("msg" -> JsString("any"))
-      val (runCode, runRes) = c.run(runPayload(args))
-      runCode should be(200)
-      runRes.get.toString() should include("netmask")
-    }
-    checkStreams(out, err, {
-      case (o, e) =>
-        o should include("netmask")
-        e shouldBe empty
-    })
-  }
-
   it should "report error if zipped Python action has invalid virtualenv directory" in {
     val zippedPythonActionWrongDir = TestUtils.getTestActionFilename("python_virtualenv_dir.zip")
 
