@@ -27,3 +27,4 @@ ibm_db == 2.0.8a
 cloudant == 2.8.1
 watson-developer-cloud == 1.0.2
 ibm-cos-sdk == 2.0.2
+ibmcloudsql == 0.2.5
