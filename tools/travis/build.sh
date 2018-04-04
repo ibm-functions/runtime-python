@@ -10,13 +10,6 @@ IMAGE_PREFIX="testing"
 
 export OPENWHISK_HOME=$WHISKDIR
 
-# Build IBM nodejs runtime
-cd $ROOTDIR
-TERM=dumb ./gradlew \
-:python3:distDocker \
--PdockerImagePrefix=${IMAGE_PREFIX}
-
-
 # Build OpenWhisk
 cd $WHISKDIR
 
@@ -29,3 +22,15 @@ docker pull openwhisk/nodejs6action
 docker tag openwhisk/nodejs6action ${IMAGE_PREFIX}/nodejs6action
 docker pull openwhisk/python2action
 docker tag openwhisk/python2action ${IMAGE_PREFIX}/python2action
+
+TERM=dumb ./gradlew \
+:common:scala:install \
+:core:controller:install \
+:core:invoker:install \
+:tests:install
+
+# Build IBM nodejs runtime
+cd $ROOTDIR
+TERM=dumb ./gradlew \
+:python3:distDocker \
+-PdockerImagePrefix=${IMAGE_PREFIX}
