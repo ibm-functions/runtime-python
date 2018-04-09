@@ -28,7 +28,7 @@ class CredentialsIBMPythonDb2CloudTests extends TestHelpers with WskTestHelpers 
   implicit val wskprops: WskProps = WskProps()
   val defaultKind = Some("python-jessie:3")
   val wsk = new WskRest
-  val datdir = System.getProperty("user.dir") + "/dat/db2"
+  val datdir = "tests/dat/db2"
   val actionName = "testDB2Service"
   val actionFileName = "testDB2Service.py"
 

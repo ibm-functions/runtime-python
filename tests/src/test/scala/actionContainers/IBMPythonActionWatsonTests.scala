@@ -31,7 +31,7 @@ class IBMPythonActionWatsonTests extends TestHelpers with WskTestHelpers {
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
   val wsk = new WskRest
-  val datdir = System.getProperty("user.dir") + "/dat/watson/"
+  val datdir = "tests/dat/watson/"
   val actionName = "testWatsonSDK"
   val actionFileName = "testWatsonSDK.py"
 
@@ -57,9 +57,9 @@ class IBMPythonActionWatsonTests extends TestHelpers with WskTestHelpers {
       withActivation(wsk.activation, wsk.action.invoke(actionName)) { activation =>
         val response = activation.response
         response.result.get.fields.get("error") shouldBe empty
-        response.result.get.fields.get("message") should be(Some(JsString("2017-11-07")))
+        response.result.get.fields.get("message") should equal(
+          Some(JsString("https://gateway.watsonplatform.net/discovery/api")))
       }
 
   }
-
 }

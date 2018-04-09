@@ -29,7 +29,7 @@ class CredentialsIBMPythonCOSTests extends TestHelpers with WskTestHelpers with 
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
   val wsk = new WskRest
-  val datdir = System.getProperty("user.dir") + "/dat/cos"
+  val datdir = "tests/dat/cos"
   val actionName = "testCOSService"
   val actionFileName = "testCOSService.py"
   val creds = TestUtils.getVCAPcredentials("cloud-object-storage")
