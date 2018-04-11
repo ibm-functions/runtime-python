@@ -47,6 +47,7 @@ Set `ROOTDIR` to the root directory of this repository.
 
 Redeploy OpenWhisk
 ```
+test
 cd $OPENWHISK_HOME/ansible
 ANSIBLE_CMD="ansible-playbook -i ${ROOTDIR}/ansible/environments/local"
 $ANSIBLE_CMD setup.yml
