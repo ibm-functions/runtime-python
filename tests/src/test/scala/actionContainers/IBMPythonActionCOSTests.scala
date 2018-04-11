@@ -30,7 +30,7 @@ class IBMPythonActionCOSTests extends TestHelpers with WskTestHelpers {
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
   val wsk = new WskRest
-  val datdir = System.getProperty("user.dir") + "/dat/cos/"
+  val datdir = "tests/dat/cos/"
   val actionName = "testCOSSDK"
   val actionFileName = "testCOSSDK.py"
 

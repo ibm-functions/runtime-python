@@ -31,7 +31,7 @@ class CredentialsIBMPythonCloudantTests extends TestHelpers with WskTestHelpers 
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
   val wsk = new WskRest
-  val datdir = System.getProperty("user.dir") + "/dat/cloudant/"
+  val datdir = "tests/dat/cloudant/"
   var creds = TestUtils.getVCAPcredentials("cloudantNoSQLDB")
   val actionName = "testCloudantService"
   val actionFileName = "testCloudantService.py"

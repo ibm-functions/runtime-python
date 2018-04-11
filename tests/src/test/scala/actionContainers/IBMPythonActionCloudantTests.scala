@@ -30,7 +30,7 @@ class IBMPythonActionCloudantTests extends TestHelpers with WskTestHelpers {
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
   val wsk = new WskRest
-  val datdir = System.getProperty("user.dir") + "/dat/cloudant/"
+  val datdir = "tests/dat/cloudant/"
   val actionName = "testCloudantSDK"
   val actionFileName = "testCloudantSDK.py"
 

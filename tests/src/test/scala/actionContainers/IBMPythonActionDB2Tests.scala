@@ -32,8 +32,7 @@ class IBMPythonActionDB2Tests extends TestHelpers with WskTestHelpers with Befor
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
   val wsk = new WskRest
-  val userdir = System.getProperty("user.dir")
-  val db2dir = userdir + "/dat/db2/"
+  val db2dir = "tests/dat/db2/"
   val db2containerName = "db2test"
 
   it should "test DB2 using local db2 container with python action" in withAssetCleaner(wskprops) { (wp, assetHelper) =>

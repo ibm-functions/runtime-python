@@ -116,7 +116,7 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
   behavior of "Python virtualenv"
 
   it should s"invoke a zipped $kind action with virtualenv package" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
-    val userdir = System.getProperty("user.dir") + "/dat/actions/p3zip"
+    val userdir = "tests/dat/actions/p3zip"
     val filename = "python3_jessie_virtualenv.zip"
     val name = filename
     val zippedPythonAction = Some(new File(userdir, filename).toString())
