@@ -67,14 +67,37 @@ wsk action update myAction myAction.py --docker $user_prefix/action-python-v3
 ```
 The `$user_prefix` is usually your dockerhub user id.
 
+
 ### Testing
+Install dependencies from the root directory on $OPENWHISK_HOME repository
+```
+./gradlew :common:scala:install :core:controller:install :core:invoker:install :tests:install
+```
+
+Using gradle to run all tests
+```
+./gradlew :tests:test
+```
+Using gradle to run some tests
+```
+./gradlew :tests:test --tests *ActionContainerTests*
+```
+Using IntelliJ:
+- Import project as gradle project.
+- Make sure working directory is root of the project/repo
 
 
-To run all tests: `./gradlew tests:test` this include tests depending on credentials
-
-To run all tests except those which do not rely on credentials `./gradlew tests:testWithoutCredentials`
-
-To run a single test-class: `./gradlew tests:test --tests <SomeGradleTestFilter>`
+#### Using container image to test
+To use as docker action push to your own dockerhub account
+```
+docker tag whisk/action-python-v3 $user_prefix/action-python-v3
+docker push $user_prefix/action-python-v3
+```
+Then create the action using your the image from dockerhub
+```
+wsk action update myAction myAction.py --docker $user_prefix/action-python-v3
+```
+The `$user_prefix` is usually your dockerhub user id.
 
 
 # License
