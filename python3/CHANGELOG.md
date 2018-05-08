@@ -1,5 +1,86 @@
 # IBM Functions Python 3 Runtime Container
 
+## 1.5.0
+Changes:
+- updated cassandra-driver from `3.13.0` to `3.14.0`
+- updated Flask from `0.12.2` to `1.0.2`
+- updated ibm-cos-sdk from `2.1.0` to `2.1.1`
+- updated numpy from `1.14.2` to `1.14.3`
+- updated simplejson from `3.13.2` to `3.14.0`
+- updated Twisted from `17.9.0` to `18.4.0`
+- updated watson-developer-cloud from `1.3.0` to `1.3.3`
+
+Python version:
+- [3.6.5](https://github.com/docker-library/python/blob/b99b66406ebe728fb4da64548066ad0be6582e08/3.6/jessie/Dockerfile)
+
+Python packages:
+- asn1crypto (0.24.0)
+- attrs (17.4.0)
+- autobahn (18.4.1)
+- Automat (0.6.0)
+- beautifulsoup4 (4.6.0)
+- botocore (1.10.4)
+- cassandra-driver (3.14.0)
+- certifi (2018.1.18)
+- cffi (1.11.5)
+- chardet (3.0.4)
+- click (6.7)
+- cloudant (2.8.1)
+- constantly (15.1.0)
+- cryptography (2.2.2)
+- cssselect (1.0.3)
+- docutils (0.14)
+- elasticsearch (5.5.2)
+- Flask (1.0.2)
+- gevent (1.2.2)
+- greenlet (0.4.13)
+- httplib2 (0.11.3)
+- hyperlink (18.0.0)
+- ibm-cos-sdk (2.1.1)
+- ibm-db (2.0.8a0)
+- ibmcloudsql (0.2.13)
+- idna (2.6)
+- incremental (17.5.0)
+- itsdangerous (0.24)
+- Jinja2 (2.10)
+- jmespath (0.9.3)
+- kafka-python (1.4.2)
+- lxml (4.2.1)
+- MarkupSafe (1.0)
+- numpy (1.14.3)
+- pandas (0.22.0)
+- parsel (1.4.0)
+- pika (0.11.2)
+- psycopg2 (2.7.4)
+- pyasn1 (0.4.2)
+- pyasn1-modules (0.2.1)
+- pycparser (2.18)
+- PyDispatcher (2.0.5)
+- pymongo (3.6.1)
+- pyOpenSSL (17.5.0)
+- pysolr (3.7.0)
+- python-dateutil (2.7.2)
+- pytz (2018.4)
+- queuelib (1.5.0)
+- redis (2.10.6)
+- requests (2.18.4)
+- scikit-learn (0.19.1)
+- scipy (1.0.1)
+- Scrapy (1.5.0)
+- service-identity (17.0.0)
+- simplejson (3.14.0)
+- six (1.11.0)
+- tornado (4.5.2)
+- Twisted (18.4.0)
+- txaio (2.10.0)
+- urllib3 (1.22)
+- virtualenv (15.2.0)
+- w3lib (1.19.0)
+- watson-developer-cloud (1.3.3)
+- Werkzeug (0.14.1)
+- wheel (0.30.0)
+- zope.interface (4.4.3)
+
 ## 1.4.0
 Changes:
 - update Python Runtime from 3.6.4 to 3.6.5
@@ -15,7 +96,7 @@ Changes:
 - updated ibmcloudsql from 0.2.5 to 0.2.13
 
 Python version:
-- [3.6.5](https://github.com/docker-library/python/blob/a1aa406bfd8c7b129e6e0ee0ba972b863624ac0d/3.6/jessie/Dockerfile)
+- [3.6.5](https://github.com/docker-library/python/blob/b99b66406ebe728fb4da64548066ad0be6582e08/3.6/jessie/Dockerfile)
 
 Python packages:
 - asn1crypto (0.24.0)
@@ -84,7 +165,6 @@ Python packages:
 - Werkzeug (0.14.1)
 - wheel (0.30.0)
 - zope.interface (4.4.3)
-
 
 ## 1.3.0
 Changes:
