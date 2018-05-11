@@ -1,33 +1,44 @@
-# IBM Cloud Functions runtime for python
-
-WARNING: Work in Progress (WIP) not ready for production
-
+# IBM Cloud Functions Runtime for Python
 [![Build Status](https://travis-ci.org/ibm-functions/runtime-python.svg?branch=master)](https://travis-ci.org/ibm-functions/runtime-python)
 
 The runtime provides [python v3](python3/) with a set of [python packages](python/requirements.txt)
 
-The runtime provides the following npm packages for [IBM Cloud](https://bluemix.net):
-- IBM DB2/DashDB and IBM Informix - Python SDK[ibm_db@2.0.7](https://pypi.python.org/pypi/ibm_db)
-- IBM Cloudant - Python SDK [cloudant@2.7.0](https://pypi.python.org/pypi/cloudant)
-- IBM Watson Developer Cloud - Python SDK [watson-developer-cloud@1.0.1](https://pypi.python.org/pypi/watson-developer-cloud)
-- IBM Cloud Object Storage - Python SDK [ibm-cos-sdk@2.0.0](https://pypi.python.org/pypi/ibm-cos-sdk)
+Some of the python packages are to be used on [IBM Cloud](https://bluemix.net):
+- IBM DB2/DashDB and IBM Informix - Python SDK [ibm_db](https://pypi.python.org/pypi/ibm_db)
+- IBM Cloudant - Python SDK [cloudant](https://pypi.python.org/pypi/cloudant)
+- IBM Watson Developer Cloud - Python SDK [watson-developer-cloud](https://pypi.python.org/pypi/watson-developer-cloud)
+- IBM Cloud Object Storage - Python SDK [ibm-cos-sdk](https://pypi.python.org/pypi/ibm-cos-sdk)
+- IBM Cloud SQL Query service - Python Client [ibmcloudsql](https://pypi.org/project/ibmcloudsql/)
 
-### How to use as a docker Action
+Docker runtime is based on Debian-Jessie/Ubuntu14-Trusty
+
+### Hello Action
+Write a function using [Apache OpenWhisk](https://apache.openwhisk.org) Serverless programming inteface
+```python
+def main(args):
+    name = args.get("name", "stranger")
+    greeting = "Hello " + name + "!"
+    print(greeting)
+    return {"greeting": greeting}
+```
+
+### IBM Cloud Functions (based on Apache OpenWhisk)
+To use as a python kind action
+```
+bx wsk action update helloPython hello.py --kind python-jessie:3
+```
+
+### How to use as a docker Action locally
 To use as a docker action
 ```
-bx wsk action update myAction myAction.py --docker ibmfunctions/action-python-v3
+bx wsk action update helloPython hello.py --docker ibmfunctions/action-python-v3
 ```
 This works on any deployment of Apache OpenWhisk or IBM Cloud Functions
 
-### Future: IBM Cloud Functions (based on Apache OpenWhisk)
-To use as a python kind action
-```
-bx wsk action update myAction myAction --kind python:3
-```
-Tip: Not available yet in the IBM Cloud
+
 
 ### Working with the local git repo 
-Prerequisite: *Export* OPENWHISK_HOME to point to your incubator/openwhisk cloned directory.
+Prerequisite: *Export* OPENWHISK_HOME to point to your `incubator-openwhisk` cloned directory.
 
 ```
 ./gradlew python3:distDocker
@@ -71,7 +82,7 @@ The `$user_prefix` is usually your dockerhub user id.
 ### Testing
 Install dependencies from the root directory on $OPENWHISK_HOME repository
 ```
-./gradlew :common:scala:install :core:controller:install :core:invoker:install :tests:install
+./gradlew install
 ```
 
 Using gradle to run all tests
