@@ -32,9 +32,9 @@ class CredentialsIBMPythonCOSTests extends TestHelpers with WskTestHelpers with 
   val datdir = "tests/dat/cos"
   val actionName = "testCOSService"
   val actionFileName = "testCOSService.py"
-  val creds = TestUtils.getVCAPcredentials("cloud-object-storage")
-  val apikey = creds.get("apikey")
-  var resource_instance_id = creds.get("resource_instance_id")
+  val creds = TestUtils.getCredentials("cloud-object-storage")
+  val apikey = creds.get("apikey").getAsString()
+  var resource_instance_id = creds.get("resource_instance_id").getAsString()
   val __bx_creds = JsObject(
     "cloud-object-storage" -> JsObject(
       "apikey" -> JsString(apikey),
