@@ -1,7 +1,6 @@
 # IBM Functions Python 3 Runtime Container
 
 ## 1.9.0
-- update gevent from `1.2.2` to `1.3.3`
 - update requests from `2.18.4` to `2.19.1`
 - update numpy from `1.14.4` to `1.14.5`
 - update pandas from `0.23.0` to `0.23.1`
@@ -32,7 +31,7 @@ Python packages:
 - docutils (0.14)
 - elasticsearch (6.2.0)
 - Flask (1.0.2)
-- gevent (1.3.3)
+- gevent (1.2.2)
 - greenlet (0.4.13)
 - httplib2 (0.11.3)
 - hyperlink (18.0.0)
