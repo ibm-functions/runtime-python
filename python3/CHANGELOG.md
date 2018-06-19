@@ -1,5 +1,86 @@
 # IBM Functions Python 3 Runtime Container
 
+## 1.9.0
+- update gevent from `1.2.2` to `1.3.3`
+- update requests from `2.18.4` to `2.19.1`
+- update numpy from `1.14.4` to `1.14.5`
+- update pandas from `0.23.0` to `0.23.1`
+- update cloudant from `2.8.1` to `2.9.0`
+- update watson-developer-cloud from `1.3.5` to `1.4.0`
+- update psycopg2 from `2.7.4` to `2.7.5`
+- update pika from `0.11.2` to `0.12.0`
+
+Python version:
+- [3.6.5](https://github.com/docker-library/python/blob/b99b66406ebe728fb4da64548066ad0be6582e08/3.6/jessie/Dockerfile)
+
+Python packages:
+- asn1crypto (0.24.0)
+- attrs (17.4.0)
+- autobahn (18.4.1)
+- Automat (0.6.0)
+- beautifulsoup4 (4.6.0)
+- botocore (1.10.4)
+- cassandra-driver (3.14.0)
+- certifi (2018.1.18)
+- cffi (1.11.5)
+- chardet (3.0.4)
+- click (6.7)
+- cloudant (2.9.0)
+- constantly (15.1.0)
+- cryptography (2.2.2)
+- cssselect (1.0.3)
+- docutils (0.14)
+- elasticsearch (6.2.0)
+- Flask (1.0.2)
+- gevent (1.3.3)
+- greenlet (0.4.13)
+- httplib2 (0.11.3)
+- hyperlink (18.0.0)
+- ibm-cos-sdk (2.1.1)
+- ibm-db (2.0.8a0)
+- ibmcloudsql (0.2.13)
+- idna (2.6)
+- incremental (17.5.0)
+- itsdangerous (0.24)
+- Jinja2 (2.10)
+- jmespath (0.9.3)
+- kafka-python (1.4.3)
+- lxml (4.2.1)
+- MarkupSafe (1.0)
+- numpy (1.14.5)
+- pandas (0.23.1)
+- parsel (1.4.0)
+- pika (0.12.0)
+- Pillow (5.1.0)
+- psycopg2 (2.7.5)
+- pyasn1 (0.4.2)
+- pyasn1-modules (0.2.1)
+- pycparser (2.18)
+- PyDispatcher (2.0.5)
+- pymongo (3.6.1)
+- pyOpenSSL (17.5.0)
+- pysolr (3.7.0)
+- python-dateutil (2.7.3)
+- pytz (2018.4)
+- queuelib (1.5.0)
+- redis (2.10.6)
+- requests (2.19.1)
+- scikit-learn (0.19.1)
+- scipy (1.1.0)
+- Scrapy (1.5.0)
+- service-identity (17.0.0)
+- simplejson (3.15.0)
+- six (1.11.0)
+- tornado (5.0.2)
+- Twisted (18.4.0)
+- txaio (2.10.0)
+- urllib3 (1.22)
+- virtualenv (16.0.0)
+- w3lib (1.19.0)
+- watson-developer-cloud (1.4.0)
+- Werkzeug (0.14.1)
+- wheel (0.30.0)
+- zope.interface (4.4.3)
 ## 1.8.0
 - update numpy from `1.14.3` to `1.14.4`
 - update watson-developer-cloud from `1.3.4` to `1.3.5`
