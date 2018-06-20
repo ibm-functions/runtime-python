@@ -14,6 +14,7 @@ deploy:
     script: "./tools/travis/publish.sh ibmfunctions master"
     on:
       branch: master
+      repo: ibm-functions/runtime-python
   - provider: script
     script: "./tools/travis/publish.sh ibmfunctions $TRAVIS_TAG"
     on:
