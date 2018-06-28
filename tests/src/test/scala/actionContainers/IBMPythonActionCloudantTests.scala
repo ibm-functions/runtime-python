@@ -15,21 +15,19 @@
  */
 package actionContainers
 
-import common.TestHelpers
+import common.{TestHelpers, WskTestHelpers, WskProps, WskActorSystem}
+import common.rest.WskRestOperations
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-import common.WskTestHelpers
-import common.WskProps
 import java.io.File
-import common.rest.WskRest
 import spray.json._
 
 @RunWith(classOf[JUnitRunner])
-class IBMPythonActionCloudantTests extends TestHelpers with WskTestHelpers {
+class IBMPythonActionCloudantTests extends TestHelpers with WskTestHelpers with WskActorSystem {
 
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
-  val wsk = new WskRest
+  val wsk = new WskRestOperations
   val datdir = "tests/dat/cloudant/"
   val actionName = "testCloudantSDK"
   val actionFileName = "testCloudantSDK.py"

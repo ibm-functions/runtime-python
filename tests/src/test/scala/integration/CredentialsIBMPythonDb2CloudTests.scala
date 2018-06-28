@@ -16,18 +16,18 @@
 package integration
 
 import common._
+import common.rest.WskRestOperations
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import java.io.File
-import common.rest.WskRest
 import spray.json._
 
 @RunWith(classOf[JUnitRunner])
-class CredentialsIBMPythonDb2CloudTests extends TestHelpers with WskTestHelpers {
+class CredentialsIBMPythonDb2CloudTests extends TestHelpers with WskTestHelpers with WskActorSystem {
 
   implicit val wskprops: WskProps = WskProps()
   val defaultKind = Some("python-jessie:3")
-  val wsk = new WskRest
+  val wsk = new WskRestOperations
   val datdir = "tests/dat/db2"
   val actionName = "testDB2Service"
   val actionFileName = "testDB2Service.py"

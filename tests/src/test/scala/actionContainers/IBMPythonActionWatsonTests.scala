@@ -15,22 +15,20 @@
  */
 package actionContainers
 
+import common.{WskProps, TestHelpers, WskTestHelpers, WskActorSystem}
+import common.rest.WskRestOperations
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-import common.WskProps
 import java.io.File
-import common.rest.WskRest
 import spray.json._
 import spray.json.DefaultJsonProtocol._
-import common.TestHelpers
-import common.WskTestHelpers
 
 @RunWith(classOf[JUnitRunner])
-class IBMPythonActionWatsonTests extends TestHelpers with WskTestHelpers {
+class IBMPythonActionWatsonTests extends TestHelpers with WskTestHelpers with WskActorSystem {
 
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
-  val wsk = new WskRest
+  val wsk = new WskRestOperations
   val datdir = "tests/dat/watson/"
   val actionName = "testWatsonSDK"
   val actionFileName = "testWatsonSDK.py"
