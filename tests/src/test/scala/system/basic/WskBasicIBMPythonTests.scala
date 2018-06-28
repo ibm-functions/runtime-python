@@ -16,7 +16,7 @@
 
 package system.basic
 
-import common.{JsHelpers, TestHelpers,TestUtils, WskProps, WskTestHelpers, WhiskProperties, WskActorSystem}
+import common.{JsHelpers, TestHelpers, TestUtils, WhiskProperties, WskActorSystem, WskProps, WskTestHelpers}
 import common.rest.WskRestOperations
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner

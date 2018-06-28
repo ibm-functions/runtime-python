@@ -15,7 +15,7 @@
  */
 package actionContainers
 
-import common.{WskProps, TestHelpers, WskTestHelpers, WskActorSystem}
+import common.{TestHelpers, WskActorSystem, WskProps, WskTestHelpers}
 import common.rest.WskRestOperations
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
