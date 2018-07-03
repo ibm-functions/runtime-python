@@ -16,19 +16,19 @@
 package integration
 
 import common._
+import common.rest.WskRestOperations
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import java.io.File
-import common.rest.WskRest
 import spray.json._
 import org.scalatest.BeforeAndAfterAll
 
 @RunWith(classOf[JUnitRunner])
-class CredentialsIBMPythonCOSTests extends TestHelpers with WskTestHelpers with BeforeAndAfterAll {
+class CredentialsIBMPythonCOSTests extends TestHelpers with WskTestHelpers with BeforeAndAfterAll with WskActorSystem {
 
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
-  val wsk = new WskRest
+  val wsk = new WskRestOperations
   val datdir = "tests/dat/cos"
   val actionName = "testCOSService"
   val actionFileName = "testCOSService.py"

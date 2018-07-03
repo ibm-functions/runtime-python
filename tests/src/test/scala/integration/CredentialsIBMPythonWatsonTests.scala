@@ -16,18 +16,18 @@
 package integration
 
 import common._
+import common.rest.WskRestOperations
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import java.io.File
 import spray.json._
-import common.rest.WskRest
 
 @RunWith(classOf[JUnitRunner])
-class CredentialsIBMPythonWatsonTests extends TestHelpers with WskTestHelpers {
+class CredentialsIBMPythonWatsonTests extends TestHelpers with WskTestHelpers with WskActorSystem {
 
   implicit val wskprops: WskProps = WskProps()
   var defaultKind = Some("python-jessie:3")
-  val wsk = new WskRest
+  val wsk = new WskRestOperations
   val datdir = "tests/dat/watson"
   val actionName = "testWatsonService"
   val actionFileName = "testWatsonService.py"

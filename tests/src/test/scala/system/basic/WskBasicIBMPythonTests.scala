@@ -16,6 +16,8 @@
 
 package system.basic
 
+import common.{JsHelpers, TestHelpers, TestUtils, WhiskProperties, WskActorSystem, WskProps, WskTestHelpers}
+import common.rest.WskRestOperations
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.Matchers
@@ -23,18 +25,12 @@ import scala.concurrent.duration.DurationInt
 import spray.json._
 import spray.json.DefaultJsonProtocol.StringJsonFormat
 import java.io.File
-import common.JsHelpers
-import common.TestHelpers
-import common.TestUtils
-import common.rest.WskRest
-import common.WskProps
-import common.WskTestHelpers
-import common.WhiskProperties
+
 @RunWith(classOf[JUnitRunner])
-class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matchers with JsHelpers {
+class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matchers with JsHelpers with WskActorSystem {
 
   implicit val wskprops = WskProps()
-  val wsk: common.rest.WskRest = new WskRest
+  val wsk: common.rest.WskRestOperations = new WskRestOperations
   val kind = "python-jessie:3"
 
   behavior of "Native Python Action"
