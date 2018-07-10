@@ -1,5 +1,8 @@
 # IBM Functions Python 3 Runtime Container
 
+## 1.9.1
+- update upstream tags to dockerskeleton@1.3.2 and 3@1.0.1
+
 ## 1.9.0
 - update requests from `2.18.4` to `2.19.1`
 - update numpy from `1.14.4` to `1.14.5`
