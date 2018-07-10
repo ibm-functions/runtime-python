@@ -40,17 +40,31 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
 
   behavior of imageName
 
-  testNotReturningJson(
-    """
+  override val testNoSourceOrExec = TestConfig("")
+  override val testNoSource = TestConfig("", hasCodeStub = true)
+
+  override val testNotReturningJson =
+    TestConfig("""
       |def main(args):
       |    return "not a json object"
-    """.stripMargin,
-    checkResultInLogs = false)
+    """.stripMargin)
 
-  testEcho(Seq {
-    (
-      "python",
+  override val testInitCannotBeCalledMoreThanOnce =
+    TestConfig("""
+                |def main(args):
+                 |    return args
+               """.stripMargin)
+
+  override val testEntryPointOtherThanMain =
+    TestConfig(
       """
+        |def niam(args):
+        |  return args
+      """.stripMargin,
+      main = "niam")
+
+  override val testEcho =
+    TestConfig("""
         |from __future__ import print_function
         |import sys
         |def main(args):
@@ -58,36 +72,28 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
         |    print('hello stderr', file=sys.stderr)
         |    return args
       """.stripMargin)
-  })
 
-  testUnicode(Seq {
-    if (pythonStringAsUnicode) {
-      (
-        "python",
-        """
+  override val testUnicode =
+    TestConfig(if (pythonStringAsUnicode) {
+      """
           |def main(args):
           |    sep = args['delimiter']
           |    str = sep + " ☃ " + sep
           |    print(str)
           |    return {"winter" : str }
-        """.stripMargin.trim)
+        """.stripMargin.trim
     } else {
-      (
-        "python",
-        """
+      """
           |def main(args):
           |    sep = args['delimiter']
           |    str = sep + " ☃ ".decode('utf-8') + sep
           |    print(str.encode('utf-8'))
           |    return {"winter" : str }
-        """.stripMargin.trim)
-    }
-  })
+        """.stripMargin.trim
+    })
 
-  testEnv(Seq {
-    (
-      "python",
-      """
+  override val testEnv =
+    TestConfig("""
         |import os
         |def main(dict):
         |    return {
@@ -99,7 +105,12 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
         |       "deadline": os.environ['__OW_DEADLINE']
         |    }
       """.stripMargin.trim)
-  })
+
+  override val testLargeInput =
+    TestConfig("""
+            |def main(args):
+            |    return args
+          """.stripMargin)
 
   it should "support actions using non-default entry points" in {
     withActionContainer() { c =>
