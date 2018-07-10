@@ -21,9 +21,9 @@ COPY requirements.txt requirements.txt
 RUN pip install --upgrade pip setuptools six && pip install --no-cache-dir -r requirements.txt
 
 RUN mkdir -p /actionProxy
-ADD https://raw.githubusercontent.com/apache/incubator-openwhisk-runtime-docker/dockerskeleton%401.0.0/core/actionProxy/actionproxy.py /actionProxy/actionproxy.py
+ADD https://raw.githubusercontent.com/apache/incubator-openwhisk-runtime-docker/dockerskeleton%401.3.2/core/actionProxy/actionproxy.py /actionProxy/actionproxy.py
 
 RUN mkdir -p /pythonAction
-ADD https://raw.githubusercontent.com/apache/incubator-openwhisk-runtime-python/3%401.0.0/core/pythonAction/pythonrunner.py /pythonAction/pythonrunner.py
+ADD https://raw.githubusercontent.com/apache/incubator-openwhisk-runtime-python/3%401.0.1/core/pythonAction/pythonrunner.py /pythonAction/pythonrunner.py
 
 CMD ["/bin/bash", "-c", "cd /pythonAction && python -u pythonrunner.py"]
