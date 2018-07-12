@@ -10,28 +10,12 @@ IMAGE_PREFIX="testing"
 
 export OPENWHISK_HOME=$WHISKDIR
 
-# Build OpenWhisk
+# Build OpenWhisk deps before we run tests
 cd $WHISKDIR
+# Mock file (works around bug upstream)
+echo "openwhisk.home=$WHISKDIR" > whisk.properties
+echo "vcap.services.file=" >> whisk.properties
 
-# Pull down images
-docker pull openwhisk/controller
-docker tag openwhisk/controller ${IMAGE_PREFIX}/controller
-docker pull openwhisk/invoker
-docker tag openwhisk/invoker ${IMAGE_PREFIX}/invoker
-docker pull openwhisk/nodejs6action
-docker tag openwhisk/nodejs6action nodejs6action
-docker pull openwhisk/python2action
-docker tag openwhisk/python2action python2action
-
-TERM=dumb ./gradlew \
-:common:scala:install \
-:core:controller:install \
-:core:invoker:install \
-:tests:install \
-:tools:admin:install
-
-# Build IBM nodejs runtime
+# Build runtime
 cd $ROOTDIR
-TERM=dumb ./gradlew \
-:python3:distDocker \
--PdockerImagePrefix=${IMAGE_PREFIX}
+TERM=dumb ./gradlew distDocker
