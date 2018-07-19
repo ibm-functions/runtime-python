@@ -1,5 +1,90 @@
 # IBM Functions Python 3 Runtime Container
 
+## 1.10.0
+- update Python Runtime from 3.6.5 to 3.6.6
+- update ibm-cos-sdk from `2.1.1` to `2.1.2`
+- update lxml from `4.2.1` to `4.2.3`
+- update pandas from `0.23.1` to `0.23.3`
+- update Pillow from `5.1.0` to `5.2.0`
+- update pymongo from `3.6.1` to `3.7.1`
+- update scikit-learn from `0.19.1` to `0.19.2`
+- update Scrapy from `1.5.0` to `1.5.1`
+- update simplejson from `3.15.0` to `3.16.0`
+- update Twisted from `18.4.0` to `18.7.0`
+- update watson-developer-cloud from `1.4.0` to `1.5.0`
+
+Python version:
+- [3.6.6](https://github.com/docker-library/python/blob/b99b66406ebe728fb4da64548066ad0be6582e08/3.6/jessie/Dockerfile)
+
+Python packages:
+- asn1crypto (0.24.0)
+- attrs (17.4.0)
+- autobahn (18.4.1)
+- Automat (0.6.0)
+- beautifulsoup4 (4.6.0)
+- botocore (1.10.4)
+- cassandra-driver (3.14.0)
+- certifi (2018.1.18)
+- cffi (1.11.5)
+- chardet (3.0.4)
+- click (6.7)
+- cloudant (2.9.0)
+- constantly (15.1.0)
+- cryptography (2.2.2)
+- cssselect (1.0.3)
+- docutils (0.14)
+- elasticsearch (6.2.0)
+- Flask (1.0.2)
+- gevent (1.2.2)
+- greenlet (0.4.13)
+- httplib2 (0.11.3)
+- hyperlink (18.0.0)
+- ibm-cos-sdk (2.1.2)
+- ibm-db (2.0.8a0)
+- ibmcloudsql (0.2.13)
+- idna (2.6)
+- incremental (17.5.0)
+- itsdangerous (0.24)
+- Jinja2 (2.10)
+- jmespath (0.9.3)
+- kafka-python (1.4.3)
+- lxml (4.2.3)
+- MarkupSafe (1.0)
+- numpy (1.14.5)
+- pandas (0.23.3)
+- parsel (1.4.0)
+- pika (0.12.0)
+- Pillow (5.2.0)
+- psycopg2 (2.7.5)
+- pyasn1 (0.4.2)
+- pyasn1-modules (0.2.1)
+- pycparser (2.18)
+- PyDispatcher (2.0.5)
+- pymongo (3.7.1)
+- pyOpenSSL (17.5.0)
+- pysolr (3.7.0)
+- python-dateutil (2.7.3)
+- pytz (2018.4)
+- queuelib (1.5.0)
+- redis (2.10.6)
+- requests (2.19.1)
+- scikit-learn (0.19.2)
+- scipy (1.1.0)
+- Scrapy (1.5.1)
+- service-identity (17.0.0)
+- simplejson (3.16.0)
+- six (1.11.0)
+- tornado (5.0.2)
+- Twisted (18.7.0)
+- txaio (2.10.0)
+- urllib3 (1.22)
+- virtualenv (16.0.0)
+- w3lib (1.19.0)
+- watson-developer-cloud (1.5.0)
+- Werkzeug (0.14.1)
+- wheel (0.30.0)
+- zope.interface (4.4.3)
+
 ## 1.9.1
 - update upstream tags to dockerskeleton@1.3.2 and 3@1.0.1
 
@@ -83,6 +168,7 @@ Python packages:
 - Werkzeug (0.14.1)
 - wheel (0.30.0)
 - zope.interface (4.4.3)
+
 ## 1.8.0
 - update numpy from `1.14.3` to `1.14.4`
 - update watson-developer-cloud from `1.3.4` to `1.3.5`
