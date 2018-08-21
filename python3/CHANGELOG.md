@@ -13,77 +13,76 @@
 Python version:
 - [3.6.6](https://github.com/docker-library/python/blob/878ffe36c2391279e673a44a011f5c65943b5eb8/3.6/jessie/Dockerfile)
 
-Package                Version
----------------------- ---------
-asn1crypto             0.24.0
-attrs                  18.1.0
-autobahn               18.8.1
-Automat                0.7.0
-beautifulsoup4         4.6.3
-botocore               1.10.81
-cassandra-driver       3.14.0
-certifi                2018.8.13
-cffi                   1.11.5
-chardet                3.0.4
-click                  6.7
-cloudant               2.9.0
-constantly             15.1.0
-cryptography           2.3.1
-cssselect              1.0.3
-docutils               0.14
-elasticsearch          5.5.3
-Flask                  1.0.2
-gevent                 1.2.2
-greenlet               0.4.14
-httplib2               0.11.3
-hyperlink              18.0.0
-ibm-cos-sdk            2.1.3
-ibm-db                 2.0.9
-ibmcloudsql            0.2.13
-idna                   2.7
-incremental            17.5.0
-itsdangerous           0.24
-Jinja2                 2.10
-jmespath               0.9.3
-kafka-python           1.4.3
-lxml                   4.2.4
-MarkupSafe             1.0
-numpy                  1.15.0
-pandas                 0.23.4
-parsel                 1.5.0
-pika                   0.12.0
-Pillow                 5.2.0
-pip                    18.0
-psycopg2               2.7.5
-pyasn1                 0.4.4
-pyasn1-modules         0.2.2
-pycparser              2.18
-PyDispatcher           2.0.5
-PyHamcrest             1.9.0
-pymongo                3.7.1
-pyOpenSSL              18.0.0
-python-dateutil        2.7.3
-pytz                   2018.5
-queuelib               1.5.0
-redis                  2.10.6
-requests               2.19.1
-scikit-learn           0.19.2
-scipy                  1.1.0
-Scrapy                 1.5.1
-service-identity       17.0.0
-setuptools             40.2.0
-simplejson             3.16.0
-six                    1.11.0
-tornado                4.5.2
-Twisted                18.7.0
-txaio                  18.7.1
-urllib3                1.23
-virtualenv             16.0.0
-w3lib                  1.19.0
-watson-developer-cloud 1.7.0
-Werkzeug               0.14.1
-wheel                  0.31.1
-zope.interface         4.5.0
+Python packages:
+- asn1crypto             0.24.0
+- attrs                  18.1.0
+- autobahn               18.8.1
+- Automat                0.7.0
+- beautifulsoup4         4.6.3
+- botocore               1.10.81
+- cassandra-driver       3.14.0
+- certifi                2018.8.13
+- cffi                   1.11.5
+- chardet                3.0.4
+- click                  6.7
+- cloudant               2.9.0
+- constantly             15.1.0
+- cryptography           2.3.1
+- cssselect              1.0.3
+- docutils               0.14
+- elasticsearch          5.5.3
+- Flask                  1.0.2
+- gevent                 1.2.2
+- greenlet               0.4.14
+- httplib2               0.11.3
+- hyperlink              18.0.0
+- ibm-cos-sdk            2.1.3
+- ibm-db                 2.0.9
+- ibmcloudsql            0.2.13
+- idna                   2.7
+- incremental            17.5.0
+- itsdangerous           0.24
+- Jinja2                 2.10
+- jmespath               0.9.3
+- kafka-python           1.4.3
+- lxml                   4.2.4
+- MarkupSafe             1.0
+- numpy                  1.15.0
+- pandas                 0.23.4
+- parsel                 1.5.0
+- pika                   0.12.0
+- Pillow                 5.2.0
+- pip                    18.0
+- psycopg2               2.7.5
+- pyasn1                 0.4.4
+- pyasn1-modules         0.2.2
+- pycparser              2.18
+- PyDispatcher           2.0.5
+- PyHamcrest             1.9.0
+- pymongo                3.7.1
+- pyOpenSSL              18.0.0
+- python-dateutil        2.7.3
+- pytz                   2018.5
+- queuelib               1.5.0
+- redis                  2.10.6
+- requests               2.19.1
+- scikit-learn           0.19.2
+- scipy                  1.1.0
+- Scrapy                 1.5.1
+- service-identity       17.0.0
+- setuptools             40.2.0
+- simplejson             3.16.0
+- six                    1.11.0
+- tornado                4.5.2
+- Twisted                18.7.0
+- txaio                  18.7.1
+- urllib3                1.23
+- virtualenv             16.0.0
+- w3lib                  1.19.0
+- watson-developer-cloud 1.7.0
+- Werkzeug               0.14.1
+- wheel                  0.31.1
+- zope.interface         4.5.0
 
 ## 1.10.0
 - update Python Runtime from 3.6.5 to 3.6.6
