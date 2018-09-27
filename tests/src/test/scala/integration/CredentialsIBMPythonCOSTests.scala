@@ -26,8 +26,9 @@ import org.scalatest.BeforeAndAfterAll
 @RunWith(classOf[JUnitRunner])
 class CredentialsIBMPythonCOSTests extends TestHelpers with WskTestHelpers with BeforeAndAfterAll with WskActorSystem {
 
+  lazy val defaultKind = Some("python:3.6")
+
   implicit val wskprops: WskProps = WskProps()
-  var defaultKind = Some("python-jessie:3")
   val wsk = new WskRestOperations
   val datdir = "tests/dat/cos"
   val actionName = "testCOSService"

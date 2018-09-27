@@ -15,6 +15,10 @@ WHISK_CLI="${WHISKDIR}/bin/wsk -i"
 # Run a simple action using the kind
 ${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "python-jessie:3"
 ${WHISK_CLI} action invoke echoPython -b
+${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "python:3.6"
+${WHISK_CLI} action invoke echoPython -b
+${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "python:3.7"
+${WHISK_CLI} action invoke echoPython -b
 
 export OPENWHISK_HOME=$WHISKDIR
 cd ${ROOTDIR}

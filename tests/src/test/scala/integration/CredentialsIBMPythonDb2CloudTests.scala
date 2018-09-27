@@ -25,8 +25,9 @@ import spray.json._
 @RunWith(classOf[JUnitRunner])
 class CredentialsIBMPythonDb2CloudTests extends TestHelpers with WskTestHelpers with WskActorSystem {
 
+  lazy val defaultKind = Some("python:3.6")
+
   implicit val wskprops: WskProps = WskProps()
-  val defaultKind = Some("python-jessie:3")
   val wsk = new WskRestOperations
   val datdir = "tests/dat/db2"
   val actionName = "testDB2Service"

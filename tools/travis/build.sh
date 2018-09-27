@@ -23,15 +23,8 @@ docker tag openwhisk/nodejs6action nodejs6action
 docker pull openwhisk/python2action
 docker tag openwhisk/python2action python2action
 
-TERM=dumb ./gradlew \
-:common:scala:install \
-:core:controller:install \
-:core:invoker:install \
-:tests:install \
-:tools:admin:install
+TERM=dumb ./gradlew install
 
 # Build IBM nodejs runtime
 cd $ROOTDIR
-TERM=dumb ./gradlew \
-:python3:distDocker \
--PdockerImagePrefix=${IMAGE_PREFIX}
+TERM=dumb ./gradlew distDocker -PdockerImagePrefix=${IMAGE_PREFIX}
