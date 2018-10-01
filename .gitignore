@@ -30,3 +30,7 @@ out/
 #Python
 virtualenv/
 
+.settings/
+bin/
+.project
+

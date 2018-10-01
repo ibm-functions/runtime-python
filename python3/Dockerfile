@@ -22,6 +22,8 @@ RUN pip install --upgrade pip setuptools six && pip install --no-cache-dir -r re
 
 RUN mkdir -p /actionProxy
 ADD https://raw.githubusercontent.com/apache/incubator-openwhisk-runtime-docker/dockerskeleton%401.3.3/core/actionProxy/actionproxy.py /actionProxy/actionproxy.py
+#TODO remove this workaround when upstream is updated
+RUN sed -i.bak 's/from gevent.wsgi/from gevent.pywsgi/' /actionProxy/actionproxy.py
 
 RUN mkdir -p /pythonAction
 ADD https://raw.githubusercontent.com/apache/incubator-openwhisk-runtime-python/3%401.0.3/core/pythonAction/pythonrunner.py /pythonAction/pythonrunner.py
