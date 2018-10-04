@@ -20,6 +20,9 @@ COPY requirements.txt requirements.txt
 
 RUN pip install --upgrade pip setuptools six && pip install --no-cache-dir -r requirements.txt
 
+# create action working directory
+RUN mkdir -p /action
+
 RUN mkdir -p /actionProxy
 ADD https://raw.githubusercontent.com/apache/incubator-openwhisk-runtime-docker/8b2e205c39d84ed5ede6b1b08cccf314a2b13105/core/actionProxy/actionproxy.py /actionProxy/actionproxy.py
 
