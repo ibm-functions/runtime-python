@@ -29,9 +29,10 @@ import java.io.File
 @RunWith(classOf[JUnitRunner])
 class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matchers with JsHelpers with WskActorSystem {
 
+  lazy val kind = "python:3.6"
+
   implicit val wskprops = WskProps()
   val wsk: common.rest.WskRestOperations = new WskRestOperations
-  val kind = "python-jessie:3"
 
   behavior of "Native Python Action"
 
@@ -76,7 +77,7 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
     }
 
     withActivation(wsk.activation, wsk.action.invoke(name)) {
-      _.response.result.get shouldBe JsObject("version" -> JsNumber(kind.takeRight(1).toInt))
+      _.response.result.get shouldBe JsObject("version" -> JsNumber(3))
     }
   }
 

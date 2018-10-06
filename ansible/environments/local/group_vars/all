@@ -43,7 +43,17 @@ runtimes_manifest:
     - kind: "python-jessie:3"
       default: false
       image:
-        name: "action-python-v3"
+        name: "action-python-v3.6"
+      deprecated: false
+    - kind: "python:3.6"
+      default: false
+      image:
+        name: "action-python-v3.6"
+      deprecated: false
+    - kind: "python:3.7"
+      default: false
+      image:
+        name: "action-python-v3.7"
       deprecated: false
   blackboxes:
     - name: "dockerskeleton"
