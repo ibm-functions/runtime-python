@@ -1,7 +1,58 @@
 """Python test fixture to check that cloudant sdk loads"""
+import json
+import uuid
+
+#from simplejson.decoder import JSONDecoder as json_decoder
+from cloudant.document import Document
 
 from cloudant.client import Cloudant
 from cloudant.client import CloudantClientException
+
+def test_create_doc(db, _id, data):
+    """Test document create with id"""
+    data['_id'] = _id
+    doc = db.create_document(data)
+    if doc.exists():
+        print(f'SUCCESS CREATE: Document with id {_id}: {data}')
+    else:
+        print(f'FAILED CREATE: Document not created with id {_id}')
+
+def test_update_doc(db, _id, doc_updates):
+    """Test document update by Id."""
+    orig_doc = Document(db, _id)
+    if not orig_doc.exists():
+        print(f'Document with id {_id} not found')
+    try:
+#        with Document(db, _id, decoder=json_decoder) as orig_doc:
+        with Document(db, _id) as orig_doc:
+            orig_doc.update(doc_updates)
+            print(f'SUCCESS UPDATE: Document with id {_id}: {orig_doc}')
+    except Exception as e:
+        print(f'FAILED UPDATE: {e}')
+
+def test_fetch_doc_by_id(db, _id):
+    """Test document fetch by Id."""
+    doc = Document(db, _id)
+#    doc = Document(db, _id, decoder=json_decoder)
+    if not doc.exists():
+        print(f'Document with id {_id} not found')
+    else:
+        try:
+            doc.fetch()
+            print(f'SUCCESS FETCH: Document with id {_id}: {doc}')
+        except Exception as e:
+            print(f'FAILED FETCH: {e}')
+
+def test_get_doc_by_id(db, _id):
+    """Test document get by Id."""
+    try:
+        doc = db[_id]
+        if not doc.exists():
+            print(f'Document with id {_id} not found')
+        else:
+            print(f'SUCCESS GET: Document with id {_id}: {doc}')
+    except Exception as e:
+        print(f'FAILED GET: {e}')
 
 
 def main(dict):
@@ -22,20 +73,18 @@ def main(dict):
     if my_database.exists():
         print('SUCCESS DB exists!!')
 
-    data = {
-        "_id": "p3",
-        "firstname": "Suzzy",
-        "lastname": "Queue"
-    }
-    my_document = my_database.create_document(data)
-    if my_document.exists():
-        print('SUCCESS DOC exist!!')
+    """Sample document"""
+    _id = str(uuid.uuid4())
+    data = {"agentId": "Suzzy", "type": "User"}
+    update_data = {"new_field":"new_value"}
 
-    my_document_read = my_database['p3']
-
-    return my_document_read
+    """Run tests"""
+    test_create_doc(my_database, _id, data)
+    test_update_doc(my_database,_id, update_data)
+    test_fetch_doc_by_id(my_database,_id)
+    test_get_doc_by_id(my_database,_id)
 
 
 if __name__ == "__main__":
     # execute only if run as a script
-    print(main({}))
+    main({})
