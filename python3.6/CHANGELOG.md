@@ -9,12 +9,12 @@ Python version:
 Python packages:
 - asn1crypto==0.24.0
 - attrs==18.2.0
-- autobahn==18.9.2
+- autobahn==18.10.1
 - Automat==0.7.0
 - beautifulsoup4==4.6.3
-- botocore==1.12.13
+- botocore==1.12.30
 - cassandra-driver==3.15.1
-- certifi==2018.8.24
+- certifi==2018.10.15
 - cffi==1.11.5
 - chardet==3.0.4
 - Click==7.0
@@ -34,7 +34,7 @@ Python packages:
 - ibmcloudsql==0.2.13
 - idna==2.7
 - incremental==17.5.0
-- itsdangerous==0.24
+- ItsDangerous==1.0.0
 - Jinja2==2.10
 - jmespath==0.9.3
 - kafka-python==1.4.3
@@ -72,7 +72,7 @@ Python packages:
 - w3lib==1.19.0
 - watson-developer-cloud==1.7.1
 - Werkzeug==0.14.1
-- zope.interface==4.5.0
+- zope.interface==4.6.0
 
 ## 1.12.0
 - update cassandra-driver from `3.14.0` to `3.15.1`

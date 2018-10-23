@@ -12,9 +12,9 @@ Python packages:
 - attrs==18.2.0
 - Automat==0.7.0
 - beautifulsoup4==4.6.3
-- botocore==1.12.13
+- botocore==1.12.30
 - cassandra-driver==3.15.1
-- certifi==2018.8.24
+- certifi==2018.10.15
 - cffi==1.11.5
 - chardet==3.0.4
 - Click==7.0
@@ -34,7 +34,7 @@ Python packages:
 - ibmcloudsql==0.2.13
 - idna==2.7
 - incremental==17.5.0
-- itsdangerous==0.24
+- ItsDangerous==1.0.0
 - Jinja2==2.10
 - jmespath==0.9.3
 - kafka-python==1.4.3
@@ -72,7 +72,7 @@ Python packages:
 - watson-developer-cloud==2.1.0
 - websocket-client==0.47.0
 - Werkzeug==0.14.1
-- zope.interface==4.5.0
+- zope.interface==4.6.0
 
 ## 1.0.0
 Python version:
