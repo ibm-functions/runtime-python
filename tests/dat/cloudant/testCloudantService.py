@@ -15,13 +15,14 @@ def test_create_doc(db, _id, data):
     if doc.exists():
         print(f'SUCCESS CREATE: Document with id {_id}: {data}')
     else:
-        print(f'FAILED CREATE: Document not created with id {_id}')
+        raise ValueError(f'FAILED CREATE: Document not created with id {_id}')
+
 
 def test_update_doc(db, _id, doc_updates):
     """Test document update by Id."""
     orig_doc = Document(db, _id)
     if not orig_doc.exists():
-        print(f'Document with id {_id} not found')
+        raise ValueError(f'Document with id {_id} not found')
     try:
 #        with Document(db, _id, decoder=json_decoder) as orig_doc:
         with Document(db, _id) as orig_doc:
@@ -29,31 +30,44 @@ def test_update_doc(db, _id, doc_updates):
             print(f'SUCCESS UPDATE: Document with id {_id}: {orig_doc}')
     except Exception as e:
         print(f'FAILED UPDATE: {e}')
-
-def test_fetch_doc_by_id(db, _id):
-    """Test document fetch by Id."""
-    doc = Document(db, _id)
-#    doc = Document(db, _id, decoder=json_decoder)
-    if not doc.exists():
-        print(f'Document with id {_id} not found')
-    else:
-        try:
-            doc.fetch()
-            print(f'SUCCESS FETCH: Document with id {_id}: {doc}')
-        except Exception as e:
-            print(f'FAILED FETCH: {e}')
+        raise
 
 def test_get_doc_by_id(db, _id):
     """Test document get by Id."""
     try:
         doc = db[_id]
         if not doc.exists():
-            print(f'Document with id {_id} not found')
+            raise ValueError(f'Document with id {_id} not found')
         else:
             print(f'SUCCESS GET: Document with id {_id}: {doc}')
     except Exception as e:
         print(f'FAILED GET: {e}')
+        raise
 
+def test_fetch_doc_by_id(db, _id):
+    """Test document fetch by Id."""
+    doc = Document(db, _id)
+#    doc = Document(db, _id, decoder=json_decoder)
+    if not doc.exists():
+        raise ValueError(f'Document with id {_id} not found')
+    else:
+        try:
+            doc.fetch()
+            print(f'SUCCESS FETCH: Document with id {_id}: {doc}')
+        except Exception as e:
+            print(f'FAILED FETCH: {e}')
+            raise
+    return doc
+
+def test_delete_doc_by_id(db, _id):
+    """Test document delete by Id."""
+    try:
+        doc = test_fetch_doc_by_id(db, _id)
+        doc.delete()
+        print(f'SUCCESS DELETE Document with id {_id}: {doc}')
+    except Exception as e:
+        print(f'FAILED DELETE {e}')
+        raise
 
 def main(dict):
     user = dict.get("username", "<username from credentials>")
@@ -69,22 +83,25 @@ def main(dict):
         if ex.status_code != 404:
             raise CloudantClientException(ex.status_code, db_name)
 
-    my_database = client.create_database('my_database')
+    my_database = client.create_database(db_name)
     if my_database.exists():
         print('SUCCESS DB exists!!')
 
     """Sample document"""
     _id = str(uuid.uuid4())
     data = {"agentId": "Suzzy", "type": "User"}
-    update_data = {"new_field":"new_value"}
+    update_data = {"lastname":"Queue"}
 
     """Run tests"""
     test_create_doc(my_database, _id, data)
     test_update_doc(my_database,_id, update_data)
-    test_fetch_doc_by_id(my_database,_id)
     test_get_doc_by_id(my_database,_id)
+    doc = test_fetch_doc_by_id(my_database,_id)
+    test_delete_doc_by_id(my_database,doc['_id'])
+
+    return doc
 
 
 if __name__ == "__main__":
     # execute only if run as a script
-    main({})
+    print(main({}))
