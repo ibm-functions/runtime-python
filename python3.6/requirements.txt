@@ -27,7 +27,7 @@ Pillow == 5.2.0
 
 # IBM specific python modules
 ibm_db == 2.0.9
-cloudant == 2.10.0
+cloudant == 2.9.0
 watson-developer-cloud == 1.7.1
 ibm-cos-sdk == 2.3.0
 ibmcloudsql == 0.2.13
