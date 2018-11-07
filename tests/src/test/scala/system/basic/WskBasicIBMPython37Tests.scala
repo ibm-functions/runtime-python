@@ -21,6 +21,6 @@ import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class WskBasicIBMPython37Tests extends WskBasicIBMPythonTests {
-
-  override lazy val kind = "python:3.6"
+  override lazy val kind = "python:3.7"
+  override lazy val filename = "python37_stretch_virtualenv.zip"
 }
