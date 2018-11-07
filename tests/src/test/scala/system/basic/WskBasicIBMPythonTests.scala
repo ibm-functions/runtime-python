@@ -30,6 +30,7 @@ import java.io.File
 class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matchers with JsHelpers with WskActorSystem {
 
   lazy val kind = "python:3.6"
+  lazy val filename = "python36_jessie_virtualenv.zip"
 
   implicit val wskprops = WskProps()
   val wsk: common.rest.WskRestOperations = new WskRestOperations
@@ -114,7 +115,6 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
 
   it should s"invoke a zipped $kind action with virtualenv package" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
     val userdir = "tests/dat/actions/p3zip"
-    val filename = "python3_jessie_virtualenv.zip"
     val name = filename
     val zippedPythonAction = Some(new File(userdir, filename).toString())
 
