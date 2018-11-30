@@ -1,5 +1,90 @@
 # IBM Functions Python 3.6 Runtime Container
 
+## 1.15.0
+- update kafka_python from `1.4.3` back to `1.4.4`
+- update requests from `2.20.0` back to `2.20.1`
+- update virtualenv from `16.0.0` back to `16.1.0`
+- update twisted from `18.7.0` back to `18.9.0`
+- update scikit-learn from `0.20.0` back to `0.20.1`
+- update cloudant from `2.9.0` back to `2.10.1`
+- update ibmcloudsql from `0.2.21` back to `0.2.23`
+- update psycopg2 from `2.7.5` back to `2.7.6.1`
+- update cassandra-driver from `3.15.1` back to `3.16.0`
+
+Python version:
+- [3.6.7](https://github.com/docker-library/python/blob/39c500cc8aefcb67a76d518d789441ef85fc771f/3.6/jessie/slim/Dockerfile)
+
+Python packages:
+- asn1crypto==0.24.0
+- attrs==18.2.0
+- autobahn==18.11.2
+- Automat==0.7.0
+- beautifulsoup4==4.6.3
+- botocore==1.12.57
+- cassandra-driver==3.16.0
+- certifi==2018.11.29
+- cffi==1.11.5
+- chardet==3.0.4
+- Click==7.0
+- cloudant==2.10.1
+- constantly==15.1.0
+- cryptography==2.4.2
+- cssselect==1.0.3
+- docutils==0.14
+- elasticsearch==5.5.3
+- Flask==1.0.2
+- gevent==1.3.7
+- greenlet==0.4.15
+- httplib2==0.11.3
+- hyperlink==18.0.0
+- ibm-cos-sdk==2.3.3
+- ibm-cos-sdk-core==2.3.3
+- ibm-cos-sdk-s3transfer==2.3.3
+- ibm-db==2.0.9
+- ibmcloudsql==0.2.23
+- idna==2.7
+- incremental==17.5.0
+- itsdangerous==1.1.0
+- Jinja2==2.10
+- jmespath==0.9.3
+- kafka-python==1.4.4
+- lxml==4.2.5
+- MarkupSafe==1.1.0
+- numpy==1.15.4
+- pandas==0.23.4
+- parsel==1.5.1
+- pika==0.12.0
+- Pillow==5.3.0
+- psycopg2==2.7.6.1
+- pyarrow==0.11.1
+- pyasn1==0.4.4
+- pyasn1-modules==0.2.2
+- pycparser==2.19
+- PyDispatcher==2.0.5
+- PyHamcrest==1.9.0
+- pymongo==3.7.2
+- pyOpenSSL==18.0.0
+- python-dateutil==2.7.5
+- pytz==2018.7
+- queuelib==1.5.0
+- redis==2.10.6
+- requests==2.20.1
+- scikit-learn==0.20.1
+- scipy==1.1.0
+- Scrapy==1.5.1
+- service-identity==17.0.0
+- simplejson==3.16.0
+- six==1.11.0
+- tornado==4.5.2
+- Twisted==18.9.0
+- txaio==18.8.1
+- urllib3==1.24.1
+- virtualenv==16.1.0
+- w3lib==1.19.0
+- watson-developer-cloud==1.7.1
+- Werkzeug==0.14.1
+- zope.interface==4.6.0
+
 ## 1.14.0
 - update gevent from `1.3.6` back to `1.3.7`
 - update python-dateutil from `2.7.3` back to `2.7.5`
