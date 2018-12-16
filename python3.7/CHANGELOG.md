@@ -14,7 +14,7 @@
 - update cassandra-driver from `3.15.1` back to `3.16.0`
 
 Python version:
-- [3.7.1](https://github.com/docker-library/python/blob/39c500cc8aefcb67a76d518d789441ef85fc771f/3.7/stretch/Dockerfile)
+- [3.7.1](https://github.com/docker-library/python/blob/39c500cc8aefcb67a76d518d789441ef85fc771f/3.7/stretch/slim/Dockerfile)
 
 Python packages:
 - asn1crypto==0.24.0

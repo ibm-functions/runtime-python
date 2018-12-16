@@ -1,15 +1,8 @@
 # IBM Functions Python 3.6 Runtime Container
 
 ## 1.16.0
-- update kafka_python from `1.4.3` back to `1.4.4`
-- update requests from `2.20.0` back to `2.20.1`
-- update virtualenv from `16.0.0` back to `16.1.0`
-- update twisted from `18.7.0` back to `18.9.0`
-- update scikit-learn from `0.20.0` back to `0.20.1`
-- update cloudant from `2.9.0` back to `2.10.1`
-- update ibmcloudsql from `0.2.21` back to `0.2.23`
-- update psycopg2 from `2.7.5` back to `2.7.6.1`
-- update cassandra-driver from `3.15.1` back to `3.16.0`
+- update requests from `2.20.1` back to `2.21.0`
+- update ibm-cos-sdk from `2.3.3` back to `2.4.0`
 
 Python version:
 - [3.6.7](https://github.com/docker-library/python/blob/39c500cc8aefcb67a76d518d789441ef85fc771f/3.6/jessie/slim/Dockerfile)
