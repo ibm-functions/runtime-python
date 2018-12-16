@@ -1,17 +1,10 @@
 # IBM Functions Python 3.7 Runtime Container
 
 ## 1.4.0
-- update kafka_python from `1.4.3` back to `1.4.4`
-- update requests from `2.20.0` back to `2.20.1`
-- update virtualenv from `16.0.0` back to `16.1.0`
-- update twisted from `18.7.0` back to `18.9.0`
-- update scikit-learn from `0.20.0` back to `0.20.1`
-- update cloudant from `2.9.0` back to `2.10.1`
-- update ibmcloudsql from `0.2.21` back to `0.2.23`
-- update psycopg2 from `2.7.5` back to `2.7.6.1`
-- update redis from `2.10.6` back to `3.0.1`
-- update elasticsearch from `5.5.3` back to `6.3.1`
-- update cassandra-driver from `3.15.1` back to `3.16.0`
+- add etcd3 `0.8.1`
+- update ibm-cos-sdk from `2.3.3` back to `2.4.0`
+- update requests from `2.20.1` back to `2.21.0`
+- update watson-developer-cloud from `0.32.2` back to `0.32.3`
 
 Python version:
 - [3.7.1](https://github.com/docker-library/python/blob/39c500cc8aefcb67a76d518d789441ef85fc771f/3.7/stretch/slim/Dockerfile)
