@@ -35,6 +35,9 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
   implicit val wskprops = WskProps()
   val wsk: common.rest.WskRestOperations = new WskRestOperations
 
+  /** indicates if errors are logged or returned in the answer */
+  lazy val initErrorsAreLogged = true
+
   behavior of "Native Python Action"
 
   it should "invoke an action and get the result" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
@@ -98,16 +101,18 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
       }
   }
 
-  it should "invoke an invalid action and get error back" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
-    val name = "bad code"
-    assetHelper.withCleaner(wsk.action, name) { (action, _) =>
-      action.create(name, Some(TestUtils.getTestActionFilename("malformed.py")), kind = Some(kind))
-    }
+  if (!initErrorsAreLogged) {
+    it should "invoke an invalid action and get error back" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
+      val name = "bad code"
+      assetHelper.withCleaner(wsk.action, name) { (action, _) =>
+        action.create(name, Some(TestUtils.getTestActionFilename("malformed.py")), kind = Some(kind))
+      }
 
-    withActivation(wsk.activation, wsk.action.invoke(name)) { activation =>
-      activation.response.result.get.fields.get("error") shouldBe Some(
-        JsString("The action failed to generate or locate a binary. See logs for details."))
-      activation.logs.get.mkString("\n") should { not include ("pythonaction.py") and not include ("flask") }
+      withActivation(wsk.activation, wsk.action.invoke(name)) { activation =>
+        activation.response.result.get.fields.get("error") shouldBe Some(
+          JsString("The action failed to generate or locate a binary. See logs for details."))
+        activation.logs.get.mkString("\n") should { not include ("pythonaction.py") and not include ("flask") }
+      }
     }
   }
 

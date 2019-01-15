@@ -23,4 +23,7 @@ import org.scalatest.junit.JUnitRunner
 class WskBasicIBMPython37Tests extends WskBasicIBMPythonTests {
   override lazy val kind = "python:3.7"
   override lazy val filename = "python37_stretch_virtualenv.zip"
+
+  /** actionloop based image does not log init errors - return the error in the body */
+  override lazy val initErrorsAreLogged = false
 }

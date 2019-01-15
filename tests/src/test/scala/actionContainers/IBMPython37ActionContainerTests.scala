@@ -22,4 +22,8 @@ import org.scalatest.junit.JUnitRunner
 class IBMPython37ActionContainerTests extends IBMPythonActionContainerTests {
 
   override lazy val imageName = "action-python-v3.7"
+  override val testNoSource = TestConfig("", hasCodeStub = false)
+
+  /** actionloop based image does not log init errors - return the error in the body */
+  override lazy val initErrorsAreLogged = false
 }

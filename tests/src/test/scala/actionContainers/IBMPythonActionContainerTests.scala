@@ -35,6 +35,9 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
   /** indicates if strings in python are unicode by default (i.e., python3 -> true, python2.7 -> false) */
   lazy val pythonStringAsUnicode = true
 
+  /** indicates if errors are logged or returned in the answer */
+  lazy val initErrorsAreLogged = true
+
   override def withActionContainer(env: Map[String, String] = Map.empty)(code: ActionContainer => Unit) = {
     withContainer(imageName, env)(code)
   }
@@ -202,11 +205,12 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       initCode should be(502)
     }
 
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Zip file does not include")
-    })
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Zip file does not include")
+      })
   }
 
   it should "report error if zipped Python action containing a virtual environment for wrong python version" in {
@@ -216,16 +220,25 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
 
     val (out, err) = withActionContainer() { c =>
       val (initCode, initRes) = c.init(initPayload(code, main = "main"))
-      initCode should be(200)
-      val args = JsObject("msg" -> JsString("any"))
-      val (runCode, runRes) = c.run(runPayload(args))
-      runCode should be(502)
+      if (initErrorsAreLogged) {
+        initCode should be(200)
+        val args = JsObject("msg" -> JsString("any"))
+        val (runCode, runRes) = c.run(runPayload(args))
+        runCode should be(502)
+      } else {
+        // it actually means it is actionloop
+        // it checks the error at init time
+        initCode should be(502)
+        initRes.get.fields.get("error").get.toString() should include("No module")
+      }
     }
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("ModuleNotFoundError")
-    })
+
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("ModuleNotFoundError")
+      })
   }
 
   it should "report error if zipped Python action has wrong main module name" in {
@@ -237,11 +250,13 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       val (initCode, initRes) = c.init(initPayload(code, main = "main"))
       initCode should be(502)
     }
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Zip file does not include __main__.py")
-    })
+
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Zip file does not include __main__.py")
+      })
   }
 
   it should "report error if zipped Python action has invalid virtualenv directory" in {
@@ -252,11 +267,13 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       val (initCode, initRes) = c.init(initPayload(code, main = "main"))
       initCode should be(502)
     }
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Zip file does not include /virtualenv/bin/")
-    })
+
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Zip file does not include /virtualenv/bin/")
+      })
   }
 
   it should "return on action error when action fails" in {
@@ -273,7 +290,12 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       initCode should be(200)
 
       val (runCode, runRes) = c.run(runPayload(JsObject()))
-      runCode should be(502)
+      /* ActionLoop does not set 502 if there are application errors
+       * Since it only receive a string from the application
+       * it should parse the entire string  in JSON just to find it is an "error"
+       */
+      if (initErrorsAreLogged)
+        runCode should be(502)
 
       runRes shouldBe defined
       runRes.get.fields.get("error") shouldBe defined
@@ -298,11 +320,12 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       initCode should be(502)
     }
 
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Traceback")
-    })
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Traceback")
+      })
   }
 
   it should "support application errors" in {
@@ -337,17 +360,25 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
                 |    return { "error": "not reaching here" }
             """.stripMargin
 
-      val (initCode, res) = c.init(initPayload(code))
-      initCode should be(200)
+      if (initErrorsAreLogged) {
+        val (initCode, res) = c.init(initPayload(code))
+        initCode should be(200)
 
-      val (runCode, runRes) = c.run(runPayload(JsObject()))
-      runCode should be(502)
+        val (runCode, runRes) = c.run(runPayload(JsObject()))
+        runCode should be(502)
+      } else {
+        // action loop detects those errors at init time
+        val (initCode, initRes) = c.init(initPayload(code))
+        initCode should be(502)
+        initRes.get.fields.get("error").get.toString() should include("Traceback")
+      }
     }
 
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Traceback")
-    })
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Traceback")
+      })
   }
 }
