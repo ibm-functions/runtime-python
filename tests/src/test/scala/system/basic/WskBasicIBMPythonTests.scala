@@ -101,7 +101,7 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
       }
   }
 
-  if (!initErrorsAreLogged) {
+  if (initErrorsAreLogged) {
     it should "invoke an invalid action and get error back" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
       val name = "bad code"
       assetHelper.withCleaner(wsk.action, name) { (action, _) =>
