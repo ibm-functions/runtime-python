@@ -1,5 +1,84 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.5.0
+- update python from `3.7.1` to `3.7.2`
+- switch openwhisk web proxy to high performance actionloop
+
+Python version:
+- [3.7.2](https://github.com/docker-library/python/blob/ab8b829cfefdb460ebc17e570332f0479039e918/3.7/stretch/Dockerfile)
+
+Python packages:
+- asn1crypto==0.24.0
+- attrs==18.2.0
+- Automat==0.7.0
+- beautifulsoup4==4.6.3
+- botocore==1.12.66
+- cassandra-driver==3.16.0
+- certifi==2018.11.29
+- cffi==1.11.5
+- chardet==3.0.4
+- Click==7.0
+- cloudant==2.10.1
+- constantly==15.1.0
+- cryptography==2.4.2
+- cssselect==1.0.3
+- docutils==0.14
+- elasticsearch==6.3.1
+- etcd3==0.8.1
+- Flask==1.0.2
+- gevent==1.3.7
+- greenlet==0.4.15
+- grpcio==1.17.1
+- httplib2==0.11.3
+- hyperlink==18.0.0
+- ibm-cos-sdk==2.4.0
+- ibm-db==2.0.9
+- ibmcloudsql==0.2.23
+- idna==2.8
+- incremental==17.5.0
+- itsdangerous==1.1.0
+- Jinja2==2.10
+- jmespath==0.9.3
+- kafka-python==1.4.4
+- lxml==4.2.5
+- MarkupSafe==1.1.0
+- numpy==1.15.4
+- pandas==0.23.4
+- parsel==1.5.1
+- pika==0.12.0
+- Pillow==5.3.0
+- protobuf==3.6.1
+- psycopg2==2.7.6.1
+- pyarrow==0.11.1
+- pyasn1==0.4.4
+- pyasn1-modules==0.2.2
+- pycparser==2.19
+- PyDispatcher==2.0.5
+- PyHamcrest==1.9.0
+- pymongo==3.7.2
+- pyOpenSSL==18.0.0
+- python-dateutil==2.7.5
+- pytz==2018.7
+- queuelib==1.5.0
+- redis==3.0.1
+- requests==2.21.0
+- scikit-learn==0.20.1
+- scipy==1.1.0
+- Scrapy==1.5.1
+- service-identity==18.1.0
+- simplejson==3.16.0
+- six==1.12.0
+- tenacity==5.0.2
+- tornado==4.5.2
+- Twisted==18.9.0
+- urllib3==1.24.1
+- virtualenv==16.1.0
+- w3lib==1.19.0
+- watson-developer-cloud==2.5.1
+- websocket-client==0.48.0
+- Werkzeug==0.14.1
+- zope.interface==4.6.0
+
 ## 1.4.0
 - add etcd3 `0.8.1`
 - update ibm-cos-sdk from `2.3.3` back to `2.4.0`
