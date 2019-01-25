@@ -27,8 +27,9 @@ import org.scalatest.BeforeAndAfterAll
 @RunWith(classOf[JUnitRunner])
 class IBMPythonActionDB2Tests extends TestHelpers with WskTestHelpers with BeforeAndAfterAll with WskActorSystem {
 
+  lazy val defaultKind = Some("python:3.6")
+
   implicit val wskprops: WskProps = WskProps()
-  var defaultKind = Some("python-jessie:3")
   val wsk = new WskRestOperations
   val db2dir = "tests/dat/db2/"
   val db2containerName = "db2test"

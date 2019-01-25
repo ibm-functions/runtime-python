@@ -19,16 +19,17 @@ script:
   - "./tools/travis/build.sh && ./tools/travis/deploy.sh && ./tools/travis/test.sh"
 deploy:
   - provider: script
-    script: "./tools/travis/publish.sh ibmfunctions master"
-    on:
-      branch: master
-      repo: ibm-functions/runtime-python
-  - provider: script
-    script: "./tools/travis/publish.sh ibmfunctions $TRAVIS_TAG"
+    script: "./tools/travis/publish.sh ibmfunctions ${TRAVIS_TAG%@*} ${TRAVIS_TAG##*@}"
     on:
       tags: true
       all_branches: true
       repo: ibm-functions/runtime-python
+  - provider: script
+    script: "./tools/travis/publish.sh ibmfunctions 3.6 master && ./tools/travis/publish.sh ibmfunctions 3.7 master "
+    on:
+      branch: master
+      repo: ibm-functions/runtime-python
+  
 env:
   global:
   - secure: QTl+38OboTb8QyI6FqOyXEx932GNbEx25dSz4dITvXgItBk4cWhq1MKFy2qmbXlZE4Xt1I8Jqrx4DVv0uuyJJN4tA9B7g8L0Bul87ataL9x8fAM4o3q3OBNxvlQ7R7FesQHeYB6W+v8t89BCHrQgq+YMZCsCHto1Z+BkpZlUryiQJd2oiMICP05GPMk87VSFNVJNeSKhpcOB6A/QfgIWVs6pl+JdB/KbVwL1oEysHwguUfMIWKwhEqFTQRuspTxd6OEEUuxGMoxTuEirj02uZQB/H4xzQcC5DdyjD66XYVAlkar/6eYuLA7DaW4WUxoixc+92PDe9vZC43g2mDXNMF82R50LoOdI8kyP8libKnBhw1BRR7u5zTIVj3Hckqf894K5YGqA3mVhTTxuAjBdcYJBvnNhWstpE3p8fl7qARk1pkyUB6c2CS2JC504gKxqh6HVNOGd9edNo9+N8NKAFhwXNniXkpFcEBa1TmWn0zVBTlBFm5EwtNKVFpyyIlf2DIqUUnCHg2qxL5Kp4wC98syiJCB6PXov7V97p0Y5enwGBTO4CEtgmnK1XcZenWcJvFUETSMNVZ5whDlYgT1atdULo77pHA1QxTaVsX/eyAHgpdQdP5iRSdMZSL6myOhj22UEeziam/iGouqMb7PZg8SSMpLomkjZ/A6caGI8DTQ=

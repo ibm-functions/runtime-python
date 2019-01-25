@@ -25,8 +25,9 @@ import spray.json._
 @RunWith(classOf[JUnitRunner])
 class CredentialsIBMPythonWatsonTests extends TestHelpers with WskTestHelpers with WskActorSystem {
 
+  lazy val defaultKind = Some("python:3.6")
+
   implicit val wskprops: WskProps = WskProps()
-  var defaultKind = Some("python-jessie:3")
   val wsk = new WskRestOperations
   val datdir = "tests/dat/watson"
   val actionName = "testWatsonService"

@@ -1,6 +1,7 @@
 include 'tests'
 
-include 'python3'
+include 'python3.6'
+include 'python3.7'
 
 rootProject.name = 'runtime-python-ibm'
 
@@ -9,7 +10,7 @@ gradle.ext.openwhisk = [
 ]
 
 gradle.ext.scala = [
-    version: '2.11.11',
+    version: '2.12.7',
     compileFlags: ['-feature', '-unchecked', '-deprecation', '-Xfatal-warnings', '-Ywarn-unused-import']
 ]
 

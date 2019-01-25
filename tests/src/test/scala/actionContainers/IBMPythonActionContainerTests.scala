@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,26 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package actionContainers
+
+package runtime.actionContainers
 
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-import ActionContainer.withContainer
-import ResourceHelpers.{readAsBase64, ZipBuilder}
 import spray.json.DefaultJsonProtocol._
 import spray.json._
 import common.WskActorSystem
+import actionContainers.{ActionContainer, BasicActionRunnerTests}
+import actionContainers.ActionContainer.withContainer
+import actionContainers.ResourceHelpers.{readAsBase64, ZipBuilder}
 import common.TestUtils
 import java.nio.file.Paths
 
 @RunWith(classOf[JUnitRunner])
 class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActorSystem {
 
-  //override lazy val imageName = "action-python-v3"
-  lazy val imageName = "action-python-v3"
+  lazy val imageName = "action-python-v3.6"
 
   /** indicates if strings in python are unicode by default (i.e., python3 -> true, python2.7 -> false) */
   lazy val pythonStringAsUnicode = true
+
+  /** indicates if errors are logged or returned in the answer */
+  lazy val initErrorsAreLogged = true
 
   override def withActionContainer(env: Map[String, String] = Map.empty)(code: ActionContainer => Unit) = {
     withContainer(imageName, env)(code)
@@ -45,13 +49,13 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
 
   override val testNotReturningJson =
     TestConfig("""
-      |def main(args):
-      |    return "not a json object"
-    """.stripMargin)
+                 |def main(args):
+                 |    return "not a json object"
+               """.stripMargin)
 
   override val testInitCannotBeCalledMoreThanOnce =
     TestConfig("""
-                |def main(args):
+                 |def main(args):
                  |    return args
                """.stripMargin)
 
@@ -65,52 +69,52 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
 
   override val testEcho =
     TestConfig("""
-        |from __future__ import print_function
-        |import sys
-        |def main(args):
-        |    print('hello stdout')
-        |    print('hello stderr', file=sys.stderr)
-        |    return args
-      """.stripMargin)
+      |from __future__ import print_function
+      |import sys
+      |def main(args):
+      |    print('hello stdout')
+      |    print('hello stderr', file=sys.stderr)
+      |    return args
+    """.stripMargin)
 
   override val testUnicode =
     TestConfig(if (pythonStringAsUnicode) {
       """
-          |def main(args):
-          |    sep = args['delimiter']
-          |    str = sep + " ☃ " + sep
-          |    print(str)
-          |    return {"winter" : str }
-        """.stripMargin.trim
+        |def main(args):
+        |    sep = args['delimiter']
+        |    str = sep + " ☃ " + sep
+        |    print(str)
+        |    return {"winter" : str }
+      """.stripMargin.trim
     } else {
       """
-          |def main(args):
-          |    sep = args['delimiter']
-          |    str = sep + " ☃ ".decode('utf-8') + sep
-          |    print(str.encode('utf-8'))
-          |    return {"winter" : str }
-        """.stripMargin.trim
+        |def main(args):
+        |    sep = args['delimiter']
+        |    str = sep + " ☃ ".decode('utf-8') + sep
+        |    print(str.encode('utf-8'))
+        |    return {"winter" : str }
+      """.stripMargin.trim
     })
 
   override val testEnv =
     TestConfig("""
-        |import os
-        |def main(dict):
-        |    return {
-        |       "api_host": os.environ['__OW_API_HOST'],
-        |       "api_key": os.environ['__OW_API_KEY'],
-        |       "namespace": os.environ['__OW_NAMESPACE'],
-        |       "action_name": os.environ['__OW_ACTION_NAME'],
-        |       "activation_id": os.environ['__OW_ACTIVATION_ID'],
-        |       "deadline": os.environ['__OW_DEADLINE']
-        |    }
-      """.stripMargin.trim)
+      |import os
+      |def main(dict):
+      |    return {
+      |       "api_host": os.environ['__OW_API_HOST'],
+      |       "api_key": os.environ['__OW_API_KEY'],
+      |       "namespace": os.environ['__OW_NAMESPACE'],
+      |       "action_name": os.environ['__OW_ACTION_NAME'],
+      |       "activation_id": os.environ['__OW_ACTIVATION_ID'],
+      |       "deadline": os.environ['__OW_DEADLINE']
+      |    }
+    """.stripMargin.trim)
 
   override val testLargeInput =
     TestConfig("""
-            |def main(args):
-            |    return args
-          """.stripMargin)
+        |def main(args):
+        |    return args
+      """.stripMargin)
 
   it should "support actions using non-default entry points" in {
     withActionContainer() { c =>
@@ -130,14 +134,14 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
   it should "support zip-encoded action using non-default entry points" in {
     val srcs = Seq(
       Seq("__main__.py") -> """
-                              |from echo import echo
-                              |def niam(args):
-                              |    return echo(args)
-                            """.stripMargin,
+                |from echo import echo
+                |def niam(args):
+                |    return echo(args)
+            """.stripMargin,
       Seq("echo.py") -> """
-                          |def echo(args):
-                          |  return { "echo": args }
-                        """.stripMargin)
+                |def echo(args):
+                |  return { "echo": args }
+            """.stripMargin)
 
     val code = ZipBuilder.mkBase64Zip(srcs)
 
@@ -162,10 +166,10 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
   it should "support zip-encoded action which can read from relative paths" in {
     val srcs = Seq(
       Seq("__main__.py") -> """
-                              |def main(args):
-                              |    f = open('workfile', 'r')
-                              |    return {'file': f.read()}
-                            """.stripMargin,
+                |def main(args):
+                |    f = open('workfile', 'r')
+                |    return {'file': f.read()}
+            """.stripMargin,
       Seq("workfile") -> "this is a test string")
 
     val code = ZipBuilder.mkBase64Zip(srcs)
@@ -190,9 +194,9 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
 
   it should "report error if zip-encoded action does not include required file" in {
     val srcs = Seq(Seq("echo.py") -> """
-                                       |def echo(args):
-                                       |  return { "echo": args }
-                                     """.stripMargin)
+                |def echo(args):
+                |  return { "echo": args }
+            """.stripMargin)
 
     val code = ZipBuilder.mkBase64Zip(srcs)
 
@@ -201,11 +205,58 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       initCode should be(502)
     }
 
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Zip file does not include")
-    })
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Zip file does not include")
+      })
+  }
+
+  it should "report error if zipped Python action containing a virtual environment for wrong python version" in {
+    val zippedPythonAction = "python2_virtualenv.zip"
+    val zippedPythonActionName = TestUtils.getTestActionFilename(zippedPythonAction)
+    val code = readAsBase64(Paths.get(zippedPythonActionName))
+
+    val (out, err) = withActionContainer() { c =>
+      val (initCode, initRes) = c.init(initPayload(code, main = "main"))
+      if (initErrorsAreLogged) {
+        initCode should be(200)
+        val args = JsObject("msg" -> JsString("any"))
+        val (runCode, runRes) = c.run(runPayload(args))
+        runCode should be(502)
+      } else {
+        // it actually means it is actionloop
+        // it checks the error at init time
+        initCode should be(502)
+        initRes.get.fields.get("error").get.toString() should include("No module")
+      }
+    }
+
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("ModuleNotFoundError")
+      })
+  }
+
+  it should "report error if zipped Python action has wrong main module name" in {
+    val zippedPythonActionWrongName = TestUtils.getTestActionFilename("python_virtualenv_name.zip")
+
+    val code = readAsBase64(Paths.get(zippedPythonActionWrongName))
+
+    val (out, err) = withActionContainer() { c =>
+      val (initCode, initRes) = c.init(initPayload(code, main = "main"))
+      initCode should be(502)
+    }
+
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Zip file does not include __main__.py")
+      })
   }
 
   it should "report error if zipped Python action has invalid virtualenv directory" in {
@@ -216,28 +267,35 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       val (initCode, initRes) = c.init(initPayload(code, main = "main"))
       initCode should be(502)
     }
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Zip file does not include /virtualenv/bin/")
-    })
+
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Zip file does not include /virtualenv/bin/")
+      })
   }
 
   it should "return on action error when action fails" in {
     val (out, err) = withActionContainer() { c =>
       val code = """
-                   |def div(x, y):
-                   |    return x/y
-                   |
-                   |def main(dict):
-                   |    return {"divBy0": div(5,0)}
-                 """.stripMargin
+                |def div(x, y):
+                |    return x/y
+                |
+                |def main(dict):
+                |    return {"divBy0": div(5,0)}
+            """.stripMargin
 
       val (initCode, _) = c.init(initPayload(code))
       initCode should be(200)
 
       val (runCode, runRes) = c.run(runPayload(JsObject()))
-      runCode should be(502)
+      /* ActionLoop does not set 502 if there are application errors
+       * Since it only receive a string from the application
+       * it should parse the entire string  in JSON just to find it is an "error"
+       */
+      if (initErrorsAreLogged)
+        runCode should be(502)
 
       runRes shouldBe defined
       runRes.get.fields.get("error") shouldBe defined
@@ -253,28 +311,29 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
   it should "log compilation errors" in {
     val (out, err) = withActionContainer() { c =>
       val code = """
-                   | 10 PRINT "Hello!"
-                   | 20 GOTO 10
-                 """.stripMargin
+              | 10 PRINT "Hello!"
+              | 20 GOTO 10
+            """.stripMargin
 
       val (initCode, res) = c.init(initPayload(code))
       // init checks whether compilation was successful, so return 502
       initCode should be(502)
     }
 
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Traceback")
-    })
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Traceback")
+      })
   }
 
   it should "support application errors" in {
     val (out, err) = withActionContainer() { c =>
       val code = """
-                   |def main(args):
-                   |    return { "error": "sorry" }
-                 """.stripMargin
+                |def main(args):
+                |    return { "error": "sorry" }
+            """.stripMargin
 
       val (initCode, _) = c.init(initPayload(code))
       initCode should be(200)
@@ -296,22 +355,30 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
   it should "error when importing a not-supported package" in {
     val (out, err) = withActionContainer() { c =>
       val code = """
-                   |import iamnotsupported
-                   |def main(args):
-                   |    return { "error": "not reaching here" }
-                 """.stripMargin
+                |import iamnotsupported
+                |def main(args):
+                |    return { "error": "not reaching here" }
+            """.stripMargin
 
-      val (initCode, res) = c.init(initPayload(code))
-      initCode should be(200)
+      if (initErrorsAreLogged) {
+        val (initCode, res) = c.init(initPayload(code))
+        initCode should be(200)
 
-      val (runCode, runRes) = c.run(runPayload(JsObject()))
-      runCode should be(502)
+        val (runCode, runRes) = c.run(runPayload(JsObject()))
+        runCode should be(502)
+      } else {
+        // action loop detects those errors at init time
+        val (initCode, initRes) = c.init(initPayload(code))
+        initCode should be(502)
+        initRes.get.fields.get("error").get.toString() should include("Traceback")
+      }
     }
 
-    checkStreams(out, err, {
-      case (o, e) =>
-        o shouldBe empty
-        e should include("Traceback")
-    })
+    if (initErrorsAreLogged)
+      checkStreams(out, err, {
+        case (o, e) =>
+          o shouldBe empty
+          e should include("Traceback")
+      })
   }
 }

@@ -1,4 +1,660 @@
-# IBM Functions Python 3 Runtime Container
+# IBM Functions Python 3.6 Runtime Container
+
+## 1.17.0
+Changes:
+  - update python from `3.6.7` to `3.6.8`
+  - update gevent from `1.3.7` back to `1.4.0`
+  - update beautifulsoup4 from `4.6.3` back to `4.7.1`
+  - update httplib2 from `0.11.3` back to `0.12.0`
+  - update lxml from `4.2.5` back to `4.3.0`
+  - update numpy from `1.15.4` back to `1.16.0`
+  - update virtualenv from `16.1.0` back to `16.2.0`
+  - update scikit-learn from `0.20.1` back to `0.20.2`
+  - update scipy from `1.1.0` back to `1.2.0`
+  - update Pillow from `5.3.0` back to `5.4.1`
+  - update cloudant from `2.10.1` back to `2.10.2`
+  - update ibm-cos-sdk from `2.4.0` back to `2.4.2`
+
+Python version:
+- [3.6.8](https://github.com/docker-library/python/blob/721671c28aad96ad2c1970e83c2af71ceff15f1b/3.6/jessie/slim/Dockerfile)
+
+- Python packages:
+- asn1crypto==0.24.0
+- attrs==18.2.0
+- autobahn==19.1.1
+- Automat==0.7.0
+- beautifulsoup4==4.7.1
+- botocore==1.12.80
+- cassandra-driver==3.16.0
+- certifi==2018.11.29
+- cffi==1.11.5
+- chardet==3.0.4
+- Click==7.0
+- cloudant==2.10.2
+- constantly==15.1.0
+- cryptography==2.4.2
+- cssselect==1.0.3
+- docutils==0.14
+- elasticsearch==5.5.3
+- Flask==1.0.2
+- gevent==1.4.0
+- greenlet==0.4.15
+- httplib2==0.12.0
+- hyperlink==18.0.0
+- ibm-cos-sdk==2.4.2
+- ibm-cos-sdk-core==2.4.2
+- ibm-cos-sdk-s3transfer==2.4.2
+- ibm-db==2.0.9
+- ibmcloudsql==0.2.23
+- idna==2.8
+- incremental==17.5.0
+- itsdangerous==1.1.0
+- Jinja2==2.10
+- jmespath==0.9.3
+- kafka-python==1.4.4
+- lxml==4.3.0
+- MarkupSafe==1.1.0
+- numpy==1.16.0
+- pandas==0.23.4
+- parsel==1.5.1
+- pika==0.12.0
+- Pillow==5.4.1
+- psycopg2==2.7.6.1
+- pyarrow==0.11.1
+- pyasn1==0.4.5
+- pyasn1-modules==0.2.3
+- pycparser==2.19
+- PyDispatcher==2.0.5
+- PyHamcrest==1.9.0
+- pymongo==3.7.2
+- pyOpenSSL==18.0.0
+- python-dateutil==2.7.5
+- pytz==2018.9
+- queuelib==1.5.0
+- redis==2.10.6
+- requests==2.21.0
+- scikit-learn==0.20.2
+- scipy==1.2.0
+- Scrapy==1.5.1
+- service-identity==18.1.0
+- simplejson==3.16.0
+- six==1.12.0
+- soupsieve==1.7.1
+- tornado==4.5.2
+- Twisted==18.9.0
+- txaio==18.8.1
+- urllib3==1.24.1
+- virtualenv==16.2.0
+- w3lib==1.20.0
+- watson-developer-cloud==1.7.1
+- Werkzeug==0.14.1
+- zope.interface==4.6.0
+-
+## 1.16.0
+- update requests from `2.20.1` back to `2.21.0`
+- update ibm-cos-sdk from `2.3.3` back to `2.4.0`
+
+Python version:
+- [3.6.7](https://github.com/docker-library/python/blob/39c500cc8aefcb67a76d518d789441ef85fc771f/3.6/jessie/slim/Dockerfile)
+
+Python packages:
+- asn1crypto==0.24.0
+- attrs==18.2.0
+- autobahn==18.11.2
+- Automat==0.7.0
+- beautifulsoup4==4.6.3
+- botocore==1.12.66
+- cassandra-driver==3.16.0
+- certifi==2018.11.29
+- cffi==1.11.5
+- chardet==3.0.4
+- Click==7.0
+- cloudant==2.10.1
+- constantly==15.1.0
+- cryptography==2.4.2
+- cssselect==1.0.3
+- docutils==0.14
+- elasticsearch==5.5.3
+- Flask==1.0.2
+- gevent==1.3.7
+- greenlet==0.4.15
+- httplib2==0.11.3
+- hyperlink==18.0.0
+- ibm-cos-sdk==2.4.0
+- ibm-db==2.0.9
+- ibmcloudsql==0.2.23
+- idna==2.8
+- incremental==17.5.0
+- itsdangerous==1.1.0
+- Jinja2==2.10
+- jmespath==0.9.3
+- kafka-python==1.4.4
+- lxml==4.2.5
+- MarkupSafe==1.1.0
+- numpy==1.15.4
+- pandas==0.23.4
+- parsel==1.5.1
+- pika==0.12.0
+- Pillow==5.3.0
+- psycopg2==2.7.6.1
+- pyarrow==0.11.1
+- pyasn1==0.4.4
+- pyasn1-modules==0.2.2
+- pycparser==2.19
+- PyDispatcher==2.0.5
+- PyHamcrest==1.9.0
+- pymongo==3.7.2
+- pyOpenSSL==18.0.0
+- python-dateutil==2.7.5
+- pytz==2018.7
+- queuelib==1.5.0
+- redis==2.10.6
+- requests==2.21.0
+- scikit-learn==0.20.1
+- scipy==1.1.0
+- Scrapy==1.5.1
+- service-identity==18.1.0
+- simplejson==3.16.0
+- six==1.12.0
+- tornado==4.5.2
+- Twisted==18.9.0
+- txaio==18.8.1
+- urllib3==1.24.1
+- virtualenv==16.1.0
+- w3lib==1.19.0
+- watson-developer-cloud==1.7.1
+- Werkzeug==0.14.1
+- zope.interface==4.6.0
+
+## 1.15.0
+- update kafka_python from `1.4.3` back to `1.4.4`
+- update requests from `2.20.0` back to `2.20.1`
+- update virtualenv from `16.0.0` back to `16.1.0`
+- update twisted from `18.7.0` back to `18.9.0`
+- update scikit-learn from `0.20.0` back to `0.20.1`
+- update cloudant from `2.9.0` back to `2.10.1`
+- update ibmcloudsql from `0.2.21` back to `0.2.23`
+- update psycopg2 from `2.7.5` back to `2.7.6.1`
+- update cassandra-driver from `3.15.1` back to `3.16.0`
+
+Python version:
+- [3.6.7](https://github.com/docker-library/python/blob/39c500cc8aefcb67a76d518d789441ef85fc771f/3.6/jessie/slim/Dockerfile)
+
+Python packages:
+- asn1crypto==0.24.0
+- attrs==18.2.0
+- autobahn==18.11.2
+- Automat==0.7.0
+- beautifulsoup4==4.6.3
+- botocore==1.12.57
+- cassandra-driver==3.16.0
+- certifi==2018.11.29
+- cffi==1.11.5
+- chardet==3.0.4
+- Click==7.0
+- cloudant==2.10.1
+- constantly==15.1.0
+- cryptography==2.4.2
+- cssselect==1.0.3
+- docutils==0.14
+- elasticsearch==5.5.3
+- Flask==1.0.2
+- gevent==1.3.7
+- greenlet==0.4.15
+- httplib2==0.11.3
+- hyperlink==18.0.0
+- ibm-cos-sdk==2.3.3
+- ibm-cos-sdk-core==2.3.3
+- ibm-cos-sdk-s3transfer==2.3.3
+- ibm-db==2.0.9
+- ibmcloudsql==0.2.23
+- idna==2.7
+- incremental==17.5.0
+- itsdangerous==1.1.0
+- Jinja2==2.10
+- jmespath==0.9.3
+- kafka-python==1.4.4
+- lxml==4.2.5
+- MarkupSafe==1.1.0
+- numpy==1.15.4
+- pandas==0.23.4
+- parsel==1.5.1
+- pika==0.12.0
+- Pillow==5.3.0
+- psycopg2==2.7.6.1
+- pyarrow==0.11.1
+- pyasn1==0.4.4
+- pyasn1-modules==0.2.2
+- pycparser==2.19
+- PyDispatcher==2.0.5
+- PyHamcrest==1.9.0
+- pymongo==3.7.2
+- pyOpenSSL==18.0.0
+- python-dateutil==2.7.5
+- pytz==2018.7
+- queuelib==1.5.0
+- redis==2.10.6
+- requests==2.20.1
+- scikit-learn==0.20.1
+- scipy==1.1.0
+- Scrapy==1.5.1
+- service-identity==17.0.0
+- simplejson==3.16.0
+- six==1.11.0
+- tornado==4.5.2
+- Twisted==18.9.0
+- txaio==18.8.1
+- urllib3==1.24.1
+- virtualenv==16.1.0
+- w3lib==1.19.0
+- watson-developer-cloud==1.7.1
+- Werkzeug==0.14.1
+- zope.interface==4.6.0
+
+## 1.14.0
+- update gevent from `1.3.6` back to `1.3.7`
+- update python-dateutil from `2.7.3` back to `2.7.5`
+- update requests from `2.19.1` back to `2.20.0`
+- update numpy from `1.15.2` back to `1.15.4`
+- update Pillow from `5.2.0` back to `5.3.0`
+- update ibm-cos-sdk from `2.3.0` back to `2.3.3`
+- update ibmcloudsql from `0.2.13` back to `0.2.21`
+- update pymongo from `3.7.1` back to `3.7.2`
+
+Python version:
+- [3.6.7](https://github.com/docker-library/python/blob/bf1acb4f1caad419ff290d700044240b4e8cb0df/3.6/jessie/slim/Dockerfile)
+
+Python packages:
+- asn1crypto==0.24.0
+- attrs==18.2.0
+- autobahn==18.11.1
+- Automat==0.7.0
+- beautifulsoup4==4.6.3
+- botocore==1.12.39
+- cassandra-driver==3.15.1
+- certifi==2018.10.15
+- cffi==1.11.5
+- chardet==3.0.4
+- Click==7.0
+- cloudant==2.9.0
+- constantly==15.1.0
+- cryptography==2.3.1
+- cssselect==1.0.3
+- docutils==0.14
+- elasticsearch==5.5.3
+- Flask==1.0.2
+- gevent==1.3.7
+- greenlet==0.4.15
+- httplib2==0.11.3
+- hyperlink==18.0.0
+- ibm-cos-sdk==2.3.3
+- ibm-db==2.0.9
+- ibmcloudsql==0.2.21
+- idna==2.7
+- incremental==17.5.0
+- itsdangerous==1.1.0
+- Jinja2==2.10
+- jmespath==0.9.3
+- kafka-python==1.4.3
+- lxml==4.2.5
+- MarkupSafe==1.1.0
+- numpy==1.15.4
+- pandas==0.23.4
+- parsel==1.5.1
+- pika==0.12.0
+- Pillow==5.3.0
+- psycopg2==2.7.5
+- pyarrow==0.11.1
+- pyasn1==0.4.4
+- pyasn1-modules==0.2.2
+- pycparser==2.19
+- PyDispatcher==2.0.5
+- PyHamcrest==1.9.0
+- pymongo==3.7.2
+- pyOpenSSL==18.0.0
+- python-dateutil==2.7.5
+- pytz==2018.7
+- queuelib==1.5.0
+- redis==2.10.6
+- requests==2.20.0
+- scikit-learn==0.20.0
+- scipy==1.1.0
+- Scrapy==1.5.1
+- service-identity==17.0.0
+- simplejson==3.16.0
+- six==1.11.0
+- tornado==4.5.2
+- Twisted==18.7.0
+- txaio==18.8.1
+- urllib3==1.24.1
+- virtualenv==16.0.0
+- w3lib==1.19.0
+- watson-developer-cloud==1.7.1
+- Werkzeug==0.14.1
+- zope.interface==4.6.0
+
+## 1.13.0
+- revert cloudant from `2.10.0` back to `2.9.0`
+
+Python version:
+- [3.6.6](https://github.com/docker-library/python/blob/878ffe36c2391279e673a44a011f5c65943b5eb8/3.6/jessie/Dockerfile)
+
+Python packages:
+- asn1crypto==0.24.0
+- attrs==18.2.0
+- autobahn==18.10.1
+- Automat==0.7.0
+- beautifulsoup4==4.6.3
+- botocore==1.12.30
+- cassandra-driver==3.15.1
+- certifi==2018.10.15
+- cffi==1.11.5
+- chardet==3.0.4
+- Click==7.0
+- cloudant==2.9.0
+- constantly==15.1.0
+- cryptography==2.3.1
+- cssselect==1.0.3
+- docutils==0.14
+- elasticsearch==5.5.3
+- Flask==1.0.2
+- gevent==1.3.6
+- greenlet==0.4.15
+- httplib2==0.11.3
+- hyperlink==18.0.0
+- ibm-cos-sdk==2.3.0
+- ibm-db==2.0.9
+- ibmcloudsql==0.2.13
+- idna==2.7
+- incremental==17.5.0
+- ItsDangerous==1.0.0
+- Jinja2==2.10
+- jmespath==0.9.3
+- kafka-python==1.4.3
+- lxml==4.2.5
+- MarkupSafe==1.0
+- numpy==1.15.2
+- pandas==0.23.4
+- parsel==1.5.0
+- pika==0.12.0
+- Pillow==5.2.0
+- psycopg2==2.7.5
+- pyasn1==0.4.4
+- pyasn1-modules==0.2.2
+- pycparser==2.19
+- PyDispatcher==2.0.5
+- PyHamcrest==1.9.0
+- pymongo==3.7.1
+- pyOpenSSL==18.0.0
+- python-dateutil==2.7.3
+- pytz==2018.5
+- queuelib==1.5.0
+- redis==2.10.6
+- requests==2.19.1
+- scikit-learn==0.20.0
+- scipy==1.1.0
+- Scrapy==1.5.1
+- service-identity==17.0.0
+- simplejson==3.16.0
+- six==1.11.0
+- tornado==4.5.2
+- Twisted==18.7.0
+- txaio==18.8.1
+- urllib3==1.23
+- virtualenv==16.0.0
+- w3lib==1.19.0
+- watson-developer-cloud==1.7.1
+- Werkzeug==0.14.1
+- zope.interface==4.6.0
+
+## 1.12.0
+- update cassandra-driver from `3.14.0` to `3.15.1`
+- update cloudant from `2.9.0` to `2.10.0`
+- update ibm-cos-sdk from `2.1.3` to `2.3.0`
+- update lxml from `4.2.4` to `4.2.5`
+- update numpy from `1.15.0` to `1.15.2`
+- update scikit-learn from `0.19.2` to `0.20.0`
+- update watson-developer-cloud from `1.7.0` to `1.7.1`
+
+Python version:
+- [3.6.6](https://github.com/docker-library/python/blob/878ffe36c2391279e673a44a011f5c65943b5eb8/3.6/jessie/Dockerfile)
+
+Python packages:
+- asn1crypto==0.24.0
+- attrs==18.2.0
+- autobahn==18.9.2
+- Automat==0.7.0
+- beautifulsoup4==4.6.3
+- botocore==1.12.13
+- cassandra-driver==3.15.1
+- certifi==2018.8.24
+- cffi==1.11.5
+- chardet==3.0.4
+- Click==7.0
+- cloudant==2.10.0
+- constantly==15.1.0
+- cryptography==2.3.1
+- cssselect==1.0.3
+- docutils==0.14
+- elasticsearch==5.5.3
+- Flask==1.0.2
+- gevent==1.3.6
+- greenlet==0.4.15
+- httplib2==0.11.3
+- hyperlink==18.0.0
+- ibm-cos-sdk==2.3.0
+- ibm-db==2.0.9
+- ibmcloudsql==0.2.13
+- idna==2.7
+- incremental==17.5.0
+- itsdangerous==0.24
+- Jinja2==2.10
+- jmespath==0.9.3
+- kafka-python==1.4.3
+- lxml==4.2.5
+- MarkupSafe==1.0
+- numpy==1.15.2
+- pandas==0.23.4
+- parsel==1.5.0
+- pika==0.12.0
+- Pillow==5.2.0
+- psycopg2==2.7.5
+- pyasn1==0.4.4
+- pyasn1-modules==0.2.2
+- pycparser==2.19
+- PyDispatcher==2.0.5
+- PyHamcrest==1.9.0
+- pymongo==3.7.1
+- pyOpenSSL==18.0.0
+- python-dateutil==2.7.3
+- pytz==2018.5
+- queuelib==1.5.0
+- redis==2.10.6
+- requests==2.19.1
+- scikit-learn==0.20.0
+- scipy==1.1.0
+- Scrapy==1.5.1
+- service-identity==17.0.0
+- simplejson==3.16.0
+- six==1.11.0
+- tornado==4.5.2
+- Twisted==18.7.0
+- txaio==18.8.1
+- urllib3==1.23
+- virtualenv==16.0.0
+- w3lib==1.19.0
+- watson-developer-cloud==1.7.1
+- Werkzeug==0.14.1
+- zope.interface==4.5.0
+
+## 1.11.0
+- update runtime to allow more environment variables via invoker run
+- update beautifulsoup4 from `4.6.0` to `4.6.3`
+- update ibm_db_ from `2.0.8a0` to `2.0.9`
+- update ibm-cos-sdk from `2.1.2` to `2.1.3`
+- update lxml from `4.2.3` to `4.2.4`
+- update numpy from `1.14.5` to `1.15.0`
+- update pandas from `0.23.3` to `0.23.4`
+- update watson-developer-cloud from `1.5.0` to `1.7.0`
+
+Python version:
+- [3.6.6](https://github.com/docker-library/python/blob/878ffe36c2391279e673a44a011f5c65943b5eb8/3.6/jessie/Dockerfile)
+
+Python packages:
+- asn1crypto             0.24.0
+- attrs                  18.1.0
+- autobahn               18.8.1
+- Automat                0.7.0
+- beautifulsoup4         4.6.3
+- botocore               1.10.81
+- cassandra-driver       3.14.0
+- certifi                2018.8.13
+- cffi                   1.11.5
+- chardet                3.0.4
+- click                  6.7
+- cloudant               2.9.0
+- constantly             15.1.0
+- cryptography           2.3.1
+- cssselect              1.0.3
+- docutils               0.14
+- elasticsearch          5.5.3
+- Flask                  1.0.2
+- gevent                 1.2.2
+- greenlet               0.4.14
+- httplib2               0.11.3
+- hyperlink              18.0.0
+- ibm-cos-sdk            2.1.3
+- ibm-db                 2.0.9
+- ibmcloudsql            0.2.13
+- idna                   2.7
+- incremental            17.5.0
+- itsdangerous           0.24
+- Jinja2                 2.10
+- jmespath               0.9.3
+- kafka-python           1.4.3
+- lxml                   4.2.4
+- MarkupSafe             1.0
+- numpy                  1.15.0
+- pandas                 0.23.4
+- parsel                 1.5.0
+- pika                   0.12.0
+- Pillow                 5.2.0
+- pip                    18.0
+- psycopg2               2.7.5
+- pyasn1                 0.4.4
+- pyasn1-modules         0.2.2
+- pycparser              2.18
+- PyDispatcher           2.0.5
+- PyHamcrest             1.9.0
+- pymongo                3.7.1
+- pyOpenSSL              18.0.0
+- python-dateutil        2.7.3
+- pytz                   2018.5
+- queuelib               1.5.0
+- redis                  2.10.6
+- requests               2.19.1
+- scikit-learn           0.19.2
+- scipy                  1.1.0
+- Scrapy                 1.5.1
+- service-identity       17.0.0
+- setuptools             40.2.0
+- simplejson             3.16.0
+- six                    1.11.0
+- tornado                4.5.2
+- Twisted                18.7.0
+- txaio                  18.7.1
+- urllib3                1.23
+- virtualenv             16.0.0
+- w3lib                  1.19.0
+- watson-developer-cloud 1.7.0
+- Werkzeug               0.14.1
+- wheel                  0.31.1
+- zope.interface         4.5.0
+
+## 1.10.0
+- update Python Runtime from 3.6.5 to 3.6.6
+- update ibm-cos-sdk from `2.1.1` to `2.1.2`
+- update lxml from `4.2.1` to `4.2.3`
+- update pandas from `0.23.1` to `0.23.3`
+- update Pillow from `5.1.0` to `5.2.0`
+- update pymongo from `3.6.1` to `3.7.1`
+- update scikit-learn from `0.19.1` to `0.19.2`
+- update Scrapy from `1.5.0` to `1.5.1`
+- update simplejson from `3.15.0` to `3.16.0`
+- update Twisted from `18.4.0` to `18.7.0`
+- update watson-developer-cloud from `1.4.0` to `1.5.0`
+
+Python version:
+- [3.6.6](https://github.com/docker-library/python/blob/b99b66406ebe728fb4da64548066ad0be6582e08/3.6/jessie/Dockerfile)
+
+Python packages:
+- asn1crypto (0.24.0)
+- attrs (17.4.0)
+- autobahn (18.4.1)
+- Automat (0.6.0)
+- beautifulsoup4 (4.6.0)
+- botocore (1.10.4)
+- cassandra-driver (3.14.0)
+- certifi (2018.1.18)
+- cffi (1.11.5)
+- chardet (3.0.4)
+- click (6.7)
+- cloudant (2.9.0)
+- constantly (15.1.0)
+- cryptography (2.2.2)
+- cssselect (1.0.3)
+- docutils (0.14)
+- elasticsearch (6.2.0)
+- Flask (1.0.2)
+- gevent (1.2.2)
+- greenlet (0.4.13)
+- httplib2 (0.11.3)
+- hyperlink (18.0.0)
+- ibm-cos-sdk (2.1.2)
+- ibm-db (2.0.8a0)
+- ibmcloudsql (0.2.13)
+- idna (2.6)
+- incremental (17.5.0)
+- itsdangerous (0.24)
+- Jinja2 (2.10)
+- jmespath (0.9.3)
+- kafka-python (1.4.3)
+- lxml (4.2.3)
+- MarkupSafe (1.0)
+- numpy (1.14.5)
+- pandas (0.23.3)
+- parsel (1.4.0)
+- pika (0.12.0)
+- Pillow (5.2.0)
+- psycopg2 (2.7.5)
+- pyasn1 (0.4.2)
+- pyasn1-modules (0.2.1)
+- pycparser (2.18)
+- PyDispatcher (2.0.5)
+- pymongo (3.7.1)
+- pyOpenSSL (17.5.0)
+- pysolr (3.7.0)
+- python-dateutil (2.7.3)
+- pytz (2018.4)
+- queuelib (1.5.0)
+- redis (2.10.6)
+- requests (2.19.1)
+- scikit-learn (0.19.2)
+- scipy (1.1.0)
+- Scrapy (1.5.1)
+- service-identity (17.0.0)
+- simplejson (3.16.0)
+- six (1.11.0)
+- tornado (5.0.2)
+- Twisted (18.7.0)
+- txaio (2.10.0)
+- urllib3 (1.22)
+- virtualenv (16.0.0)
+- w3lib (1.19.0)
+- watson-developer-cloud (1.5.0)
+- Werkzeug (0.14.1)
+- wheel (0.30.0)
+- zope.interface (4.4.3)
 
 ## 1.9.1
 - update upstream tags to dockerskeleton@1.3.2 and 3@1.0.1
@@ -83,6 +739,7 @@ Python packages:
 - Werkzeug (0.14.1)
 - wheel (0.30.0)
 - zope.interface (4.4.3)
+
 ## 1.8.0
 - update numpy from `1.14.3` to `1.14.4`
 - update watson-developer-cloud from `1.3.4` to `1.3.5`

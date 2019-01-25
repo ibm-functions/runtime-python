@@ -29,9 +29,14 @@ import java.io.File
 @RunWith(classOf[JUnitRunner])
 class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matchers with JsHelpers with WskActorSystem {
 
+  lazy val kind = "python:3.6"
+  lazy val filename = "python36_jessie_virtualenv.zip"
+
   implicit val wskprops = WskProps()
   val wsk: common.rest.WskRestOperations = new WskRestOperations
-  val kind = "python-jessie:3"
+
+  /** indicates if errors are logged or returned in the answer */
+  lazy val initErrorsAreLogged = true
 
   behavior of "Native Python Action"
 
@@ -76,7 +81,7 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
     }
 
     withActivation(wsk.activation, wsk.action.invoke(name)) {
-      _.response.result.get shouldBe JsObject("version" -> JsNumber(kind.takeRight(1).toInt))
+      _.response.result.get shouldBe JsObject("version" -> JsNumber(3))
     }
   }
 
@@ -96,16 +101,18 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
       }
   }
 
-  it should "invoke an invalid action and get error back" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
-    val name = "bad code"
-    assetHelper.withCleaner(wsk.action, name) { (action, _) =>
-      action.create(name, Some(TestUtils.getTestActionFilename("malformed.py")), kind = Some(kind))
-    }
+  if (initErrorsAreLogged) {
+    it should "invoke an invalid action and get error back" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
+      val name = "bad code"
+      assetHelper.withCleaner(wsk.action, name) { (action, _) =>
+        action.create(name, Some(TestUtils.getTestActionFilename("malformed.py")), kind = Some(kind))
+      }
 
-    withActivation(wsk.activation, wsk.action.invoke(name)) { activation =>
-      activation.response.result.get.fields.get("error") shouldBe Some(
-        JsString("The action failed to generate or locate a binary. See logs for details."))
-      activation.logs.get.mkString("\n") should { not include ("pythonaction.py") and not include ("flask") }
+      withActivation(wsk.activation, wsk.action.invoke(name)) { activation =>
+        activation.response.result.get.fields.get("error") shouldBe Some(
+          JsString("The action failed to generate or locate a binary. See logs for details."))
+        activation.logs.get.mkString("\n") should { not include ("pythonaction.py") and not include ("flask") }
+      }
     }
   }
 
@@ -113,7 +120,6 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
 
   it should s"invoke a zipped $kind action with virtualenv package" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
     val userdir = "tests/dat/actions/p3zip"
-    val filename = "python3_jessie_virtualenv.zip"
     val name = filename
     val zippedPythonAction = Some(new File(userdir, filename).toString())
 
