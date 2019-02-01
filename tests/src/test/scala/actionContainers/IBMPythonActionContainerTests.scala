@@ -167,8 +167,8 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
     val srcs = Seq(
       Seq("__main__.py") -> """
                 |def main(args):
-                |    f = open('workfile', 'r')
-                |    return {'file': f.read()}
+                |    with open('workfile', 'r') as f:
+                |      return { 'file': f.read() }
             """.stripMargin,
       Seq("workfile") -> "this is a test string")
 
