@@ -1,5 +1,95 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.8.0
+Changes:
+  - update to new base image fixing issue [Python 3.7 - sys.executable is empty](https://github.com/apache/incubator-openwhisk-runtime-python/issues/49)
+  - update httplib2 from `0.12.0` to `0.12.1`
+  - update lxml from `4.3.0` to `4.3.1
+  - update scipy from `1.2.0` to `1.2.1`
+  - update watson-developer-cloud from `2.7.0` back to `2.8.0`
+
+Python version:
+  - [3.7.2](https://github.com/docker-library/python/blob/ab8b829cfefdb460ebc17e570332f0479039e918/3.7/stretch/Dockerfile)
+
+Python packages:
+  - asn1crypto==0.24.0
+  - attrs==18.2.0
+  - Automat==0.7.0
+  - beautifulsoup4==4.7.1
+  - botocore==1.12.98
+  - cassandra  - driver==3.16.0
+  - certifi==2018.11.29
+  - cffi==1.12.1
+  - chardet==3.0.4
+  - Click==7.0
+  - cloudant==2.11.0
+  - constantly==15.1.0
+  - cryptography==2.5
+  - cssselect==1.0.3
+  - docutils==0.14
+  - elasticsearch==6.3.1
+  - etcd3==0.8.1
+  - Flask==1.0.2
+  - gevent==1.4.0
+  - greenlet==0.4.15
+  - grpcio==1.18.0
+  - httplib2==0.12.1
+  - hyperlink==18.0.0
+  - ibm-cos-sdk==2.4.3
+  - ibm-cos-sdk-core==2.4.3
+  - ibm-cos-sdk-s3transfer==2.4.3
+  - ibm-db==2.0.9
+  - ibmcloudsql==0.2.23
+  - idna==2.7
+  - incremental==17.5.0
+  - itsdangerous==1.1.0
+  - Jinja2==2.10
+  - jmespath==0.9.3
+  - kafka-python==1.4.4
+  - lxml==4.3.1
+  - MarkupSafe==1.1.0
+  - numpy==1.16.1
+  - pandas==0.24.1
+  - parsel==1.5.1
+  - pika==0.13.0
+  - Pillow==5.4.1
+  - pip==19.0.2
+  - protobuf==3.6.1
+  - psycopg2==2.7.7
+  - pyarrow==0.12.0
+  - pyasn1==0.4.5
+  - pyasn1-modules==0.2.4
+  - pycparser==2.19
+  - PyDispatcher==2.0.5
+  - PyHamcrest==1.9.0
+  - pymongo==3.7.2
+  - pyOpenSSL==19.0.0
+  - python-dateutil==2.7.5
+  - pytz==2018.9
+  - queuelib==1.5.0
+  - redis==3.1.0
+  - requests==2.21.0
+  - scikit-learn==0.20.2
+  - scipy==1.2.1
+  - Scrapy==1.6.0
+  - service-identity==18.1.0
+  - setuptools==40.8.0
+  - simplejson==3.16.0
+  - six==1.12.0
+  - soupsieve==1.8
+  - tenacity==5.0.3
+  - tornado==4.5.2
+  - Twisted==18.9.0
+  - urllib3==1.23
+  - virtualenv==16.3.0
+  - w3lib==1.20.0
+  - watson-developer-cloud==2.8.0
+  - websocket-client==0.48.0
+  - Werkzeug==0.14.1
+  - wheel==0.33.0
+  - zope.interface==4.6.0
+
+
 ## 1.7.0
 Changes:
   - update cloudnt from `2.10.2` back to `2.11.0`
