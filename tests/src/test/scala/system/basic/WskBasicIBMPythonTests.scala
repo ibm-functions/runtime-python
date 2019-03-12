@@ -18,6 +18,7 @@ package system.basic
 
 import common.{JsHelpers, TestHelpers, TestUtils, WhiskProperties, WskActorSystem, WskProps, WskTestHelpers}
 import common.rest.WskRestOperations
+import org.apache.openwhisk.core.entity.WhiskAction
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.Matchers
@@ -89,7 +90,11 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
     (wp, assetHelper) =>
       val name = "stdenv"
       assetHelper.withCleaner(wsk.action, name) { (action, _) =>
-        action.create(name, Some(TestUtils.getTestActionFilename("stdenv.py")), kind = Some(kind))
+        action.create(
+          name,
+          Some(TestUtils.getTestActionFilename("stdenv.py")),
+          kind = Some(kind),
+          annotations = Map(WhiskAction.provideApiKeyAnnotationName -> JsBoolean(true)))
       }
 
       withActivation(wsk.activation, wsk.action.invoke(name)) { activation =>
