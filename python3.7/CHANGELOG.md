@@ -1,5 +1,112 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.9.0
+Changes:
+  - update to new base image
+  - update pip from `19.0.2` to `19.1.1`
+  - update httplib2 from `0.12.1` to `0.12.3`
+  - update kafka_python from `1.4.4` to `1.4.6`
+  - update lxml from `4.3.1` to `4.3.3`
+  - update python-dateutil from `2.7.5` to `2.8.0`
+  - update virtualenv from `16.3.0` to `16.5.0`
+  - update Twisted from `18.9.0` to `19.2.0`
+  - update numpy from `1.16.1` to `1.16.3`
+  - update scikit-learn from `0.20.2` to `0.20.3`
+  - update pandas from `0.24.1` to `0.24.2`
+  - update Pillow from `5.4.1` to `6.0.0`
+  - update ibm-db from `2.0.9` to `3.0.1`
+  - update cloudant from `2.11.0` to `2.12.0`
+  - update watson-developer-cloud from `2.8.0` to `2.8.1`
+  - update ibm-cos-sdk from `2.4.3` to `2.4.4`
+  - update psycopg2 from `2.7.7` to `2.8.2`
+  - update pymongo from `3.7.2` to `3.8.0`
+  - update redis from `3.1.0` to `3.2.1`
+  - update pika from `0.13.0` to `1.0.1`
+  - update cassandra-driver from `3.16.0` to `3.17.1`
+  - update etcd3 from `0.8.1` to `0.10.0`
+
+Python version:
+  - [3.7.3](https://github.com/docker-library/python/blob/ab8b829cfefdb460ebc17e570332f0479039e918/3.7/stretch/Dockerfile)
+
+Python packages:
+  - asn1crypto==0.24.0
+  - attrs==19.1.0
+  - Automat==0.7.0
+  - beautifulsoup4==4.7.1
+  - botocore==1.12.144
+  - cassandra-driver==3.17.1
+  - certifi==2019.3.9
+  - cffi==1.12.3
+  - chardet==3.0.4
+  - Click==7.0
+  - cloudant==2.12.0
+  - constantly==15.1.0
+  - cryptography==2.6.1
+  - cssselect==1.0.3
+  - docutils==0.14
+  - elasticsearch==6.3.1
+  - etcd3==0.10.0
+  - Flask==1.0.2
+  - gevent==1.4.0
+  - greenlet==0.4.15
+  - grpcio==1.20.1
+  - httplib2==0.12.3
+  - hyperlink==19.0.0
+  - ibm-cos-sdk==2.4.4
+  - ibm-cos-sdk-core==2.4.4
+  - ibm-cos-sdk-s3transfer==2.4.4
+  - ibm-db==3.0.1
+  - ibmcloudsql==0.2.23
+  - idna==2.7
+  - incremental==17.5.0
+  - itsdangerous==1.1.0
+  - Jinja2==2.10.1
+  - jmespath==0.9.4
+  - kafka-python==1.4.6
+  - lxml==4.3.3
+  - MarkupSafe==1.1.1
+  - numpy==1.16.3
+  - pandas==0.24.2
+  - parsel==1.5.1
+  - pika==1.0.1
+  - Pillow==6.0.0
+  - pip==19.1.1
+  - protobuf==3.7.1
+  - psycopg2==2.8.2
+  - pyarrow==0.13.0
+  - pyasn1==0.4.5
+  - pyasn1-modules==0.2.5
+  - pycparser==2.19
+  - PyDispatcher==2.0.5
+  - PyHamcrest==1.9.0
+  - pymongo==3.8.0
+  - pyOpenSSL==19.0.0
+  - python-dateutil==2.8.0
+  - pytz==2019.1
+  - queuelib==1.5.0
+  - redis==3.2.1
+  - requests==2.21.0
+  - scikit-learn==0.20.3
+  - scipy==1.2.1
+  - Scrapy==1.6.0
+  - service-identity==18.1.0
+  - setuptools==41.0.1
+  - simplejson==3.16.0
+  - six==1.12.0
+  - soupsieve==1.9.1
+  - tenacity==5.0.4
+  - tornado==4.5.2
+  - Twisted==19.2.0
+  - urllib3==1.23
+  - virtualenv==16.5.0
+  - w3lib==1.20.0
+  - watson-developer-cloud==2.8.1
+  - websocket-client==0.48.0
+  - Werkzeug==0.15.2
+  - wheel==0.33.1
+  - zope.interface==4.6.0
+
+
 ## 1.8.0
 Changes:
   - update to new base image fixing issue [Python 3.7 - sys.executable is empty](https://github.com/apache/incubator-openwhisk-runtime-python/issues/49)
