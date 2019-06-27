@@ -15,6 +15,7 @@ scrapy == 1.6.0
 simplejson == 3.16.0
 virtualenv == 16.3.0
 twisted == 18.9.0
+PyJWT == 1.7.1
 
 # packages for numerics
 numpy == 1.16.1
