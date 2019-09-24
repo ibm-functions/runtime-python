@@ -1,5 +1,92 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.12.0
+Changes:
+  - add PyJWT `1.7.1`
+  - update pip from `19.2.1` to `19.2.3`
+
+Python version:
+  - [3.7.4](https://github.com/docker-library/python/blob/ab8b829cfefdb460ebc17e570332f0479039e918/3.7/stretch/Dockerfile)
+
+Python packages:
+  - asn1crypto==0.24.0
+  - attrs==19.1.0
+  - Automat==0.7.0
+  - beautifulsoup4==4.8.0
+  - botocore==1.12.234
+  - cassandra-driver==3.18.0
+  - certifi==2019.6.16
+  - cffi==1.12.3
+  - chardet==3.0.4
+  - Click==7.0
+  - cloudant==2.12.0
+  - constantly==15.1.0
+  - cryptography==2.7
+  - cssselect==1.0.3
+  - docutils==0.15.2
+  - elasticsearch==6.3.1
+  - etcd3==0.10.0
+  - Flask==1.0.2
+  - gevent==1.4.0
+  - greenlet==0.4.15
+  - grpcio==1.23.0
+  - httplib2==0.13.0
+  - hyperlink==19.0.0
+  - ibm-cos-sdk==2.5.1
+  - ibm-cos-sdk-core==2.5.3
+  - ibm-cos-sdk-s3transfer==2.5.3
+  - ibm-db==3.0.1
+  - ibmcloudsql==0.2.23
+  - idna==2.7
+  - incremental==17.5.0
+  - itsdangerous==1.1.0
+  - Jinja2==2.10.1
+  - jmespath==0.9.4
+  - kafka-python==1.4.6
+  - lxml==4.3.4
+  - MarkupSafe==1.1.1
+  - numpy==1.16.4
+  - pandas==0.24.2
+  - parsel==1.5.1
+  - pika==1.0.1
+  - Pillow==6.0.0
+  - pip==19.2.3
+  - protobuf==3.9.2
+  - psycopg2==2.8.2
+  - pyarrow==0.14.1
+  - pyasn1==0.4.5
+  - pyasn1-modules==0.2.5
+  - pycparser==2.19
+  - PyDispatcher==2.0.5
+  - PyHamcrest==1.9.0
+  - PyJWT==1.7.1
+  - pymongo==3.8.0
+  - pyOpenSSL==19.0.0
+  - python-dateutil==2.8.0
+  - pytz==2019.2
+  - queuelib==1.5.0
+  - redis==3.2.1
+  - requests==2.22.0
+  - scikit-learn==0.20.3
+  - scipy==1.2.1
+  - Scrapy==1.6.0
+  - service-identity==18.1.0
+  - setuptools==41.2.0
+  - simplejson==3.16.0
+  - six==1.12.0
+  - soupsieve==1.9.3
+  - tenacity==5.1.1
+  - tornado==4.5.2
+  - Twisted==19.7.0
+  - urllib3==1.23
+  - virtualenv==16.7.1
+  - w3lib==1.20.0
+  - watson-developer-cloud==2.8.1
+  - websocket-client==0.48.0
+  - Werkzeug==0.16.0
+  - wheel==0.33.4
+  - zope.interface==4.6.0
+
 ## 1.11.0
 Changes:
   - update Twisted from `19.2.1` to `19.7.0`
