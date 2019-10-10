@@ -15,11 +15,12 @@
  */
 package integration
 
-import common.{TestHelpers, TestUtils, WskActorSystem, WskProps, WskTestHelpers}
+import common.{TestHelpers, WhiskProperties, WskActorSystem, WskProps, WskTestHelpers}
 import common.rest.WskRestOperations
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import java.io.File
+import scala.io.Source
 import spray.json._
 
 @RunWith(classOf[JUnitRunner])
@@ -30,7 +31,17 @@ class CredentialsIBMPythonCloudantTests extends TestHelpers with WskTestHelpers 
   implicit val wskprops: WskProps = WskProps()
   val wsk = new WskRestOperations
   val datdir = "tests/dat/cloudant/"
-  var creds = TestUtils.getVCAPcredentials("cloudantNoSQLDB")
+
+  // read credentials from from vcap_services.json
+  val vcapFile = WhiskProperties.getProperty("vcap.services.file")
+  val vcapString = Source.fromFile(vcapFile).getLines.mkString
+  val vcapInfo =
+    JsonParser(ParserInput(vcapString)).asJsObject.fields("cloudantNoSQLDB").asInstanceOf[JsArray].elements(0)
+  val creds = vcapInfo.asJsObject.fields("credentials").asJsObject
+  val username = creds.fields("username").asInstanceOf[JsString]
+  val password = creds.fields("password").asInstanceOf[JsString]
+  val host = creds.fields("host").asInstanceOf[JsString]
+
   val actionName = "testCloudantService"
   val actionFileName = "testCloudantService.py"
 
@@ -44,10 +55,7 @@ class CredentialsIBMPythonCloudantTests extends TestHelpers with WskTestHelpers 
         file,
         main = Some("main"),
         kind = defaultKind,
-        parameters = Map(
-          "username" -> JsString(creds.get("username")),
-          "password" -> JsString(creds.get("password")),
-          "host" -> JsString(creds.get("host"))))
+        parameters = Map("username" -> username, "password" -> password, "host" -> host))
     }
 
     withActivation(wsk.activation, wsk.action.invoke(actionName)) { activation =>

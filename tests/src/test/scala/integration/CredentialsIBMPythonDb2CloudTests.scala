@@ -21,6 +21,7 @@ import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import java.io.File
 import spray.json._
+import scala.io.Source
 
 @RunWith(classOf[JUnitRunner])
 class CredentialsIBMPythonDb2CloudTests extends TestHelpers with WskTestHelpers with WskActorSystem {
@@ -33,9 +34,15 @@ class CredentialsIBMPythonDb2CloudTests extends TestHelpers with WskTestHelpers 
   val actionName = "testDB2Service"
   val actionFileName = "testDB2Service.py"
 
-  val creds = TestUtils.getVCAPcredentials("dashDB")
-  val ssldsn = creds.get("ssldsn")
-  val __bx_creds = JsObject("dashDB" -> JsObject("ssldsn" -> JsString(ssldsn)))
+  // read credentials from from vcap_services.json
+  val vcapFile = WhiskProperties.getProperty("vcap.services.file")
+  val vcapString = Source.fromFile(vcapFile).getLines.mkString
+  val vcapInfo =
+    JsonParser(ParserInput(vcapString)).asJsObject.fields("dashDB").asInstanceOf[JsArray].elements(0)
+  val creds = vcapInfo.asJsObject.fields("credentials").asJsObject
+
+  val ssldsn = creds.fields("ssldsn")
+  val __bx_creds = JsObject("dashDB" -> JsObject("ssldsn" -> ssldsn))
 
   it should "Test connection to DB2 on IBM Cloud" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
     val file = Some(new File(datdir, actionFileName).toString())
