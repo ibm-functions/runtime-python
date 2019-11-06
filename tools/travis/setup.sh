@@ -9,7 +9,7 @@ HOMEDIR="$SCRIPTDIR/../../../"
 
 # OpenWhisk stuff
 cd $HOMEDIR
-git clone --depth=1 https://github.com/apache/incubator-openwhisk.git openwhisk
+git clone --depth=1 https://github.com/apache/openwhisk.git openwhisk
 cd openwhisk
 ./tools/travis/setup.sh
 
