@@ -465,7 +465,7 @@ Python packages:
 
 ## 1.8.0
 Changes:
-  - update to new base image fixing issue [Python 3.7 - sys.executable is empty](https://github.com/apache/incubator-openwhisk-runtime-python/issues/49)
+  - update to new base image fixing issue [Python 3.7 - sys.executable is empty](https://github.com/apache/openwhisk-runtime-python/issues/49)
   - update httplib2 from `0.12.0` to `0.12.1`
   - update lxml from `4.3.0` to `4.3.1
   - update scipy from `1.2.0` to `1.2.1`

@@ -39,7 +39,7 @@ This works on any deployment of Apache OpenWhisk or IBM Cloud Functions
 
 
 ### Working with the local git repo
-Prerequisite: *Export* OPENWHISK_HOME to point to your `incubator-openwhisk` cloned directory.
+Prerequisite: *Export* OPENWHISK_HOME to point to your `openwhisk` cloned directory.
 
 ```
 ./gradlew python3:distDocker
