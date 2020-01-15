@@ -17,14 +17,14 @@ tasks.withType(Test) {
     outputs.upToDateWhen { false } // force tests to run every time
 }
 
-task testWithoutCredentials(type: Test) {
+task testWithoutCredentials(type: Test, dependsOn: ':open:tests:buildArtifacts') {
   exclude '**/*Credentials*'
 }
 
-task testBlueCI(type: Test) {
+task testBlueCI(type: Test, dependsOn: ':open:tests:buildArtifacts') {
   exclude '**/IBMPythonActionDB2Tests*'
 }
-task testBlueDeployment(type: Test) {
+task testBlueDeployment(type: Test, dependsOn: ':open:tests:buildArtifacts') {
   include 'integration/**'
   include 'system/**'
 }
