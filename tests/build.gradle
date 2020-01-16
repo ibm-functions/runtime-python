@@ -7,7 +7,13 @@ repositories {
     mavenLocal()
 }
 
+task buildArtifacts(type:Exec) {
+  workingDir 'dat/actions'
+  commandLine './build.sh'
+}
+
 tasks.withType(Test) {
+    dependsOn buildArtifacts
     systemProperties = System.getProperties() // Forward defined properties to the test JVM
     testLogging {
         events "passed", "skipped", "failed"
