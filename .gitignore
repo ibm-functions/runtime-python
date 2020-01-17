@@ -24,9 +24,6 @@ build/
 out/
 *.iml
 
-# .zip files must be explicited whitelisted
-tests/dat/actions/python.zip
-
 # VSCode
 .vscode
 
