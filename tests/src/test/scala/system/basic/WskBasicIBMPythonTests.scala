@@ -63,15 +63,11 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
     }
   }
 
-  def testArtifact(name: String): File = {
-    new File(this.getClass.getClassLoader.getResource(name).toURI)
-  }
-
   it should "invoke an action from a zip file with a non-default entry point" in withAssetCleaner(wskprops) {
     (wp, assetHelper) =>
       val name = "pythonZipWithNonDefaultEntryPoint"
       assetHelper.withCleaner(wsk.action, name) { (action, _) =>
-        action.create(name, Some(testArtifact("python.zip").getAbsolutePath()), main = Some("niam"), kind = Some(kind))
+        action.create(name, Some(TestUtils.getTestActionFilename("python.zip")), main = Some("niam"), kind = Some(kind))
       }
 
       withActivation(wsk.activation, wsk.action.invoke(name, Map("name" -> "Prince".toJson))) {
