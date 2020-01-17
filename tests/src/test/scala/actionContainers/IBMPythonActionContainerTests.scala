@@ -24,7 +24,7 @@ import common.WskActorSystem
 import actionContainers.{ActionContainer, BasicActionRunnerTests}
 import actionContainers.ActionContainer.withContainer
 import actionContainers.ResourceHelpers.{readAsBase64, ZipBuilder}
-import common.TestUtils
+// import common.TestUtils
 import java.nio.file.Paths
 
 @RunWith(classOf[JUnitRunner])
