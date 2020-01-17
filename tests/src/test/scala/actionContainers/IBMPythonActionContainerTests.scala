@@ -16,6 +16,7 @@
 
 package runtime.actionContainers
 
+import java.io.File
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import spray.json.DefaultJsonProtocol._
