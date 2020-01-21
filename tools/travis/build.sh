@@ -25,13 +25,6 @@ docker tag openwhisk/python2action python2action
 
 TERM=dumb ./gradlew install
 
-# Build the artifacts required for the tests
-# TERM=dumb ./gradlew :tests:buildArtifacts
-
-# echo "Show buildArtifacts"
-# ls -la ./tests/dat/actions/
-# echo "-------------------"
-
-# Build IBM Python runtime
+# Build IBM Python runtime images
 cd $ROOTDIR
 TERM=dumb ./gradlew distDocker -PdockerImagePrefix=${IMAGE_PREFIX}
