@@ -12,4 +12,5 @@ cd $HOMEDIR
 git clone --depth=1 https://github.com/apache/openwhisk.git openwhisk
 cd openwhisk
 ./tools/travis/setup.sh
-
+# Also build required artifacts
+./gradlew :tests:buildArtifacts
