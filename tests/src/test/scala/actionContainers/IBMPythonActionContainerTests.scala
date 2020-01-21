@@ -25,7 +25,6 @@ import common.WskActorSystem
 import actionContainers.{ActionContainer, BasicActionRunnerTests}
 import actionContainers.ActionContainer.withContainer
 import actionContainers.ResourceHelpers.{readAsBase64, ZipBuilder}
-// import common.TestUtils
 import java.nio.file.Paths
 
 @RunWith(classOf[JUnitRunner])
@@ -106,7 +105,7 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       |       "api_key": os.environ['__OW_API_KEY'],
       |       "namespace": os.environ['__OW_NAMESPACE'],
       |       "action_name": os.environ['__OW_ACTION_NAME'],
-      |       "action_version": process.env['__OW_ACTION_VERSION'],
+      |       "action_version": os.environ['__OW_ACTION_VERSION'],
       |       "activation_id": os.environ['__OW_ACTIVATION_ID'],
       |       "deadline": os.environ['__OW_DEADLINE']
       |    }
@@ -221,9 +220,8 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
 
   it should "report error if zipped Python action containing a virtual environment for wrong python version" in {
     val zippedPythonAction = "python2_virtualenv.zip"
+    // val zippedPythonAction = "python3_virtualenv.zip"
     val zippedPythonActionName = testArtifact(zippedPythonAction)
-    printf("zippedPythonActionName = %s", zippedPythonActionName)
-    println()
 
     val code = readAsBase64(Paths.get(zippedPythonActionName))
 
