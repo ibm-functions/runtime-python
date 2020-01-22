@@ -8,8 +8,8 @@ def main(args):
     language_translator = LanguageTranslatorV3(
         version="2018-05-01",
         url=args.get("url"),
-        username=args.get("username"),
-        password=args.get("password"))
+        username="APIKey",
+        password=args.get("apikey"))
 
     translation = language_translator.translate(text='Hello', model_id='en-es')
     if LooseVersion(sdk_version) < LooseVersion('2.0.0'):
@@ -20,6 +20,5 @@ def main(args):
 if __name__ == "__main__":
     # execute only if run as a script
     input = {"url":"<url from credentials>",
-             "username":"<username from credentials>",
-             "password":"<password from credentials>"}
+             "apikey":"<apikey from credentials>"}
     print(main(input))
