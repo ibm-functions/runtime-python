@@ -2,5 +2,7 @@
 
 set -e
 
-# build the pythone.zip for the test
-#(cd python-zip && zip ../python.zip -r .)
+# build the necessary resources for the testcases
+# this is not implemented, yet
+# it will look like this:
+# (cd python-zip && zip ../python.zip -r .)

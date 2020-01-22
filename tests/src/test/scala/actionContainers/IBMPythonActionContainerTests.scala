@@ -214,13 +214,15 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       })
   }
 
+  //
+  // return the full path/filename of a file from the classpath
+  //
   def testArtifact(name: String): String = {
     new File(this.getClass.getClassLoader.getResource(name).toURI).toString()
   }
 
   it should "report error if zipped Python action containing a virtual environment for wrong python version" in {
     val zippedPythonAction = "python2_virtualenv.zip"
-    // val zippedPythonAction = "python3_virtualenv.zip"
     val zippedPythonActionName = testArtifact(zippedPythonAction)
 
     val code = readAsBase64(Paths.get(zippedPythonActionName))
