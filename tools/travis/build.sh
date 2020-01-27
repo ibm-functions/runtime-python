@@ -25,6 +25,6 @@ docker tag openwhisk/python2action python2action
 
 TERM=dumb ./gradlew install
 
-# Build IBM nodejs runtime
+# Build IBM Python runtime images
 cd $ROOTDIR
 TERM=dumb ./gradlew distDocker -PdockerImagePrefix=${IMAGE_PREFIX}

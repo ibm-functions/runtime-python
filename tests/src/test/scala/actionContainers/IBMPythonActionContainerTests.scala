@@ -16,6 +16,7 @@
 
 package runtime.actionContainers
 
+import java.io.File
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import spray.json.DefaultJsonProtocol._
@@ -24,7 +25,6 @@ import common.WskActorSystem
 import actionContainers.{ActionContainer, BasicActionRunnerTests}
 import actionContainers.ActionContainer.withContainer
 import actionContainers.ResourceHelpers.{readAsBase64, ZipBuilder}
-import common.TestUtils
 import java.nio.file.Paths
 
 @RunWith(classOf[JUnitRunner])
@@ -105,6 +105,7 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       |       "api_key": os.environ['__OW_API_KEY'],
       |       "namespace": os.environ['__OW_NAMESPACE'],
       |       "action_name": os.environ['__OW_ACTION_NAME'],
+      |       "action_version": os.environ['__OW_ACTION_VERSION'],
       |       "activation_id": os.environ['__OW_ACTIVATION_ID'],
       |       "deadline": os.environ['__OW_DEADLINE']
       |    }
@@ -213,9 +214,17 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
       })
   }
 
+  //
+  // return the full path/filename of a file from the classpath
+  //
+  def testArtifact(name: String): String = {
+    new File(this.getClass.getClassLoader.getResource(name).toURI).toString()
+  }
+
   it should "report error if zipped Python action containing a virtual environment for wrong python version" in {
     val zippedPythonAction = "python2_virtualenv.zip"
-    val zippedPythonActionName = TestUtils.getTestActionFilename(zippedPythonAction)
+    val zippedPythonActionName = testArtifact(zippedPythonAction)
+
     val code = readAsBase64(Paths.get(zippedPythonActionName))
 
     val (out, err) = withActionContainer() { c =>
@@ -242,7 +251,7 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
   }
 
   it should "report error if zipped Python action has wrong main module name" in {
-    val zippedPythonActionWrongName = TestUtils.getTestActionFilename("python_virtualenv_name.zip")
+    val zippedPythonActionWrongName = testArtifact("python_virtualenv_name.zip")
 
     val code = readAsBase64(Paths.get(zippedPythonActionWrongName))
 
@@ -260,7 +269,7 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
   }
 
   it should "report error if zipped Python action has invalid virtualenv directory" in {
-    val zippedPythonActionWrongDir = TestUtils.getTestActionFilename("python_virtualenv_dir.zip")
+    val zippedPythonActionWrongDir = testArtifact("python_virtualenv_dir.zip")
 
     val code = readAsBase64(Paths.get(zippedPythonActionWrongDir))
     val (out, err) = withActionContainer() { c =>
