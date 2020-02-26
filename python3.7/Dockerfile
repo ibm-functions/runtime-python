@@ -4,7 +4,7 @@ COPY requirements.txt requirements.txt
 
 RUN  apt-get update \
      # add secutity updates for certain packages
-     && apt-get install -y file git \
+     && apt-get install -y --no-install-recommends file git curl\
      # cleanup package lists, they are not used anymore in this image
      && rm -rf /var/lib/apt/lists/* \
      # We do not have mysql-server installed but mysql-common contains config files (/etc/mysql/my.cnf) for it.
