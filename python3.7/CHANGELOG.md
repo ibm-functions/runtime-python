@@ -1,5 +1,9 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.14.1
+Changes:
+  - Catch latest security fixes with each build.
+
 ## 1.14.0
 Changes:
   - update to new base image

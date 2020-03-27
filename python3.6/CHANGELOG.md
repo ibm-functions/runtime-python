@@ -1,5 +1,10 @@
 # IBM Functions Python 3.6 Runtime Container
 
+## 1.25.1
+Changes:
+  - Catch latest security fixes with each build.
+
+
 ## 1.25.0
 Changes:
   - update to new base image

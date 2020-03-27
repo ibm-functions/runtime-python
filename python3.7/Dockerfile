@@ -3,8 +3,8 @@ FROM openwhisk/actionloop-python-v3.7:248efb5
 COPY requirements.txt requirements.txt
 
 RUN  apt-get update \
-     # add secutity updates for certain packages
-     && apt-get install -y --no-install-recommends file git curl\
+     # Upgrade installed packages to get latest security fixes if the base image does not contain them already.
+     && apt-get upgrade -y --no-install-recommends \
      # cleanup package lists, they are not used anymore in this image
      && rm -rf /var/lib/apt/lists/* \
      # We do not have mysql-server installed but mysql-common contains config files (/etc/mysql/my.cnf) for it.
