@@ -5,8 +5,10 @@ ENV FLASK_PROXY_PORT 8080
 COPY requirements.txt requirements.txt
 
 RUN apt-get update \
+        # Upgrade installed packages to get latest security fixes if the base image does not contain them already.
+        && apt-get upgrade -y --no-install-recommends \
         # add some packages required for the pip install
-        && apt-get install -y \
+        && apt-get install -y --no-install-recommends \
            gcc \
            libc-dev \
            libxslt-dev \
@@ -16,12 +18,6 @@ RUN apt-get update \
            zip \
            unzip \
            vim \
-        # add secutity updates for certain packages
-        && apt-get install -y \
-           e2fsprogs \
-           openssl \
-           tzdata \
-           libgcrypt20 \
         # cleanup package lists, they are not used anymore in this image
         && rm -rf /var/lib/apt/lists/* \
         && apt-cache search linux-headers-generic \
