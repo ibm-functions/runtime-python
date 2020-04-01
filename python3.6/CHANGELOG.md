@@ -1,5 +1,87 @@
 # IBM Functions Python 3.6 Runtime Container
 
+## 1.26.0
+Changes:
+  - update Twisted from `19.7.0` to `20.3.0` (security fixes)
+
+Python version:
+  - [3.6.9](https://github.com/docker-library/python/blob/721671c28aad96ad2c1970e83c2af71ceff15f1b/3.6/jessie/slim/Dockerfile)
+
+Python packages:
+  - attrs==19.3.0
+  - autobahn==20.2.1
+  - Automat==20.2.0
+  - beautifulsoup4==4.7.1
+  - botocore==1.15.5
+  - cassandra-driver==3.16.0
+  - certifi==2019.11.28
+  - cffi==1.14.0
+  - chardet==3.0.4
+  - Click==7.0
+  - cloudant==2.11.0
+  - constantly==15.1.0
+  - cryptography==2.8
+  - cssselect==1.1.0
+  - docutils==0.15.2
+  - elasticsearch==5.5.3
+  - Flask==1.0.2
+  - gevent==1.4.0
+  - greenlet==0.4.15
+  - httplib2==0.12.1
+  - hyperlink==19.0.0
+  - ibm-cos-sdk==2.4.3
+  - ibm-cos-sdk-core==2.6.0
+  - ibm-cos-sdk-s3transfer==2.6.0
+  - ibm-db==2.0.9
+  - ibmcloudsql==0.2.23
+  - idna==2.8
+  - incremental==17.5.0
+  - itsdangerous==1.1.0
+  - Jinja2==2.11.1
+  - jmespath==0.9.4
+  - kafka-python==1.4.4
+  - lxml==4.3.1
+  - MarkupSafe==1.1.1
+  - numpy==1.16.1
+  - pandas==0.24.1
+  - parsel==1.5.2
+  - pika==0.13.0
+  - Pillow==5.4.1
+  - pip==20.0.2
+  - psycopg2==2.7.7
+  - pyarrow==0.16.0
+  - pyasn1==0.4.8
+  - pyasn1-modules==0.2.8
+  - pycparser==2.19
+  - PyDispatcher==2.0.5
+  - PyHamcrest==2.0.0
+  - pymongo==3.7.2
+  - pyOpenSSL==19.1.0
+  - python-dateutil==2.7.5
+  - pytz==2019.3
+  - queuelib==1.5.0
+  - redis==2.10.6
+  - requests==2.21.0
+  - scikit-learn==0.20.2
+  - scipy==1.2.1
+  - Scrapy==1.6.0
+  - service-identity==18.1.0
+  - setuptools==45.2.0
+  - simplejson==3.16.0
+  - six==1.14.0
+  - soupsieve==2.0
+  - tornado==4.5.2
+  - Twisted==20.3.0
+  - txaio==20.1.1
+  - urllib3==1.24.3
+  - virtualenv==16.3.0
+  - w3lib==1.21.0
+  - watson-developer-cloud==1.7.1
+  - Werkzeug==1.0.0
+  - wheel==0.33.4
+  - zope.interface==4.7.1
+
+
 ## 1.25.1
 Changes:
   - Catch latest security fixes with each build.
