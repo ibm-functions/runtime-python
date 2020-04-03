@@ -3,6 +3,7 @@
 ## 1.15.0
 Changes:
   - update Twisted from `19.7.0` to `20.3.0` (security fixes)
+  - update Pillow from `6.2.1` to `6.2.2` (security fixes)
 
 Python version:
   - [3.7.5](https://github.com/docker-library/python/blob/ab8b829cfefdb460ebc17e570332f0479039e918/3.7/stretch/Dockerfile)
@@ -47,7 +48,7 @@ Python packages:
   - pandas==0.24.2
   - parsel==1.5.2
   - pika==1.0.1
-  - Pillow==6.2.1
+  - Pillow==6.2.2
   - pip==20.0.2
   - protobuf==3.11.3
   - psycopg2==2.8.2
