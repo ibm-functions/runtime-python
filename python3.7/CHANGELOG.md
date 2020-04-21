@@ -1,5 +1,90 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.16.0
+Changes:
+  - update ibmcloudsql from `0.2.23` to `0.3.13`
+
+Python version:
+  - [3.7.5](https://github.com/docker-library/python/blob/ab8b829cfefdb460ebc17e570332f0479039e918/3.7/stretch/Dockerfile)
+
+Python packages:
+  - attrs==19.3.0
+  - Automat==0.8.0
+  - beautifulsoup4==4.8.0
+  - botocore==1.15.5
+  - cassandra-driver==3.18.0
+  - certifi==2019.11.28
+  - cffi==1.13.2
+  - chardet==3.0.4
+  - Click==7.0
+  - cloudant==2.12.0
+  - constantly==15.1.0
+  - cryptography==2.8
+  - cssselect==1.1.0
+  - docutils==0.15.2
+  - elasticsearch==6.3.1
+  - etcd3==0.10.0
+  - Flask==1.0.2
+  - gevent==1.4.0
+  - greenlet==0.4.15
+  - grpcio==1.27.2
+  - httplib2==0.13.0
+  - hyperlink==19.0.0
+  - ibm-cos-sdk==2.5.1
+  - ibm-cos-sdk-core==2.6.0
+  - ibm-cos-sdk-s3transfer==2.6.0
+  - ibm-db==3.0.1
+  - ibmcloudsql==0.3.13
+  - idna==2.7
+  - incremental==17.5.0
+  - itsdangerous==1.1.0
+  - Jinja2==2.11.1
+  - jmespath==0.9.4
+  - kafka-python==1.4.6
+  - lxml==4.3.4
+  - MarkupSafe==1.1.1
+  - numpy==1.16.4
+  - pandas==0.24.2
+  - parsel==1.5.2
+  - pika==1.0.1
+  - Pillow==6.2.2
+  - pip==20.0.2
+  - protobuf==3.11.3
+  - psycopg2==2.8.2
+  - pyarrow==0.16.0
+  - pyasn1==0.4.8
+  - pyasn1-modules==0.2.7
+  - pycparser==2.19
+  - PyDispatcher==2.0.5
+  - PyHamcrest==1.9.0
+  - PyJWT==1.7.1
+  - pymongo==3.8.0
+  - pyOpenSSL==19.1.0
+  - python-dateutil==2.8.0
+  - pytz==2019.3
+  - queuelib==1.5.0
+  - redis==3.2.1
+  - requests==2.22.0
+  - scikit-learn==0.20.3
+  - scipy==1.2.1
+  - Scrapy==1.6.0
+  - service-identity==18.1.0
+  - setuptools==45.2.0
+  - simplejson==3.16.0
+  - six==1.14.0
+  - soupsieve==2.0
+  - tenacity==6.0.0
+  - tornado==4.5.2
+  - Twisted==20.3.0
+  - urllib3==1.23
+  - virtualenv==16.7.1
+  - w3lib==1.21.0
+  - watson-developer-cloud==2.8.1
+  - websocket-client==0.48.0
+  - Werkzeug==1.0.0
+  - wheel==0.33.6
+  - zope.interface==4.7.1
+
 ## 1.15.0
 Changes:
   - update Twisted from `19.7.0` to `20.3.0` (security fixes)
