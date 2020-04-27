@@ -31,7 +31,7 @@ ibm_db == 3.0.1
 cloudant == 2.12.0
 watson-developer-cloud == 2.8.1
 ibm-cos-sdk == 2.5.1
-ibmcloudsql == 0.3.13
+ibmcloudsql == 0.3.14
 
 # Compose Libs
 psycopg2 == 2.8.2
@@ -41,3 +41,7 @@ pika == 1.0.1
 elasticsearch == 6.3.1
 cassandra-driver == 3.18.0
 etcd3 == 0.10.0
+
+# Other required modules
+botocore == 1.15.46
+tornado == 4.5.2
