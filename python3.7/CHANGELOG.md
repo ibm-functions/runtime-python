@@ -8,7 +8,7 @@ Python version:
   - [3.7.5](https://github.com/docker-library/python/blob/ab8b829cfefdb460ebc17e570332f0479039e918/3.7/stretch/Dockerfile)
 
 Python packages:
-  - The file [requirements.txt](python3.7/requirements.txt) lists the packages/versions we guarantee to be included in this runtime.
+  - The file [requirements.txt](requirements.txt) lists the packages/versions we guarantee to be included in this runtime.
     Ensure that you only use packages mentioned there!
     Other packages might be part of this runtime, but only due to indirect dependencies. These indirect packages are candidates to be removed at any time in case they are not required by the refering package anymore.
 
