@@ -10,7 +10,7 @@ Python version:
 Python packages:
   - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
     Ensure that you only use packages mentioned there.<br/>
-    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirect included packages are candidates to be removed at any time in case they are not required by the refering package anymore.
+    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not required by the refering package anymore.
 
 
 ## 1.25.1
