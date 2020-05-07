@@ -1,4 +1,10 @@
-# Requirements.txt contains a list of dependencies for the Python Application #
+# This requirements.txt file contains the list of packages included in the Python 3.7 runtime.
+#
+# These packages are guaranteed to be included. Ensure that your action code only uses the listed ones.
+# Other Python packages might be part of the runtime, but only due to indirect dependencies of
+# the listed packages. These indirectly included packages are candidates to be removed
+# at any time in case they are not required by the referring package anymore.
+
 
 # Setup modules
 gevent == 1.4.0
