@@ -11,7 +11,7 @@ def main(args):
         username="APIKey",
         password=args.get("apikey"))
 
-    translation = language_translator.translate(text='Hello', model_id='en-es')
+    translation = language_translator.translate(text='Hello', model_id='en-it')
     if LooseVersion(sdk_version) < LooseVersion('2.0.0'):
         return translation
     else:
