@@ -44,7 +44,7 @@ class CredentialsIBMPythonWatsonTests extends TestHelpers with WskTestHelpers wi
   val apikey = creds.fields("apikey").asInstanceOf[JsString]
 
   /*
-    Uses Watson Translation Service to translate the word "Hello" in English, to "Hola" in Spanish.
+    Uses Watson Translation Service to translate the word "Hello" in English, to "Ciao" in Italian.
    */
   it should "Test whether watson translate service is reachable" in withAssetCleaner(wskprops) { (wp, assetHelper) =>
     val file = Some(new File(datdir, actionFileName).toString())
@@ -61,7 +61,7 @@ class CredentialsIBMPythonWatsonTests extends TestHelpers with WskTestHelpers wi
       val response = activation.response
       response.result.get.fields.get("error") shouldBe empty
       response.result.get.fields.get("translations") should be(
-        Some(JsArray(JsObject("translation" -> JsString("Hola")))))
+        Some(JsArray(JsObject("translation" -> JsString("Ciao")))))
     }
 
   }
