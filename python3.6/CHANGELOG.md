@@ -1,5 +1,18 @@
 # IBM Functions Python 3.6 Runtime Container
 
+## 1.27.0
+Changes:
+  - update to an actual `buster` based parent image as `jessie` reached end of service.
+
+Python version:
+  - [3.6.11](https://github.com/docker-library/python/blob/8341311c62812118a7e2046bbad66da21243f137/3.6/buster/slim/Dockerfile)
+
+Python packages:
+  - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
+    Ensure that you only use packages mentioned there.<br/>
+    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not required by the referring package anymore.
+
+
 ## 1.26.0
 Changes:
   - update Twisted from `19.7.0` to `20.3.0` (security fixes)

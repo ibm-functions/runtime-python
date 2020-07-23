@@ -1,4 +1,4 @@
-FROM python:3.6-slim-jessie
+FROM python:3.6-slim-buster
 
 ENV FLASK_PROXY_PORT 8080
 
