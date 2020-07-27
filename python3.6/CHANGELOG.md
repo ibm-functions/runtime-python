@@ -3,6 +3,7 @@
 ## 1.27.0
 Changes:
   - update to an actual `buster` based parent image as `jessie` reached end of service.
+  - update httplib2 from `0.12.1` to `0.18.1` (security fixes)
 
 Python version:
   - [3.6.11](https://github.com/docker-library/python/blob/8341311c62812118a7e2046bbad66da21243f137/3.6/buster/slim/Dockerfile)
