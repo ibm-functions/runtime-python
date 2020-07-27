@@ -3,6 +3,7 @@
 ## 1.19.0
 Changes:
   - update httplib2 from `0.13.0` to `0.18.1`
+  - update ibmcloudsql from `0.3.16` to `0.4.2`
 
 Python version:
   - [3.7.5](https://github.com/docker-library/python/blob/ab8b829cfefdb460ebc17e570332f0479039e918/3.7/stretch/Dockerfile)
