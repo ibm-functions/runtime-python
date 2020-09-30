@@ -1,5 +1,19 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.21.0
+Changes:
+  - Update to new parent image to continue getting security fixes.
+    The new parent is now based on go 1.15 (was go 1.12 before) and debian buster (was debian stretch before).
+
+Python version:
+  - [3.7.9](https://github.com/docker-library/python/blob/35d8d9712c3ea4cbc4004a0e62ab61100b6fed99/3.7/buster/Dockerfile)
+
+Python packages:
+  - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
+    Ensure that you only use packages mentioned there.<br/>
+    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not required by the referring package anymore.
+
+
 ## 1.20.0
 Changes:
   - update ibmcloudsql from `0.4.2` to `0.4.9`
