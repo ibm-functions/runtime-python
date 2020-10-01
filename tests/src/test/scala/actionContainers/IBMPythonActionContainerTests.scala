@@ -238,7 +238,7 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
         // it actually means it is actionloop
         // it checks the error at init time
         initCode should be(502)
-        initRes.get.fields.get("error").get.toString() should include("No module")
+        initRes.get.fields.get("error").get.toString() should include("Cannot start action. Check logs for details.")
       }
     }
 
@@ -379,7 +379,7 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
         // action loop detects those errors at init time
         val (initCode, initRes) = c.init(initPayload(code))
         initCode should be(502)
-        initRes.get.fields.get("error").get.toString() should include("Traceback")
+        initRes.get.fields.get("error").get.toString() should include("Cannot start action. Check logs for details.")
       }
     }
 
