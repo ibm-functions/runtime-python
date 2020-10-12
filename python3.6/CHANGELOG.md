@@ -1,5 +1,9 @@
 # IBM Functions Python 3.6 Runtime Container
 
+## 1.27.1
+Python version:
+  - [3.6.12](https://github.com/docker-library/python/blob/554274e3e010fbe89a81d5b7551d44c7d6980414/3.6/buster/slim/Dockerfile)
+
 ## 1.27.0
 Changes:
   - update to an actual `buster` based parent image as `jessie` reached end of service.
