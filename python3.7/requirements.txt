@@ -37,7 +37,7 @@ ibm_db == 3.0.1
 cloudant == 2.12.0
 watson-developer-cloud == 2.8.1
 ibm-cos-sdk == 2.5.1
-ibmcloudsql == 0.4.9
+ibmcloudsql == 0.4.11
 
 # Compose Libs
 psycopg2 == 2.8.2
