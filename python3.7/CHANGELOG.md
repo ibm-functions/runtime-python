@@ -5,7 +5,7 @@ Changes:
   - update ibmcloudsql from `0.4.9` to `0.4.11`
 
 Python version:
-  - [3.7.5](https://github.com/docker-library/python/blob/7392a0441706ffe66862c37e6d8ceb4d5b1c4389/3.7/buster/Dockerfile)
+  - [3.7.9](https://github.com/docker-library/python/blob/7392a0441706ffe66862c37e6d8ceb4d5b1c4389/3.7/buster/Dockerfile)
 
 Python packages:
   - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
