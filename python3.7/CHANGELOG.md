@@ -1,5 +1,17 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.22.0
+Changes:
+  - update ibmcloudsql from `0.4.9` to `0.4.11`
+
+Python version:
+  - [3.7.5](https://github.com/docker-library/python/blob/7392a0441706ffe66862c37e6d8ceb4d5b1c4389/3.7/buster/Dockerfile)
+
+Python packages:
+  - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
+    Ensure that you only use packages mentioned there.<br/>
+    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not required by the referring package anymore.
+
 ## 1.21.0
 Changes:
   - Update to new parent image to continue getting security fixes.
