@@ -10,6 +10,12 @@ IMAGE_PREFIX="testing"
 
 export OPENWHISK_HOME=$WHISKDIR
 
+# Login to hub.docker.com to get user specific pull rate.
+if [ ! -z "${DOCKER_USER}" ] && [ ! -z "${DOCKER_PASSWORD}" ]; then
+  echo "Run docker login..."
+  echo ${DOCKER_PASSWORD} | docker login -u "${DOCKER_USER}" --password-stdin
+fi
+
 # Build OpenWhisk
 cd $WHISKDIR
 
