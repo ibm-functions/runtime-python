@@ -1,4 +1,7 @@
 # IBM Functions Python 3.7 Runtime Container
+## 1.22.1
+Python version:
+  - [3.7.10](https://github.com/docker-library/python/blob/8167dd2574bb503a131d262c0c5721c6ba02c928/3.7/buster/Dockerfile)
 
 ## 1.22.0
 Changes:
@@ -11,7 +14,6 @@ Python packages:
   - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
     Ensure that you only use packages mentioned there.<br/>
     Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not required by the referring package anymore.
-
 ## 1.21.0
 Changes:
   - Update to new parent image to continue getting security fixes.
