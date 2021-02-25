@@ -1,5 +1,9 @@
 # IBM Functions Python 3.6 Runtime Container
 
+## 1.27.2
+Python version:
+  - [3.6.13](https://github.com/docker-library/python/blob/6fea75351b89c672f96c3bf622aec41912a14083/3.6/buster/slim/Dockerfile)
+
 ## 1.27.1
 Python version:
   - [3.6.12](https://github.com/docker-library/python/blob/554274e3e010fbe89a81d5b7551d44c7d6980414/3.6/buster/slim/Dockerfile)
