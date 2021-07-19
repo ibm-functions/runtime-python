@@ -1,4 +1,4 @@
-FROM openwhisk/actionloop-python-v3.7:c2d9a6a
+FROM openwhisk/action-python-v3.7:14a31cf
 
 COPY requirements.txt requirements.txt
 
