@@ -1,5 +1,19 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.22.3
+Changes:
+  - Update GO_PROXY_RELEASE_VERSION to 1.15@1.18.0.
+  - Update to new parent image to get latest go security fixes.
+
+Python version:
+  - [3.7.11](https://github.com/docker-library/python/blob/0c29e9cf700253291c7f2327537cb1d65f14a428/3.7/buster/Dockerfile)
+
+Python packages:
+  - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
+    Ensure that you only use packages mentioned there.<br/>
+    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not requ>
+
+
 ## 1.22.2
 Changes:
   - Use renamed openwhisk/action-python-v3.7 (was openwhisk/actionloop-python-v3.7) parent image.
