@@ -9,13 +9,13 @@ HOMEDIR="$SCRIPTDIR/../../../"
 
 # clone openWhisk
 cd $HOMEDIR
-# git clone --depth=1 https://github.com/apache/openwhisk.git openwhisk
-git clone https://github.com/apache/openwhisk.git openwhisk
+
+# Clone and setup openwhisk to have a local test environment.
+git clone https://github.com/apache/incubator-openwhisk.git openwhisk
 cd openwhisk
 # Use a fixed commit to run the tests, to explicitly control when changes are consumed.
-# Commit:  Update the notice year (#5122) 
-git checkout ecb2a980659f28d0adbd9ef837afaf4cb2b695bf
-
+# Commit: minor version bump of azure-storage-blob to fix builds (#5150)
+git checkout 3e6138d088fbd502a69c31314ad7c0089c5f5283
 
 # setup the openwhisk environment
 ./tools/travis/setup.sh
