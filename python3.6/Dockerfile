@@ -22,7 +22,12 @@ RUN apt-get update \
         && rm -rf /var/lib/apt/lists/* \
         && apt-cache search linux-headers-generic \
         # install additional python modules
-        && pip install --upgrade pip setuptools six && pip install --no-cache-dir -r requirements.txt \
+        #   we pin setuptools==57.5.0, reason is that ibm_db<=3.0.4 requires 'use_2to3' during install which has been
+        #   removed from setuptools starting with the 58.x.x release. The install therefore fails with:
+        #   error in ibm_db setup command: use_2to3 is invalid.
+        #   When ibm_db is upgraded to a version that does not need 'use_2to3' anymore the pin can also be removed.
+        && pip install --upgrade pip setuptools==57.5.0 six  \
+        && pip install --no-cache-dir -r requirements.txt \
         # create action working directory
         && mkdir -p /action \
         && mkdir -p /actionProxy \

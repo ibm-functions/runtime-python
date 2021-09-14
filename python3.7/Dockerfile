@@ -11,7 +11,12 @@ RUN  apt-get update \
      # We need to add some dummy entries to /etc/mysql/my.cnf to sattisfy vulnerability checking of it.
      && echo "\n[mysqld]\nssl-ca=/tmp/ca.pem\nssl-cert=/tmp/server-cert.pem\nssl-key=/tmp/server-key.pem\n" >> /etc/mysql/my.cnf \
      # install additional python modules
-     && pip install --upgrade pip setuptools six && pip install --no-cache-dir -r requirements.txt \
+     #   we pin setuptools==57.5.0, reason is that ibm_db<=3.0.4 requires 'use_2to3' during install which has been
+     #   removed from setuptools starting with the 58.x.x release. The install therefore fails with:
+     #   error in ibm_db setup command: use_2to3 is invalid.
+     #   When ibm_db is upgraded to a version that does not need 'use_2to3' anymore the pin can also be removed.
+     && pip install --upgrade pip setuptools==57.5.0 six  \
+     && pip install --no-cache-dir -r requirements.txt \
      # Show actual python version in the build output.
      && echo "Actual python version is:" \
      && python --version \
