@@ -4,9 +4,13 @@ from cloudant.client import Cloudant
 
 
 def main(dict):
+    load_successful = False
     client = Cloudant("test-user", "test", url='https://{0}'.format("host.cloudant.com"))
-    return {"_user": client._user,
-            "server_url": client.server_url}
+    if client._user == "test-user" and client.server_url == "https://host.cloudant.com":
+        load_successful = True
+    return {
+        "load_successful" : load_successful
+    }
 
 
 if __name__ == "__main__":

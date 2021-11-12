@@ -43,7 +43,7 @@ class CredentialsIBMPythonCloudantTests extends TestHelpers with WskTestHelpers 
   val host = creds.fields("host").asInstanceOf[JsString]
 
   val actionName = "testCloudantService"
-  val actionFileName = "testCloudantService.py"
+  lazy val actionFileName = "testCloudantService.py"
 
   it should "Test whether or not cloudant database is reachable using cloudant python package" in withAssetCleaner(
     wskprops) { (wp, assetHelper) =>
