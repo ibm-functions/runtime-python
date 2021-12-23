@@ -1,5 +1,9 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.22.5
+Changes:
+  - Update to new parent image d1c3d3f
+
 ## 1.22.4
 Changes:
   - Update to new parent image to get latest go security fixes for the action loop proxy (/bin/proxy).
