@@ -32,7 +32,7 @@ class IBMPythonActionWatsonTests extends TestHelpers with WskTestHelpers with Ws
   val wsk = new WskRestOperations
   val datdir = "tests/dat/watson/"
   val actionName = "testWatsonSDK"
-  val actionFileName = "testWatsonSDK.py"
+  lazy val actionFileName = "testWatsonSDK.py"
 
   it should "Test whether or not watson package is usable within a python action" in withAssetCleaner(wskprops) {
     (wp, assetHelper) =>
@@ -56,8 +56,7 @@ class IBMPythonActionWatsonTests extends TestHelpers with WskTestHelpers with Ws
       withActivation(wsk.activation, wsk.action.invoke(actionName)) { activation =>
         val response = activation.response
         response.result.get.fields.get("error") shouldBe empty
-        response.result.get.fields.get("message") should equal(
-          Some(JsString("https://gateway.watsonplatform.net/discovery/api")))
+        response.result.get.fields.get("load_successful") should equal(Some(JsBoolean(true)))
       }
 
   }

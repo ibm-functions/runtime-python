@@ -31,7 +31,7 @@ class IBMPythonActionCloudantTests extends TestHelpers with WskTestHelpers with 
   val wsk = new WskRestOperations
   val datdir = "tests/dat/cloudant/"
   val actionName = "testCloudantSDK"
-  val actionFileName = "testCloudantSDK.py"
+  lazy val actionFileName = "testCloudantSDK.py"
 
   it should "Test whether or not cloudant package is accessible within a python action" in withAssetCleaner(wskprops) {
     (wp, assetHelper) =>
@@ -44,8 +44,7 @@ class IBMPythonActionCloudantTests extends TestHelpers with WskTestHelpers with 
       withActivation(wsk.activation, wsk.action.invoke(actionName)) { activation =>
         val response = activation.response
         response.result.get.fields.get("error") shouldBe empty
-        response.result.get.fields.get("_user") should be(Some(JsString("test-user")))
-        response.result.get.fields.get("server_url") should be(Some(JsString("https://host.cloudant.com")))
+        response.result.get.fields.get("load_successful") should be(Some(JsBoolean(true)))
 
       }
 

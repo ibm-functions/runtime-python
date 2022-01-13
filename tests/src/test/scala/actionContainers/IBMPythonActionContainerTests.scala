@@ -221,35 +221,6 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
     new File(this.getClass.getClassLoader.getResource(name).toURI).toString()
   }
 
-  it should "report error if zipped Python action containing a virtual environment for wrong python version" in {
-    val zippedPythonAction = "python2_virtualenv.zip"
-    val zippedPythonActionName = testArtifact(zippedPythonAction)
-
-    val code = readAsBase64(Paths.get(zippedPythonActionName))
-
-    val (out, err) = withActionContainer() { c =>
-      val (initCode, initRes) = c.init(initPayload(code, main = "main"))
-      if (initErrorsAreLogged) {
-        initCode should be(200)
-        val args = JsObject("msg" -> JsString("any"))
-        val (runCode, runRes) = c.run(runPayload(args))
-        runCode should be(502)
-      } else {
-        // it actually means it is actionloop
-        // it checks the error at init time
-        initCode should be(502)
-        initRes.get.fields.get("error").get.toString() should include("Cannot start action. Check logs for details.")
-      }
-    }
-
-    if (initErrorsAreLogged)
-      checkStreams(out, err, {
-        case (o, e) =>
-          o shouldBe empty
-          e should include("ModuleNotFoundError")
-      })
-  }
-
   it should "report error if zipped Python action has wrong main module name" in {
     val zippedPythonActionWrongName = testArtifact("python_virtualenv_name.zip")
 
