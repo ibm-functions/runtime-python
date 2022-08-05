@@ -12,7 +12,7 @@ flask == 1.0.2
 
 # default available packages for python3action
 beautifulsoup4 == 4.7.1
-httplib2 == 0.18.1
+httplib2 == 0.19.0
 kafka_python == 1.4.4
 lxml == 4.3.1
 python-dateutil == 2.7.5
