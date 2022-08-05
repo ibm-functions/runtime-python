@@ -23,7 +23,7 @@ virtualenv == 16.3.0
 twisted == 20.3.0
 
 # packages for numerics
-numpy == 1.16.1
+numpy == 1.22.0
 scikit-learn == 0.20.2
 scipy == 1.2.1
 pandas == 0.24.1
