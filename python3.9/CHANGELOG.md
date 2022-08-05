@@ -9,6 +9,17 @@
     - [pypi ibm-watson](https://pypi.org/project/ibm-watson/)
     - [github ibm-watson](https://github.com/watson-developer-cloud/python-sdk)
 
+## 1.0.1
+Changes:
+  - update pip packages in requirements.txt
+  - lxml 4.7.1 -> 4.9.1
+  - twisted 21.7.0 -> 22.4.0
+  - PyJWT 2.3.0 -> 2.4.0
+  - Pillow = 9.0.0 -> 9.0.1
+
+Python version:
+- [3.9.13](https://www.python.org/downloads/release/python-3913/)
+
 ## 1.0.0
 Changes:
   - update all packages to their lates versions 
