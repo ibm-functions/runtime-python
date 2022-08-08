@@ -16,6 +16,7 @@ Changes:
   - twisted 21.7.0 -> 22.4.0
   - PyJWT 2.3.0 -> 2.4.0
   - Pillow = 9.0.0 -> 9.0.1
+  - Update to new parent image to get latest security fixes
 
 Python version:
 - [3.9.13](https://www.python.org/downloads/release/python-3913/)
