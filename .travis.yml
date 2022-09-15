@@ -1,6 +1,9 @@
 sudo: required
-group: deprecated-2017Q3
-language: scala
+os: linux
+dist: bionic
+jdk: openjdk11
+
+
 services:
   - docker
 
@@ -12,7 +15,11 @@ notifications:
       secure: Yc9ZlTaxhcZT3GWkYyiKpREEORBDLNoTHRqBJNOKvIF1oOCZPH0E9KqaJewwcoSno9G8yhd239kzYtv34moAxYdyKe89SomiH+9wFFpjlS7Ge28+VTWv8yr1EL6pUMW7rJDDODeKxwEHMkdCMARFLrYlQ8xM9quWrc98zqULwusIZpGyVwT3K/4PpWL1OH7D9d0Ain3jods1t7hEzlt8XykLhxpu20bKtxo/0rBJre7f6oCCjEARsHJkvx31VuuZAp5cCLOXPc22Fsd7kqOzzGpsLQICURwUqf7DR8qWyFyXT3QnfJwc2uYXE1yj6SOGxHV1jXOSIymiUFD+8afHlm4SBnqo0UhAIf1z3AJ7r+MSsCTLK7w7kY1WjfOXCK74hiNzS8WmzZJ7C3cVCKYEaxYDDbpUqx9b1+gRaf+acJEuvkMLlkJo5Rze+njdeR9RZbR7i0KR3OCLjXDlu87P2orq6iMNCTDs1FtXlOFeeL42o1YcL1CCKnVXr9feGDSmpZ7Y1ypih+yoeFRYrdG/rPEcgppPXCZBbCWqlzAoRMDrFck+weHTCyMzm16moz2dAxCulm8TrUlb5z4ClbasD6sfdaSFskQtpnW6JtG9gIQt6pfJGkHzMV3Js06sUTNhRWtiLXyUJAftN2xq1skFoMR5beg2a1H9+OKeS03a45E=
 
 before_install:
+  # Refresh built in certificates.
+  - sudo update-ca-certificates --fresh
+  # Decrypt only when building in original repository (not on forks).
   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then openssl aes-256-cbc -K "$encrypted_8D2E480FC532_key" -iv "$encrypted_8D2E480FC532_iv" -in tests/credentials.json.enc -out tests/credentials.json -d; fi'
+  # Do the setup.
   - "./tools/travis/setup.sh"
 install: true
 script:
