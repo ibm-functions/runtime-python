@@ -1,6 +1,5 @@
 include 'tests'
 
-include 'python3.6'
 include 'python3.7'
 include 'python3.9'
 
