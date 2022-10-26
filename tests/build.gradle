@@ -15,6 +15,11 @@ tasks.withType(Test) {
         exceptionFormat = 'full'
     }
     outputs.upToDateWhen { false } // force tests to run every time
+
+    // We only test the python:3.7 and python:3.9 runtimes.
+    // The default python:3.6 is deprecated (it reached end of support).
+    include '**/*IBMPython37*'
+    include '**/*IBMPython39*'
 }
 
 task testWithoutCredentials(type: Test) {
