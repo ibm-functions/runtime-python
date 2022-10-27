@@ -26,8 +26,6 @@ docker pull ibmfunctions/invoker:nightly
 docker tag ibmfunctions/invoker:nightly ${IMAGE_PREFIX}/invoker
 docker pull openwhisk/nodejs6action:nightly
 docker tag openwhisk/nodejs6action:nightly nodejs6action
-docker pull openwhisk/python2action
-docker tag openwhisk/python2action python2action
 
 TERM=dumb ./gradlew install
 

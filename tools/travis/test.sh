@@ -13,10 +13,6 @@ export OPENWHISK_HOME=$WHISKDIR
 WHISK_CLI="${WHISKDIR}/bin/wsk -i"
 
 # Run a simple action using the kind
-${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "python-jessie:3"
-${WHISK_CLI} action invoke echoPython -b
-${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "python:3.6"
-${WHISK_CLI} action invoke echoPython -b
 ${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "python:3.7"
 ${WHISK_CLI} action invoke echoPython -b
 ${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "python:3.9"
@@ -30,8 +26,6 @@ if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
 else
   TERM=dumb ./gradlew :tests:testWithoutCredentials
 fi
-
-
 
 
 #For some reason there no activations, maybe index not ready
