@@ -9,6 +9,10 @@
     - [pypi ibm-watson](https://pypi.org/project/ibm-watson/)
     - [github ibm-watson](https://github.com/watson-developer-cloud/python-sdk)
 
+## 1.1.0
+Changes:
+  - Update actionloop builder to go 1.18
+
 ## 1.0.1
 Changes:
   - update pip packages in requirements.txt

@@ -1,5 +1,9 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.23.0
+Changes:
+  - Update actionloop builder to go 1.18
+  
 ## 1.22.5
 Changes:
   - Update to new parent image to get latest security fixes
