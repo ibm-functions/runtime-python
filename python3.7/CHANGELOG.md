@@ -3,6 +3,7 @@
 ## 1.23.0
 Changes:
   - Update to new parent image to get latest security fixes and to update to action proxy version 1.18@1.17.1.
+  - Python version as of deployment time >=3.7.15
   
 ## 1.22.5
 Changes:
