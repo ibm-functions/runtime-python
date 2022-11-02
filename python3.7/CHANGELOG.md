@@ -1,5 +1,9 @@
 # IBM Functions Python 3.7 Runtime Container
 
+## 1.23.0
+Changes:
+  - Update to new parent image to get latest security fixes and to update to action proxy version 1.18@1.17.1.
+  
 ## 1.22.5
 Changes:
   - Update to new parent image to get latest security fixes
