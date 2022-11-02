@@ -11,8 +11,8 @@
 
 ## 1.1.0
 Changes:
-  - Update actionloop builder to go 1.18
-
+  - Update to new parent image to get latest security fixes and to update to action proxy version 1.18@1.17.1.
+  
 ## 1.0.1
 Changes:
   - update pip packages in requirements.txt
