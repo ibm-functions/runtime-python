@@ -32,7 +32,7 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
 
   lazy val kind = "python:3.7"
   lazy val filename = "python37_stretch_virtualenv.zip"
-  
+
   /** indicates if errors are logged or returned in the answer */
   lazy val initErrorsAreLogged = false
 

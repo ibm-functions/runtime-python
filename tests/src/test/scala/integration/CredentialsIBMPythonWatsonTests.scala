@@ -28,7 +28,7 @@ class CredentialsIBMPythonWatsonTests extends TestHelpers with WskTestHelpers wi
 
   lazy val defaultKind = Some("python:3.7")
   lazy val actionFileName = "testWatsonService.py"
-  
+
   implicit val wskprops: WskProps = WskProps()
   val wsk = new WskRestOperations
   val datdir = "tests/dat/watson"

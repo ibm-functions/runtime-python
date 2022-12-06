@@ -28,7 +28,7 @@ class CredentialsIBMPythonCloudantTests extends TestHelpers with WskTestHelpers 
 
   lazy val defaultKind = Some("python:3.7")
   lazy val actionFileName = "testCloudantService.py"
-  
+
   implicit val wskprops: WskProps = WskProps()
   val wsk = new WskRestOperations
   val datdir = "tests/dat/cloudant/"
