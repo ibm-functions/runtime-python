@@ -30,8 +30,8 @@ import java.io.File
 @RunWith(classOf[JUnitRunner])
 class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matchers with JsHelpers with WskActorSystem {
 
-  lazy val kind = "python:3.6"
-  lazy val filename = "python36_jessie_virtualenv.zip"
+  lazy val kind = "python:3.9"
+  lazy val filename = "python39_buster_virtualenv.zip"
 
   implicit val wskprops = WskProps()
   val wsk: common.rest.WskRestOperations = new WskRestOperations

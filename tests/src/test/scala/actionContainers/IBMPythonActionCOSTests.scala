@@ -25,7 +25,7 @@ import spray.json._
 @RunWith(classOf[JUnitRunner])
 class IBMPythonActionCOSTests extends TestHelpers with WskTestHelpers with WskActorSystem {
 
-  lazy val defaultKind = Some("python:3.6")
+  lazy val defaultKind = Some("python:3.9")
 
   implicit val wskprops: WskProps = WskProps()
   val wsk = new WskRestOperations
