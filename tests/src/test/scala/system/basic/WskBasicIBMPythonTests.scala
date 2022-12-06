@@ -39,8 +39,6 @@ class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matche
   implicit val wskprops = WskProps()
   val wsk: common.rest.WskRestOperations = new WskRestOperations
 
-
-
   behavior of "Native Python Action"
 
   it should "invoke an action and get the result" in withAssetCleaner(wskprops) { (wp, assetHelper) =>

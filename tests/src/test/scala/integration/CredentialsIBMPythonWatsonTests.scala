@@ -34,7 +34,6 @@ class CredentialsIBMPythonWatsonTests extends TestHelpers with WskTestHelpers wi
   val datdir = "tests/dat/watson"
   val actionName = "testWatsonService"
 
-
   // read credentials from from vcap_services.json
   val vcapFile = WhiskProperties.getProperty("vcap.services.file")
   val vcapString = Source.fromFile(vcapFile).getLines.mkString
