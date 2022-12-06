@@ -26,13 +26,14 @@ import spray.json._
 @RunWith(classOf[JUnitRunner])
 class CredentialsIBMPythonWatsonTests extends TestHelpers with WskTestHelpers with WskActorSystem {
 
-  lazy val defaultKind = Some("python:3.9")
-
+  lazy val defaultKind = Some("python:3.7")
+  lazy val actionFileName = "testWatsonService.py"
+  
   implicit val wskprops: WskProps = WskProps()
   val wsk = new WskRestOperations
   val datdir = "tests/dat/watson"
   val actionName = "testWatsonService"
-  lazy val actionFileName = "testWatsonService.py"
+
 
   // read credentials from from vcap_services.json
   val vcapFile = WhiskProperties.getProperty("vcap.services.file")

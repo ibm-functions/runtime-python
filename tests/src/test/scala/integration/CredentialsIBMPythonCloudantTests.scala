@@ -26,8 +26,9 @@ import spray.json._
 @RunWith(classOf[JUnitRunner])
 class CredentialsIBMPythonCloudantTests extends TestHelpers with WskTestHelpers with WskActorSystem {
 
-  lazy val defaultKind = Some("python:3.9")
-
+  lazy val defaultKind = Some("python:3.7")
+  lazy val actionFileName = "testCloudantService.py"
+  
   implicit val wskprops: WskProps = WskProps()
   val wsk = new WskRestOperations
   val datdir = "tests/dat/cloudant/"
@@ -43,7 +44,7 @@ class CredentialsIBMPythonCloudantTests extends TestHelpers with WskTestHelpers 
   val host = creds.fields("host").asInstanceOf[JsString]
 
   val actionName = "testCloudantService"
-  lazy val actionFileName = "testCloudantService.py"
+  
 
   it should "Test whether or not cloudant database is reachable using cloudant python package" in withAssetCleaner(
     wskprops) { (wp, assetHelper) =>

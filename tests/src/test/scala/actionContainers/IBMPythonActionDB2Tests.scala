@@ -27,7 +27,7 @@ import org.scalatest.BeforeAndAfterAll
 @RunWith(classOf[JUnitRunner])
 class IBMPythonActionDB2Tests extends TestHelpers with WskTestHelpers with BeforeAndAfterAll with WskActorSystem {
 
-  lazy val defaultKind = Some("python:3.9")
+  lazy val defaultKind = Some("python:3.7")
 
   implicit val wskprops: WskProps = WskProps()
   val wsk = new WskRestOperations

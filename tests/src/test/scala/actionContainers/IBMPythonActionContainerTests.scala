@@ -30,13 +30,13 @@ import java.nio.file.Paths
 @RunWith(classOf[JUnitRunner])
 class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActorSystem {
 
-  lazy val imageName = "action-python-v3.6"
+  lazy val imageName = "action-python-v3.7"
 
   /** indicates if strings in python are unicode by default (i.e., python3 -> true, python2.7 -> false) */
   lazy val pythonStringAsUnicode = true
 
   /** indicates if errors are logged or returned in the answer */
-  lazy val initErrorsAreLogged = true
+  lazy val initErrorsAreLogged = false
 
   override def withActionContainer(env: Map[String, String] = Map.empty)(code: ActionContainer => Unit) = {
     withContainer(imageName, env)(code)
@@ -45,7 +45,7 @@ class IBMPythonActionContainerTests extends BasicActionRunnerTests with WskActor
   behavior of imageName
 
   override val testNoSourceOrExec = TestConfig("")
-  override val testNoSource = TestConfig("", hasCodeStub = true)
+  override val testNoSource = TestConfig("", hasCodeStub = false)
 
   override val testNotReturningJson =
     TestConfig("""

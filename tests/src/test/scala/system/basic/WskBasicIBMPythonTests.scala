@@ -30,14 +30,16 @@ import java.io.File
 @RunWith(classOf[JUnitRunner])
 class WskBasicIBMPythonTests extends TestHelpers with WskTestHelpers with Matchers with JsHelpers with WskActorSystem {
 
-  lazy val kind = "python:3.9"
-  lazy val filename = "python39_buster_virtualenv.zip"
+  lazy val kind = "python:3.7"
+  lazy val filename = "python37_stretch_virtualenv.zip"
+  
+  /** indicates if errors are logged or returned in the answer */
+  lazy val initErrorsAreLogged = false
 
   implicit val wskprops = WskProps()
   val wsk: common.rest.WskRestOperations = new WskRestOperations
 
-  /** indicates if errors are logged or returned in the answer */
-  lazy val initErrorsAreLogged = true
+
 
   behavior of "Native Python Action"
 
