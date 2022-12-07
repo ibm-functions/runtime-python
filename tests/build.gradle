@@ -30,7 +30,10 @@ task testBlueCI(type: Test) {
   exclude '**/IBMPythonActionDB2Tests*'
 }
 task testBlueDeployment(type: Test) {
-  exclude 'actionContainers/**'
+    // First Exclude all tests then include Integration and System tests
+  exclude '**/IBMPython*'
+  include 'integration/*IBMPython3*'
+  include 'system/*IBMPython3*'
 }
 
 dependencies {
