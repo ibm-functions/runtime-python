@@ -9,6 +9,11 @@
     - [pypi ibm-watson](https://pypi.org/project/ibm-watson/)
     - [github ibm-watson](https://github.com/watson-developer-cloud/python-sdk)
 
+# 1.1.1
+Changes:
+  - update baseimage tag to get latest security fixes and new python base (b74ffb7)
+  - Python version as of deployment time >=3.9.16
+
 ## 1.1.0
 Changes:
   - Update to new parent image to get latest security fixes and to update to action proxy version 1.18@1.17.1.
