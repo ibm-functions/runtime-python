@@ -6,41 +6,55 @@ name: Python Runtimes Build and Test
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
+    branches: [ master ]
+    tags: [ '*' ]
   pull_request:
-    branches: [ "master" ]
-
+    branches: [ master ]
+    types: [ opened, synchronize, reopened ]
   workflow_dispatch:
+
+permissions: read-all
 
 jobs:
 
   Test:
 
-    runs-on: ubuntu-latest
-
-    env:
-      ANSIBLE_CMD: "ansible-playbook -i environments/local -e docker_image_prefix=testing"
-
+    runs-on: ubuntu-22.04
+      # Checkout just this repo and run scanCode before we do anything else
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
-
-      - uses: actions/setup-python@v4
+      - name: Checkout runtime repo
+        uses: actions/checkout@v3
         with:
-          python-version: '3.10'
+          path: runtime
+      - name: Scan Code
+        uses: apache/openwhisk-utilities/scancode@master
 
-      - name: update ca certificates
-        run:  sudo update-ca-certificates --fresh  
+      # Install core OpenWhisk artifacts needed to build/test anything else
+      - name: Checkout OpenWhisk core repo
+        uses: actions/checkout@v3
+        with:
+          repository: ibm-functions/openwhisk
+          path: core
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+      - name: Compile and Install Core OpenWhisk
+        working-directory: core
+        run: |
+          ./gradlew :tests:compileTestScala
+          ./gradlew install
 
-      - name: Setup
-        run: ./tools/travis/setup.sh
-
-      - name: Build
-        run: ./tools/travis/build.sh 
-
-      - name: Deploy
-        run: ./tools/travis/deploy.sh
-
-      - name: Test
-        run: ./tools/travis/test.sh
+      # Build this repository
+      - name: Build Runtime
+        working-directory: runtime
+        run: |
+          ./gradlew distDocker
+      # Test this repository
+      - name: Test Runtime
+        working-directory: runtime
+        run: |
+          ./gradlew :tests:checkScalafmtAll
+          ./gradlew :tests:test
 
