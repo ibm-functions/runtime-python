@@ -32,6 +32,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: ibm-functions/openwhisk
+          ref: 92f5d870bdecf01ccf0bf46baac582955fdbdfa6
           path: core
       - name: Setup Java
         uses: actions/setup-java@v3
