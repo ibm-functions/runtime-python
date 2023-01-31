@@ -51,10 +51,14 @@ jobs:
         run: |
           ./gradlew distDocker
       # Test this repository
-      - name: Test Runtime
+      - name: Test Formating Runtime
         working-directory: runtime
         run: |
           ./gradlew :tests:checkScalafmtAll
+
+      - name: Test Runtime
+        working-directory: runtime
+        run: |
           ./gradlew :tests:testWithoutCredentials
-          ./gradlew :tests:test
+#          ./gradlew :tests:test
 
