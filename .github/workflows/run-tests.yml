@@ -55,5 +55,6 @@ jobs:
         working-directory: runtime
         run: |
           ./gradlew :tests:checkScalafmtAll
+          ./gradlew :tests:testWithoutCredentials
           ./gradlew :tests:test
 
