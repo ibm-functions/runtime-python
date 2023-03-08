@@ -9,6 +9,12 @@
     - [pypi ibm-watson](https://pypi.org/project/ibm-watson/)
     - [github ibm-watson](https://github.com/watson-developer-cloud/python-sdk)
 
+# 1.2.0
+Changes:
+  - Update baseimage to get latest security fixes and new python base (4707653)
+  - actionloop proxy version 1.20@1.21.0
+  - Python Version at time of deployment >=3.9.16 
+
 # 1.1.1
 Changes:
   - update baseimage tag to get latest security fixes and new python base (b74ffb7)
