@@ -17,6 +17,8 @@ ${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "pytho
 ${WHISK_CLI} action invoke echoPython -b
 ${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "python:3.9"
 ${WHISK_CLI} action invoke echoPython -b
+${WHISK_CLI} action update echoPython ${ROOTDIR}/tests/dat/echo.py --kind "python:3.11"
+${WHISK_CLI} action invoke echoPython -b
 
 export OPENWHISK_HOME=$WHISKDIR
 cd ${ROOTDIR}

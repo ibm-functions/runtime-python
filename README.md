@@ -1,6 +1,7 @@
 # IBM Cloud Functions Runtime for Python
 [![Build Status](https://travis-ci.com/ibm-functions/runtime-python.svg?branch=master)](https://travis-ci.com/ibm-functions/runtime-python)
 
+- The runtime provides [python v3.11](python3.11/) with a set of [python packages](python3.11/requirements.txt), see [python3.11/CHANGELOG.md](python3.11/CHANGELOG.md)
 - The runtime provides [python v3.9](python3.9/) with a set of [python packages](python3.9/requirements.txt), see [python3.9/CHANGELOG.md](python3.9/CHANGELOG.md)
 - The runtime provides [python v3.7](python3.7/) with a set of [python packages](python3.7/requirements.txt), see [python3.7/CHANGELOG.md](python3.7/CHANGELOG.md)
 - The runtime provides [python v3.6](python3.6/) with a set of [python packages](python3.6/requirements.txt), see [python3.6/CHANGELOG.md](python3.6/CHANGELOG.md)

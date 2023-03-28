@@ -20,6 +20,8 @@ elif [ ${RUNTIME_VERSION} == "3.7" ]; then
   RUNTIME="python3.7"
 elif [ ${RUNTIME_VERSION} == "3.9" ]; then
   RUNTIME="python3.9"
+elif [ ${RUNTIME_VERSION} == "3.11" ]; then
+  RUNTIME="python3.11"
 fi
 
 if [[ ! -z ${DOCKER_USER} ]] && [[ ! -z ${DOCKER_PASSWORD} ]]; then

@@ -45,5 +45,10 @@ runtimes_manifest:
       image:
         name: "action-python-v3.9"
       deprecated: false
+    - kind: "python:3.11"
+      default: false
+      image:
+        name: "action-python-v3.11"
+      deprecated: false
   blackboxes:
     - name: "dockerskeleton"

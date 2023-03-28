@@ -20,6 +20,7 @@ tasks.withType(Test) {
     // The default python:3.6 is deprecated (it reached end of support).
     include '**/*IBMPython37*'
     include '**/*IBMPython39*'
+    include '**/*IBMPython311*'
 }
 
 task testWithoutCredentials(type: Test) {
