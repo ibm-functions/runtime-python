@@ -42,7 +42,7 @@ ibmcloudsql ==  0.5.13
 # Compose Libs
 psycopg2 == 2.9.5
 pymongo == 4.3.3 
-redis == 4.5.1 
+redis == 4.5.4 
 pika == 1.3.1
 elasticsearch == 8.6.2
 cassandra-driver == 3.25.0 
@@ -53,4 +53,4 @@ botocore == 1.29.86
 tornado == 6.2 
 
 # required for etcd3 to work correctly can be removed at any time do not use in your own actions
-protobuf==3.20.1
+protobuf==4.22.1
