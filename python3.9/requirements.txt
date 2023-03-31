@@ -53,4 +53,4 @@ botocore == 1.23.35
 tornado == 6.1 
 
 # required for etcd3 to work correctly can be removed at any time do not use in your own actions
-protobuf==3.20.1
+protobuf==3.20.2
