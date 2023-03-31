@@ -43,7 +43,7 @@ ibmcloudsql == 0.2.23
 psycopg2 == 2.7.7
 pymongo == 3.7.2
 # pin redis at 2.x, for 3.x use python:3.7 runtime
-redis == 2.10.6
+redis == 4.5.4
 pika == 0.13.0
 # pin elasticsearch at 5.x, for 6.x use python:3.7 runtime
 elasticsearch >=5.0.0,<6.0.0
