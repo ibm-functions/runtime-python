@@ -11,6 +11,10 @@
 
 # 1.2.0
 Changes:
+  - actionloop proxy version 1.20@1.22.0
+
+# 1.2.0
+Changes:
   - Update baseimage to get latest security fixes and new python base (4707653)
   - actionloop proxy version 1.20@1.21.0
   - Python Version at time of deployment >=3.9.16 
