@@ -9,9 +9,18 @@
     - [pypi ibm-watson](https://pypi.org/project/ibm-watson/)
     - [github ibm-watson](https://github.com/watson-developer-cloud/python-sdk)
 
-# 1.2.0
+# 1.3.0
 Changes:
   - actionloop proxy version 1.20@1.22.0
+
+Python version:
+  - [3.9.16](https://www.python.org/downloads/release/python-3916/)
+
+Python packages:
+  - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
+    Ensure that you only use packages mentioned there.<br/>
+    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not required by the referring package anymore.
+
 
 # 1.2.0
 Changes:
@@ -22,12 +31,26 @@ Changes:
 # 1.1.1
 Changes:
   - update baseimage tag to get latest security fixes and new python base (b74ffb7)
-  - Python version as of deployment time >=3.9.16
+
+Python version:
+  - [3.9.16](https://www.python.org/downloads/release/python-3916/)
+
+Python packages:
+  - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
+    Ensure that you only use packages mentioned there.<br/>
+    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not required by the referring package anymore.
 
 ## 1.1.0
 Changes:
   - Update to new parent image to get latest security fixes and to update to action proxy version 1.18@1.17.1.
-  - Python version as of deployment time >=3.9.15
+
+Python version:
+  - [3.9.15](https://www.python.org/downloads/release/python-3915/)
+
+Python packages:
+  - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
+    Ensure that you only use packages mentioned there.<br/>
+    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not required by the referring package anymore.
   
 ## 1.0.1
 Changes:

@@ -9,12 +9,9 @@
     - [pypi ibm-watson](https://pypi.org/project/ibm-watson/)
     - [github ibm-watson](https://github.com/watson-developer-cloud/python-sdk)
 
-# 1.1.0
-Changes:
-  - actionloop proxy version 1.20@1.22.0
-
 ## 1.0.0
 Changes:
+ - actionloop proxy version 1.20@1.22.0
   - update all packages to their lates versions 
 
 Python version:
