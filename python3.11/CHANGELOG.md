@@ -11,10 +11,11 @@
 
 ## 1.0.0
 Changes:
+ - actionloop proxy version 1.20@1.22.0
   - update all packages to their lates versions 
 
 Python version:
-  - [3.9.9](https://www.python.org/downloads/release/python-399/)
+  - [3.11.3](https://www.python.org/downloads/release/python-3113/)
 
 Python packages:
   - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
