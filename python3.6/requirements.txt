@@ -16,7 +16,7 @@ httplib2 == 0.18.1
 kafka_python == 1.4.4
 lxml == 4.3.1
 python-dateutil == 2.7.5
-requests == 2.21.0
+requests == 2.31.0
 scrapy == 1.6.0
 simplejson == 3.16.0
 virtualenv == 16.3.0
