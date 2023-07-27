@@ -29,6 +29,11 @@ else
   TERM=dumb ./gradlew :tests:testWithoutCredentials
 fi
 
+if [[ "$?" != "0" ]]; then
+  cat /tmp/wsklogs/invoker0/invoker0_logs.log
+  cat /tmp/wsklogs/controller0/controller0_logs.log
+  exit 1
+fi 
 
 #For some reason there no activations, maybe index not ready
 #${WHISK_CLI} activation get --last
