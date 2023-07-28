@@ -28,7 +28,7 @@ if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
 else
   TERM=dumb ./gradlew :tests:testWithoutCredentials
 fi
-
+echo "error code {$?}"
 if [[ "$?" != "0" ]]; then
   cat /tmp/wsklogs/invoker0/invoker0_logs.log
   cat /tmp/wsklogs/controller0/controller0_logs.log
