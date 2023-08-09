@@ -48,6 +48,7 @@ jobs:
 
       - name: Docker Cleanup
         run: |
+          docker rm $(docker ps -a -q) -f
           docker image ls
           docker image rm $(docker image ls -q) -f
       
