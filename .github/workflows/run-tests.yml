@@ -9,7 +9,9 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+  schedule:
+    - cron: "0 8 * * 1" # At 08:00 AM, only on Monday
+    
   workflow_dispatch:
 
 jobs:
@@ -44,7 +46,11 @@ jobs:
           pip install --user --upgrade pip setuptools six 
           pip3 install --user --upgrade pip setuptools six 
 
-
+      - name: Docker Cleanup
+        run: |
+          docker image ls
+          docker image rm $(docker image ls -q) -f
+      
       - name: befor install -> setup.sh
         run:  |
           ./tools/travis/setup.sh
