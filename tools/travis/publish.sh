@@ -14,11 +14,7 @@ IMAGE_PREFIX=$1
 RUNTIME_VERSION=$2
 IMAGE_TAG=$3
 
-if [ ${RUNTIME_VERSION} == "3.6" ]; then
-  RUNTIME="python3.6"
-elif [ ${RUNTIME_VERSION} == "3.7" ]; then
-  RUNTIME="python3.7"
-elif [ ${RUNTIME_VERSION} == "3.9" ]; then
+if [ ${RUNTIME_VERSION} == "3.9" ]; then
   RUNTIME="python3.9"
 elif [ ${RUNTIME_VERSION} == "3.11" ]; then
   RUNTIME="python3.11"
