@@ -1,5 +1,4 @@
 # IBM Cloud Functions Runtime for Python
-[![Build Status](https://travis-ci.com/ibm-functions/runtime-python.svg?branch=master)](https://travis-ci.com/ibm-functions/runtime-python)
 
 - The runtime provides [python v3.11](python3.11/) with a set of [python packages](python3.11/requirements.txt), see [python3.11/CHANGELOG.md](python3.11/CHANGELOG.md)
 - The runtime provides [python v3.9](python3.9/) with a set of [python packages](python3.9/requirements.txt), see [python3.9/CHANGELOG.md](python3.9/CHANGELOG.md)
@@ -138,7 +137,7 @@ The `$user_prefix` is usually your dockerhub user id.
   - Update [python3.6/CHANGELOG.md](python3.6/CHANGELOG.md)
 
 ### Pushing new versions for runtimes
-- After the PR is merged and the master pass Travis CI, checkout master.
+- After the PR is merged and the master pass the build, checkout master.
 - Create tag for each runtime and push upstream
 ```
 git tag 3.7@<new version>
