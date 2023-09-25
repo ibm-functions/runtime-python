@@ -7,7 +7,7 @@
 
 
 # Setup modules
-gevent == 22.10.2
+gevent == 23.9.1
 flask == 2.3.2
 
 # default available packages for python3action
