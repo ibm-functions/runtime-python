@@ -11,10 +11,10 @@
 
 # 1.3.0 
 Changes:
-  - Bump to newer parent image (vulnerability fixes) 4546acf
+  - Bump to newer parent image (vulnerability fixes) c0a1e6d
 
 Python version:
-  - [3.11.6](https://www.python.org/downloads/release/python-3116/)
+  - [3.11.7](https://www.python.org/downloads/release/python-3117/)
 
 Python packages:
   - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
