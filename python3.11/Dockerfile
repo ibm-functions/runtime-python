@@ -1,4 +1,4 @@
-FROM openwhisk/action-python-v3.11:4546acf
+FROM openwhisk/action-python-v3.11:c0a1e6d
 
 COPY requirements.txt requirements.txt
 
