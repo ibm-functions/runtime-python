@@ -2,8 +2,6 @@
 
 - The runtime provides [python v3.11](python3.11/) with a set of [python packages](python3.11/requirements.txt), see [python3.11/CHANGELOG.md](python3.11/CHANGELOG.md)
 - The runtime provides [python v3.9](python3.9/) with a set of [python packages](python3.9/requirements.txt), see [python3.9/CHANGELOG.md](python3.9/CHANGELOG.md)
-- The runtime provides [python v3.7](python3.7/) with a set of [python packages](python3.7/requirements.txt), see [python3.7/CHANGELOG.md](python3.7/CHANGELOG.md)
-- The runtime provides [python v3.6](python3.6/) with a set of [python packages](python3.6/requirements.txt), see [python3.6/CHANGELOG.md](python3.6/CHANGELOG.md)
 
 Some of the python packages are to be used on [IBM Cloud](https://cloud.ibm.com):
 - IBM DB2/DashDB and IBM Informix - Python SDK [ibm_db](https://pypi.python.org/pypi/ibm_db)
@@ -27,13 +25,13 @@ def main(args):
 ### IBM Cloud Functions (based on Apache OpenWhisk)
 To use as a python kind action
 ```
-bx wsk action update helloPython hello.py --kind python:3.7
+bx wsk action update helloPython hello.py --kind python:3.11
 ```
 
 ### How to use as a docker Action locally
 To use as a docker action
 ```
-bx wsk action update helloPython hello.py --docker ibmfunctions/action-python-v3.7
+bx wsk action update helloPython hello.py --docker ibmfunctions/action-python-v3.11
 ```
 This works on any deployment of Apache OpenWhisk or IBM Cloud Functions
 
@@ -45,12 +43,12 @@ Prerequisite: *Export* OPENWHISK_HOME to point to your `openwhisk` cloned direct
 ```
 ./gradlew python3:distDocker
 ```
-This will produce the image `whisk/action-python-v3.7`
+This will produce the image `whisk/action-python-v3.11`
 
 Build and Push image
 ```
 docker login
-./gradlew python3.7:distDocker -PdockerImagePrefix=$prefix-user -PdockerRegistry=docker.io
+./gradlew python3.11:distDocker -PdockerImagePrefix=$prefix-user -PdockerRegistry=docker.io
 ```
 
 Deploy OpenWhisk using ansible environment that adds the new king `python:3`
@@ -115,38 +113,38 @@ The `$user_prefix` is usually your dockerhub user id.
 
 ## Maintenance Tasks
 
-### Updating Python 3.7 runtime
-- Check if there is a new version for Python 3.7 [python:3.7-stretch](https://hub.docker.com/_/python/).
-  - If there is a new version check that the tag used in [python3.7/Dockerfile](python3.7/Dockerfile) is using the latest tag for [openwhisk/actionloop-python-v3.7](https://hub.docker.com/r/openwhisk/actionloop-python-v3.7/tags)
-  - Update the ibm image [python3.7/Dockerfile](python3.7/Dockerfile) FROM usign the new upstream tag
+### Updating Python 3.11 runtime
+- Check if there is a new version for Python 3.11 [python:3.11-stretch](https://hub.docker.com/_/python/).
+  - If there is a new version check that the tag used in [python3.11/Dockerfile](python3.11/Dockerfile) is using the latest tag for [openwhisk/actionloop-python-v3.11](https://hub.docker.com/r/openwhisk/actionloop-python-v3.11/tags)
+  - Update the ibm image [python3.11/Dockerfile](python3.11/Dockerfile) FROM usign the new upstream tag
 - Check if there are new pip packages available
   - Use the latest released image to check the outdated pip packages
   ```
-  docker run --rm -it ibmfunctions/action-python-v3.7:1.6.0 sh -c "pip list --outdated"
+  docker run --rm -it ibmfunctions/action-python-v3.11:1.4.0 sh -c "pip list --outdated"
   ```
-  - Update [python3.7/requirements.txt](python3.7/requirements.txt)
+  - Update [python3.11/requirements.txt](python3.11/requirements.txt)
   - Update [python3.7/CHANGELOG.md](python3.7/CHANGELOG.md)
 
-### Updating Python 3.6 runtime
+### Updating Python 3.9 runtime
 - Check if there are new pip packages available
   - Use the latest released image to check the outdated pip packages
   ```
-  docker run --rm -it ibmfunctions/action-python-v3.6:1.17.0 sh -c "pip list --outdated"
+  docker run --rm -it ibmfunctions/action-python-v3.9:1.1.0 sh -c "pip list --outdated"
   ```
-  - Update [python3.6/requirements.txt](python3.6/requirements.txt) only minor and patch levels.
-  - Update [python3.6/CHANGELOG.md](python3.6/CHANGELOG.md)
+  - Update [python3.9/requirements.txt](python3.9/requirements.txt) only minor and patch levels.
+  - Update [python3.9/CHANGELOG.md](python3.9/CHANGELOG.md)
 
 ### Pushing new versions for runtimes
 - After the PR is merged and the master pass the build, checkout master.
 - Create tag for each runtime and push upstream
 ```
-git tag 3.7@<new version>
-git push upstream 3.7@<new version>
+git tag 3.11@<new version>
+git push upstream 3.11@<new version>
 ```
 - After the image is deployed to production update the `latest` tag for each runtime.
 ```
-git tag 3.7@latest -f
-git push upstream 3.7@latest -f
+git tag 3.11@latest -f
+git push upstream 3.11@latest -f
 ```
 
 

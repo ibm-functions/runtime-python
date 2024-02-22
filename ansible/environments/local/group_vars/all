@@ -35,18 +35,13 @@ runtimes_manifest:
         name: "nodejs6action"
       deprecated: false
     python:
-    - kind: "python:3.7"
-      default: false
-      image:
-        name: "action-python-v3.7"
-      deprecated: false
     - kind: "python:3.9"
-      default: true
+      default: false
       image:
         name: "action-python-v3.9"
       deprecated: false
     - kind: "python:3.11"
-      default: false
+      default: true
       image:
         name: "action-python-v3.11"
       deprecated: false
