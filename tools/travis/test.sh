@@ -1,5 +1,20 @@
 #!/bin/bash
-set -ex
+set -eEx
+trap "onError" ERR
+
+
+function onError() {
+
+  printf "Error in line $(caller)\n"
+  set -x
+  # When the script ends due to an error we dump the
+  # controller and invoker log to the output. This my help to
+  # analyze the error.
+  cat /tmp/wsklogs/invoker0/invoker0_logs.log || true
+  cat /tmp/wsklogs/controller0/controller0_logs.log || true
+
+}
+
 
 # Build script for Travis-CI.
 
