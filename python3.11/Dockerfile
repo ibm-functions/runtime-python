@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-FROM openwhisk/action-python-v3.11:1389697
-=======
 FROM openwhisk/action-python-v3.11:502d1a6
->>>>>>> Stashed changes
 
 COPY requirements.txt requirements.txt
 
