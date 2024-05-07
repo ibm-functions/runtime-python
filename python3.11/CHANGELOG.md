@@ -9,7 +9,7 @@
     - [pypi ibm-watson](https://pypi.org/project/ibm-watson/)
     - [github ibm-watson](https://github.com/watson-developer-cloud/python-sdk)
 
-## 1.3.0
+## 1.4.2
 Changes:
   - Bump to newer parent image (vulnerability fixes) 502d1a6
 
