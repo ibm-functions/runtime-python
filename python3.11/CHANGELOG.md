@@ -9,6 +9,7 @@
     - [pypi ibm-watson](https://pypi.org/project/ibm-watson/)
     - [github ibm-watson](https://github.com/watson-developer-cloud/python-sdk)
 
+<<<<<<< Updated upstream
 # 1.4.1
 Changes:
   - Bump to newer parent image (vulnerability fixes) 1389697
@@ -39,6 +40,14 @@ Changes:
 
 Python version:
   - [3.11.6](https://www.python.org/downloads/release/python-3116/)
+=======
+## 1.3.0
+Changes:
+  - Bump to newer parent image (vulnerability fixes) 502d1a6
+
+Python version:
+  - [3.11.9](https://www.python.org/downloads/release/python-3119/)
+>>>>>>> Stashed changes
 
 Python packages:
   - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
