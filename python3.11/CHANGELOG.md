@@ -11,7 +11,7 @@
 
 ## 1.4.2
 Changes:
-  - Bump to newer parent image (vulnerability fixes) 502d1a6
+  - Bump to newer parent image (vulnerability fixes) f707898
 
 Python version:
   - [3.11.9](https://www.python.org/downloads/release/python-3119/)
