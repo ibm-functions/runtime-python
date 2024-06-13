@@ -9,6 +9,18 @@
     - [pypi ibm-watson](https://pypi.org/project/ibm-watson/)
     - [github ibm-watson](https://github.com/watson-developer-cloud/python-sdk)
 
+## 1.4.2
+Changes:
+  - Bump to newer parent image (vulnerability fixes) f707898
+
+Python version:
+  - [3.11.9](https://www.python.org/downloads/release/python-3119/)
+
+Python packages:
+  - The file [requirements.txt](requirements.txt) lists the packages we guarantee to be included in this runtime.<br/>
+    Ensure that you only use packages mentioned there.<br/>
+    Other python packages might be part of this runtime, but only due to indirect dependencies of the above listed packages. These indirectly included packages are candidates to be removed at any time in case they are not required by the referring package anymore.
+
 # 1.4.1
 Changes:
   - Bump to newer parent image (vulnerability fixes) 1389697
