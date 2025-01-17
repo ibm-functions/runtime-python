@@ -1,3 +1,12 @@
+# This repository is no longer maintained.
+IBM Cloud Functions reached end of life and this fork is no longer active.
+
+For Apache OpenWhisk visit: [https://github.com/apache/openwhisk](https://github.com/apache/openwhisk).
+
+
+----
+
+
 # IBM Cloud Functions Runtime for Python
 
 - The runtime provides [python v3.11](python3.11/) with a set of [python packages](python3.11/requirements.txt), see [python3.11/CHANGELOG.md](python3.11/CHANGELOG.md)
