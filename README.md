@@ -1,5 +1,5 @@
 # This repository is no longer maintained.
-IBM Cloud Functions reached end of life and this fork is no longer active.
+IBM Cloud Functions reached end of life and this repository is no longer active.
 
 For Apache OpenWhisk visit: [https://github.com/apache/openwhisk](https://github.com/apache/openwhisk).
 
